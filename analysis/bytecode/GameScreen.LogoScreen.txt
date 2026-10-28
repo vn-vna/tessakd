@@ -1,0 +1,473 @@
+Compiled from "LogoScreen.java"
+public class GameScreen.LogoScreen extends GameScreen.MainScreen {
+  int dem;
+
+  public static java.lang.String strListserver;
+
+  public static boolean isLoadServer;
+
+  public static java.lang.String serverListSource;
+
+  private static java.lang.String savedServerHost;
+
+  public GameScreen.LogoScreen();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method GameScreen/MainScreen."<init>":()V
+       4: ldc           #2                  // String listServer
+       6: invokestatic  #3                  // Method Model/CRes.loadRMS:(Ljava/lang/String;)[B
+       9: astore_1
+      10: ldc           #4                  // String isIndexServer
+      12: invokestatic  #3                  // Method Model/CRes.loadRMS:(Ljava/lang/String;)[B
+      15: astore_2
+      16: ldc           #5                  // String selectedServerHost
+      18: invokestatic  #3                  // Method Model/CRes.loadRMS:(Ljava/lang/String;)[B
+      21: astore_3
+      22: aload_3
+      23: ifnull        39
+      26: new           #6                  // class java/lang/String
+      29: dup
+      30: aload_3
+      31: ldc           #7                  // String UTF-8
+      33: invokespecial #8                  // Method java/lang/String."<init>":([BLjava/lang/String;)V
+      36: putstatic     #9                  // Field savedServerHost:Ljava/lang/String;
+      39: aload_2
+      40: ifnonnull     53
+      43: getstatic     #9                  // Field savedServerHost:Ljava/lang/String;
+      46: ifnonnull     53
+      49: iconst_1
+      50: goto          54
+      53: iconst_0
+      54: istore        4
+      56: aload_1
+      57: ifnull        100
+      60: new           #10                 // class java/io/DataInputStream
+      63: dup
+      64: new           #11                 // class java/io/ByteArrayInputStream
+      67: dup
+      68: aload_1
+      69: invokespecial #12                 // Method java/io/ByteArrayInputStream."<init>":([B)V
+      72: invokespecial #13                 // Method java/io/DataInputStream."<init>":(Ljava/io/InputStream;)V
+      75: astore        5
+      77: aload         5
+      79: invokevirtual #14                 // Method java/io/DataInputStream.readUTF:()Ljava/lang/String;
+      82: iload         4
+      84: invokestatic  #15                 // Method applyServerList:(Ljava/lang/String;Z)Z
+      87: ifeq          95
+      90: ldc           #16                 // String RMS
+      92: putstatic     #17                 // Field serverListSource:Ljava/lang/String;
+      95: aload         5
+      97: invokevirtual #18                 // Method java/io/DataInputStream.close:()V
+     100: getstatic     #19                 // Field Main/GameCanvas.linkIP:Ljava/lang/String;
+     103: invokestatic  #20                 // Method com/silverknight/TemMidlet.connectHTTP:(Ljava/lang/String;)Ljava/lang/String;
+     106: putstatic     #21                 // Field strListserver:Ljava/lang/String;
+     109: getstatic     #21                 // Field strListserver:Ljava/lang/String;
+     112: iload         4
+     114: invokestatic  #15                 // Method applyServerList:(Ljava/lang/String;Z)Z
+     117: ifeq          128
+     120: ldc           #22                 // String HTTP
+     122: putstatic     #17                 // Field serverListSource:Ljava/lang/String;
+     125: goto          177
+     128: aload_1
+     129: ifnull        177
+     132: new           #11                 // class java/io/ByteArrayInputStream
+     135: dup
+     136: aload_1
+     137: invokespecial #12                 // Method java/io/ByteArrayInputStream."<init>":([B)V
+     140: astore        5
+     142: new           #10                 // class java/io/DataInputStream
+     145: dup
+     146: aload         5
+     148: invokespecial #13                 // Method java/io/DataInputStream."<init>":(Ljava/io/InputStream;)V
+     151: astore        6
+     153: aload         6
+     155: invokevirtual #14                 // Method java/io/DataInputStream.readUTF:()Ljava/lang/String;
+     158: putstatic     #21                 // Field strListserver:Ljava/lang/String;
+     161: getstatic     #21                 // Field strListserver:Ljava/lang/String;
+     164: iload         4
+     166: invokestatic  #15                 // Method applyServerList:(Ljava/lang/String;Z)Z
+     169: ifeq          177
+     172: ldc           #16                 // String RMS
+     174: putstatic     #17                 // Field serverListSource:Ljava/lang/String;
+     177: goto          185
+     180: astore_1
+     181: aload_1
+     182: invokevirtual #24                 // Method java/lang/Throwable.printStackTrace:()V
+     185: return
+    Exception table:
+       from    to  target type
+           4   177   180   Class java/lang/Exception
+
+  public void paint(CLib.mGraphics);
+    Code:
+       0: aload_1
+       1: iconst_0
+       2: invokevirtual #25                 // Method CLib/mGraphics.setColor:(I)V
+       5: aload_1
+       6: iconst_0
+       7: iconst_0
+       8: getstatic     #26                 // Field Main/GameCanvas.w:I
+      11: getstatic     #27                 // Field Main/GameCanvas.h:I
+      14: iconst_0
+      15: invokevirtual #28                 // Method CLib/mGraphics.fillRect:(IIIIZ)V
+      18: return
+
+  public void checkIPSV();
+    Code:
+       0: return
+
+  public void update();
+    Code:
+       0: aload_0
+       1: dup
+       2: getfield      #29                 // Field dem:I
+       5: iconst_1
+       6: iadd
+       7: putfield      #29                 // Field dem:I
+      10: aload_0
+      11: getfield      #29                 // Field dem:I
+      14: bipush        60
+      16: if_icmple     30
+      19: aload_0
+      20: iconst_0
+      21: putfield      #29                 // Field dem:I
+      24: getstatic     #30                 // Field Main/GameCanvas.login:LGameScreen/LoginScreen;
+      27: invokevirtual #31                 // Method GameScreen/LoginScreen.Show:()V
+      30: return
+
+  public static void getServerList(java.lang.String, boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: invokestatic  #15                 // Method applyServerList:(Ljava/lang/String;Z)Z
+       5: pop
+       6: return
+
+  public static boolean refreshServerList();
+    Code:
+       0: getstatic     #19                 // Field Main/GameCanvas.linkIP:Ljava/lang/String;
+       3: invokestatic  #20                 // Method com/silverknight/TemMidlet.connectHTTP:(Ljava/lang/String;)Ljava/lang/String;
+       6: putstatic     #21                 // Field strListserver:Ljava/lang/String;
+       9: getstatic     #21                 // Field strListserver:Ljava/lang/String;
+      12: iconst_0
+      13: invokestatic  #15                 // Method applyServerList:(Ljava/lang/String;Z)Z
+      16: ifne          21
+      19: iconst_0
+      20: ireturn
+      21: ldc           #22                 // String HTTP
+      23: putstatic     #17                 // Field serverListSource:Ljava/lang/String;
+      26: iconst_1
+      27: ireturn
+
+  public static boolean applyServerList(java.lang.String, boolean);
+    Code:
+       0: aload_0
+       1: ifnull        11
+       4: aload_0
+       5: invokevirtual #32                 // Method java/lang/String.length:()I
+       8: ifne          13
+      11: iconst_0
+      12: ireturn
+      13: getstatic     #9                  // Field savedServerHost:Ljava/lang/String;
+      16: astore_2
+      17: iload_1
+      18: ifne          51
+      21: getstatic     #33                 // Field Main/GameCanvas.IndexServer:B
+      24: iflt          51
+      27: getstatic     #33                 // Field Main/GameCanvas.IndexServer:B
+      30: getstatic     #34                 // Field CLib/mSystem.listServer:[[Ljava/lang/String;
+      33: arraylength
+      34: if_icmpge     51
+      37: aload_2
+      38: ifnonnull     51
+      41: getstatic     #34                 // Field CLib/mSystem.listServer:[[Ljava/lang/String;
+      44: getstatic     #33                 // Field Main/GameCanvas.IndexServer:B
+      47: aaload
+      48: iconst_1
+      49: aaload
+      50: astore_2
+      51: aload_0
+      52: invokevirtual #35                 // Method java/lang/String.trim:()Ljava/lang/String;
+      55: ldc           #36                 // String ,
+      57: invokestatic  #37                 // Method CLib/mFont.split:(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+      60: astore_3
+      61: iconst_0
+      62: istore        4
+      64: iconst_0
+      65: istore        5
+      67: iload         5
+      69: aload_3
+      70: arraylength
+      71: if_icmpge     104
+      74: aload_3
+      75: iload         5
+      77: aaload
+      78: invokevirtual #35                 // Method java/lang/String.trim:()Ljava/lang/String;
+      81: ldc           #38                 // String :
+      83: invokestatic  #37                 // Method CLib/mFont.split:(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+      86: astore        6
+      88: aload         6
+      90: arraylength
+      91: iconst_4
+      92: if_icmplt     98
+      95: iinc          4, 1
+      98: iinc          5, 1
+     101: goto          67
+     104: iload         4
+     106: ifne          111
+     109: iconst_0
+     110: ireturn
+     111: iload         4
+     113: iconst_2
+     114: multianewarray #39,  2            // class "[[Ljava/lang/String;"
+     118: astore        5
+     120: iload         4
+     122: newarray       int
+     124: astore        6
+     126: iload         4
+     128: newarray       int
+     130: astore        7
+     132: iconst_0
+     133: istore        8
+     135: iconst_0
+     136: istore        9
+     138: iload         9
+     140: aload_3
+     141: arraylength
+     142: if_icmpge     236
+     145: aload_3
+     146: iload         9
+     148: aaload
+     149: invokevirtual #35                 // Method java/lang/String.trim:()Ljava/lang/String;
+     152: ldc           #38                 // String :
+     154: invokestatic  #37                 // Method CLib/mFont.split:(Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+     157: astore        10
+     159: aload         10
+     161: arraylength
+     162: iconst_4
+     163: if_icmpge     169
+     166: goto          230
+     169: aload         5
+     171: iload         8
+     173: aaload
+     174: iconst_0
+     175: aload         10
+     177: iconst_0
+     178: aaload
+     179: invokevirtual #35                 // Method java/lang/String.trim:()Ljava/lang/String;
+     182: aastore
+     183: aload         5
+     185: iload         8
+     187: aaload
+     188: iconst_1
+     189: aload         10
+     191: iconst_1
+     192: aaload
+     193: invokevirtual #35                 // Method java/lang/String.trim:()Ljava/lang/String;
+     196: aastore
+     197: aload         6
+     199: iload         8
+     201: aload         10
+     203: iconst_2
+     204: aaload
+     205: invokevirtual #35                 // Method java/lang/String.trim:()Ljava/lang/String;
+     208: invokestatic  #40                 // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+     211: iastore
+     212: aload         7
+     214: iload         8
+     216: aload         10
+     218: iconst_3
+     219: aaload
+     220: invokevirtual #35                 // Method java/lang/String.trim:()Ljava/lang/String;
+     223: invokestatic  #41                 // Method java/lang/Byte.parseByte:(Ljava/lang/String;)B
+     226: iastore
+     227: iinc          8, 1
+     230: iinc          9, 1
+     233: goto          138
+     236: goto          243
+     239: astore        9
+     241: iconst_0
+     242: ireturn
+     243: aload         5
+     245: putstatic     #34                 // Field CLib/mSystem.listServer:[[Ljava/lang/String;
+     248: aload         6
+     250: putstatic     #42                 // Field Main/GameCanvas.portServer:[I
+     253: aload         7
+     255: putstatic     #43                 // Field Main/GameCanvas.langServer:[I
+     258: iconst_m1
+     259: istore        9
+     261: aload_2
+     262: ifnull        303
+     265: iconst_0
+     266: istore        10
+     268: iload         10
+     270: aload         5
+     272: arraylength
+     273: if_icmpge     303
+     276: aload_2
+     277: aload         5
+     279: iload         10
+     281: aaload
+     282: iconst_1
+     283: aaload
+     284: invokevirtual #44                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+     287: ifeq          297
+     290: iload         10
+     292: istore        9
+     294: goto          303
+     297: iinc          10, 1
+     300: goto          268
+     303: iload         9
+     305: ifge          311
+     308: iconst_0
+     309: istore        9
+     311: iload         9
+     313: i2b
+     314: putstatic     #33                 // Field Main/GameCanvas.IndexServer:B
+     317: getstatic     #43                 // Field Main/GameCanvas.langServer:[I
+     320: getstatic     #33                 // Field Main/GameCanvas.IndexServer:B
+     323: iaload
+     324: ifne          331
+     327: iconst_1
+     328: goto          332
+     331: iconst_0
+     332: putstatic     #45                 // Field Main/GameCanvas.isVNLanguage:Z
+     335: aload_0
+     336: invokestatic  #46                 // Method saveListServer:(Ljava/lang/String;)V
+     339: invokestatic  #47                 // Method setChangeLang:()V
+     342: iconst_1
+     343: ireturn
+    Exception table:
+       from    to  target type
+         135   236   239   Class java/lang/Exception
+
+  public static void saveSelectedServer();
+    Code:
+       0: getstatic     #34                 // Field CLib/mSystem.listServer:[[Ljava/lang/String;
+       3: getstatic     #33                 // Field Main/GameCanvas.IndexServer:B
+       6: aaload
+       7: iconst_1
+       8: aaload
+       9: putstatic     #9                  // Field savedServerHost:Ljava/lang/String;
+      12: ldc           #5                  // String selectedServerHost
+      14: getstatic     #9                  // Field savedServerHost:Ljava/lang/String;
+      17: ldc           #7                  // String UTF-8
+      19: invokevirtual #48                 // Method java/lang/String.getBytes:(Ljava/lang/String;)[B
+      22: invokestatic  #49                 // Method Model/CRes.saveRMS:(Ljava/lang/String;[B)V
+      25: goto          33
+      28: astore_0
+      29: aload_0
+      30: invokevirtual #24                 // Method java/lang/Throwable.printStackTrace:()V
+      33: return
+    Exception table:
+       from    to  target type
+           0    25    28   Class java/lang/Exception
+
+  public static void setChangeLang();
+    Code:
+       0: ldc           #50                 // String
+       2: putstatic     #51                 // Field GameObjects/MainRMS.showAuto:Ljava/lang/String;
+       5: iconst_1
+       6: putstatic     #52                 // Field GameScreen/LoginScreen.indexInfoLogin:B
+       9: getstatic     #26                 // Field Main/GameCanvas.w:I
+      12: sipush        200
+      15: if_icmplt     27
+      18: getstatic     #27                 // Field Main/GameCanvas.h:I
+      21: sipush        200
+      24: if_icmpge     34
+      27: iconst_2
+      28: putstatic     #52                 // Field GameScreen/LoginScreen.indexInfoLogin:B
+      31: goto          74
+      34: getstatic     #53                 // Field Main/GameCanvas.isTouch:Z
+      37: ifeq          74
+      40: getstatic     #26                 // Field Main/GameCanvas.w:I
+      43: sipush        380
+      46: if_icmplt     52
+      49: goto          74
+      52: getstatic     #26                 // Field Main/GameCanvas.w:I
+      55: sipush        315
+      58: if_icmple     74
+      61: getstatic     #26                 // Field Main/GameCanvas.w:I
+      64: sipush        380
+      67: if_icmpge     74
+      70: iconst_2
+      71: putstatic     #52                 // Field GameScreen/LoginScreen.indexInfoLogin:B
+      74: getstatic     #54                 // Field Model/T.pleaseWait:Ljava/lang/String;
+      77: aconst_null
+      78: invokestatic  #55                 // Method Main/GameCanvas.start_Wait_Dialog:(Ljava/lang/String;LInterfaceComponents/iCommand;)V
+      81: getstatic     #45                 // Field Main/GameCanvas.isVNLanguage:Z
+      84: ifne          125
+      87: new           #56                 // class Model/TE
+      90: dup
+      91: invokespecial #57                 // Method Model/TE."<init>":()V
+      94: putstatic     #58                 // Field Main/GameCanvas.t:LModel/T;
+      97: getstatic     #59                 // Field CLib/mSystem.isIP_TrucTiep:Z
+     100: ifeq          114
+     103: ldc           #60                 // String /interface/logoeip.png
+     105: invokestatic  #61                 // Method CLib/mImage.createImage:(Ljava/lang/String;)LCLib/mImage;
+     108: putstatic     #62                 // Field GameScreen/LoginScreen.logo:LCLib/mImage;
+     111: goto          160
+     114: ldc           #63                 // String /interface/logoe.png
+     116: invokestatic  #61                 // Method CLib/mImage.createImage:(Ljava/lang/String;)LCLib/mImage;
+     119: putstatic     #62                 // Field GameScreen/LoginScreen.logo:LCLib/mImage;
+     122: goto          160
+     125: new           #64                 // class Model/T
+     128: dup
+     129: invokespecial #65                 // Method Model/T."<init>":()V
+     132: putstatic     #58                 // Field Main/GameCanvas.t:LModel/T;
+     135: getstatic     #59                 // Field CLib/mSystem.isIP_TrucTiep:Z
+     138: ifeq          152
+     141: ldc           #66                 // String /interface/logoip.png
+     143: invokestatic  #61                 // Method CLib/mImage.createImage:(Ljava/lang/String;)LCLib/mImage;
+     146: putstatic     #62                 // Field GameScreen/LoginScreen.logo:LCLib/mImage;
+     149: goto          160
+     152: ldc           #67                 // String /interface/logo.png
+     154: invokestatic  #61                 // Method CLib/mImage.createImage:(Ljava/lang/String;)LCLib/mImage;
+     157: putstatic     #62                 // Field GameScreen/LoginScreen.logo:LCLib/mImage;
+     160: invokestatic  #68                 // Method Build_Indo/IndoServer.setLinkIp:()V
+     163: invokestatic  #69                 // Method Build_Usa/Usa_Server.setLinkIp:()V
+     166: invokestatic  #70                 // Method GameScreen/List_Server.gI:()LGameScreen/List_Server;
+     169: invokevirtual #71                 // Method GameScreen/List_Server.doSetCaption:()V
+     172: invokestatic  #72                 // Method Main/GameCanvas.loadCaptionCmd:()V
+     175: aconst_null
+     176: putstatic     #73                 // Field GameScreen/WorldMapScreen.namePos:[Ljava/lang/String;
+     179: invokestatic  #74                 // Method Main/GameCanvas.end_Dialog:()V
+     182: return
+
+  public static void saveListServer(java.lang.String);
+    Code:
+       0: new           #75                 // class java/io/ByteArrayOutputStream
+       3: dup
+       4: invokespecial #76                 // Method java/io/ByteArrayOutputStream."<init>":()V
+       7: astore_1
+       8: new           #77                 // class java/io/DataOutputStream
+      11: dup
+      12: aload_1
+      13: invokespecial #78                 // Method java/io/DataOutputStream."<init>":(Ljava/io/OutputStream;)V
+      16: astore_2
+      17: aload_2
+      18: aload_0
+      19: invokevirtual #79                 // Method java/io/DataOutputStream.writeUTF:(Ljava/lang/String;)V
+      22: ldc           #2                  // String listServer
+      24: aload_1
+      25: invokevirtual #80                 // Method java/io/ByteArrayOutputStream.toByteArray:()[B
+      28: invokestatic  #49                 // Method Model/CRes.saveRMS:(Ljava/lang/String;[B)V
+      31: aload_2
+      32: invokevirtual #81                 // Method java/io/DataOutputStream.close:()V
+      35: goto          39
+      38: astore_3
+      39: return
+    Exception table:
+       from    to  target type
+          17    35    38   Class java/lang/Exception
+
+  static {};
+    Code:
+       0: ldc           #50                 // String
+       2: putstatic     #21                 // Field strListserver:Ljava/lang/String;
+       5: iconst_0
+       6: putstatic     #82                 // Field isLoadServer:Z
+       9: ldc           #83                 // String DEFAULT
+      11: putstatic     #17                 // Field serverListSource:Ljava/lang/String;
+      14: return
+}

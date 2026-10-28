@@ -1,0 +1,3017 @@
+Compiled from "Item.java"
+public class GameObjects.Item {
+  public static byte TYPE_NGOC_KHAM;
+
+  public static byte TYPE_BUA_HUYEN_BI;
+
+  public static int ID_TEM_VE_MUA_BAN;
+
+  public static java.lang.String[] nameInfoItem;
+
+  public static byte[] colorInfoItem;
+
+  public static byte[] isPercentInfoItem;
+
+  public java.lang.String itemName;
+
+  public java.lang.String content;
+
+  public java.lang.String itemNameExcludeLv;
+
+  public GameObjects.MainInfoItem[] mInfo;
+
+  public java.lang.String[] mcontent;
+
+  public java.lang.String[] mPlusContent;
+
+  public int[] mColor;
+
+  public int[] mPlusColor;
+
+  public int timeupdateMore;
+
+  public int timeUse;
+
+  public long priceItem;
+
+  public static GameEffect.Effect_UpLv_Item eff_UpLv;
+
+  public int sizeW;
+
+  public int imageId;
+
+  public int ItemCatagory;
+
+  public short IdTem;
+
+  public static Model.FrameImage fraeffitemdrop;
+
+  int wImage;
+
+  public byte canSell;
+
+  public byte canTrade;
+
+  public byte tier;
+
+  public byte typeMaterial;
+
+  public byte isLock;
+
+  public byte IndexSort;
+
+  public long timeDem;
+
+  public byte Selling;
+
+  public byte can_sell_for_other_player;
+
+  public int timeDefaultItemFashion;
+
+  public long currentTimeItemFashion;
+
+  public byte CanShell_CanNotTrade;
+
+  public boolean isSell;
+
+  public java.lang.String[] infoHop;
+
+  public CLib.mVector moreContenGem;
+
+  public int numPotion;
+
+  public byte typePotion;
+
+  public static final byte HP;
+
+  public static final byte MP;
+
+  public static final byte COIN;
+
+  public static final byte GOLD;
+
+  public int classcharItem;
+
+  public int colorNameItem;
+
+  public int Id;
+
+  public int idTab;
+
+  public int sell;
+
+  public int value;
+
+  public byte priceType;
+
+  public int idPart;
+
+  public int type_Only_Item;
+
+  public int LvItem;
+
+  public java.lang.String diaHoiEvent;
+
+  public static CLib.mHashtable VecEquipPlayer;
+
+  public static CLib.mVector VecInvetoryPlayer;
+
+  public static CLib.mVector VecChestPlayer;
+
+  public static CLib.mVector VecPetContainer;
+
+  public static CLib.mVector VecClanInvetory;
+
+  public static CLib.mVector VecLotteryReward;
+
+  public static CLib.mVector VecItemSell;
+
+  public static CLib.mVector VecItem_Sell_in_store;
+
+  public static CLib.mHashtable HashImageItem;
+
+  public static CLib.mHashtable HashImagePotion;
+
+  public static CLib.mHashtable HashImageQuestItem;
+
+  public static CLib.mHashtable HashImageMaterial;
+
+  public static CLib.mHashtable HashImageIconClan;
+
+  public static CLib.mHashtable HashImageIconArcheClan;
+
+  public static CLib.mHashtable HashImagePetIcon;
+
+  public static CLib.mHashtable HashImageMount;
+
+  public static byte[] frameicon;
+
+  public byte frame;
+
+  public GameObjects.Item itemClone;
+
+  public static byte[] ATB_Can_Not_Paint;
+
+  public boolean isOutTime();
+    Code:
+       0: invokestatic  #1                  // Method CLib/mSystem.currentTimeMillis:()J
+       3: ldc2_w        #2                  // long 1000l
+       6: ldiv
+       7: aload_0
+       8: getfield      #4                  // Field currentTimeItemFashion:J
+      11: lsub
+      12: aload_0
+      13: getfield      #5                  // Field timeDefaultItemFashion:I
+      16: i2l
+      17: lcmp
+      18: ifle          23
+      21: iconst_1
+      22: ireturn
+      23: iconst_0
+      24: ireturn
+
+  public boolean isFashionItem();
+    Code:
+       0: aload_0
+       1: getfield      #5                  // Field timeDefaultItemFashion:I
+       4: iconst_m1
+       5: if_icmpeq     12
+       8: iconst_1
+       9: goto          13
+      12: iconst_0
+      13: ireturn
+
+  public long getTimeItemFashion();
+    Code:
+       0: invokestatic  #1                  // Method CLib/mSystem.currentTimeMillis:()J
+       3: aload_0
+       4: getfield      #4                  // Field currentTimeItemFashion:J
+       7: lsub
+       8: lreturn
+
+  public static boolean isWeapone(int);
+    Code:
+       0: iload_0
+       1: bipush        8
+       3: if_icmplt     16
+       6: iload_0
+       7: bipush        11
+       9: if_icmpgt     16
+      12: iconst_1
+      13: goto          17
+      16: iconst_0
+      17: ireturn
+
+  public void addhole(short[]);
+    Code:
+       0: return
+
+  public static boolean isMaterial_Light_Drak(int);
+    Code:
+       0: iload_0
+       1: bipush        22
+       3: if_icmple     16
+       6: iload_0
+       7: bipush        33
+       9: if_icmpge     16
+      12: iconst_1
+      13: goto          17
+      16: iconst_0
+      17: ireturn
+
+  public void paintItem(CLib.mGraphics, int, int, int, int, int);
+    Code:
+       0: aconst_null
+       1: astore        7
+       3: aload_0
+       4: getfield      #6                  // Field itemName:Ljava/lang/String;
+       7: ifnonnull     18
+      10: aload_0
+      11: invokevirtual #7                  // Method setNameNull:()Z
+      14: ifeq          549
+      17: return
+      18: aload_0
+      19: getfield      #8                  // Field colorNameItem:I
+      22: ifle          145
+      25: aload_0
+      26: getfield      #8                  // Field colorNameItem:I
+      29: istore        8
+      31: aload_0
+      32: getfield      #8                  // Field colorNameItem:I
+      35: bipush        20
+      37: if_icmplt     56
+      40: aload_0
+      41: getfield      #8                  // Field colorNameItem:I
+      44: bipush        30
+      46: if_icmpge     56
+      49: bipush        6
+      51: istore        8
+      53: goto          103
+      56: aload_0
+      57: getfield      #8                  // Field colorNameItem:I
+      60: bipush        30
+      62: if_icmplt     81
+      65: aload_0
+      66: getfield      #8                  // Field colorNameItem:I
+      69: bipush        40
+      71: if_icmpge     81
+      74: bipush        7
+      76: istore        8
+      78: goto          103
+      81: aload_0
+      82: getfield      #8                  // Field colorNameItem:I
+      85: bipush        40
+      87: if_icmplt     103
+      90: aload_0
+      91: getfield      #8                  // Field colorNameItem:I
+      94: bipush        50
+      96: if_icmpge     103
+      99: bipush        8
+     101: istore        8
+     103: aload_1
+     104: getstatic     #9                  // Field Model/AvMain.imgColorItem:LCLib/mImage;
+     107: iconst_0
+     108: iload         8
+     110: iconst_1
+     111: isub
+     112: bipush        32
+     114: imul
+     115: iload         4
+     117: iconst_1
+     118: isub
+     119: iload         4
+     121: iconst_1
+     122: isub
+     123: iconst_2
+     124: iload_2
+     125: iload         4
+     127: iconst_1
+     128: isub
+     129: iconst_2
+     130: idiv
+     131: isub
+     132: iload_3
+     133: iload         4
+     135: iconst_1
+     136: isub
+     137: iconst_2
+     138: idiv
+     139: isub
+     140: iconst_0
+     141: iconst_1
+     142: invokevirtual #10                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     145: aload_0
+     146: getfield      #11                 // Field ItemCatagory:I
+     149: bipush        6
+     151: if_icmpne     216
+     154: aload_0
+     155: getfield      #12                 // Field priceItem:J
+     158: lconst_0
+     159: lcmp
+     160: ifgt          199
+     163: aload_1
+     164: getstatic     #9                  // Field Model/AvMain.imgColorItem:LCLib/mImage;
+     167: iconst_0
+     168: iconst_0
+     169: iload         4
+     171: iconst_1
+     172: isub
+     173: iload         4
+     175: iconst_1
+     176: isub
+     177: iconst_2
+     178: iload_2
+     179: iload         4
+     181: iconst_1
+     182: isub
+     183: iconst_2
+     184: idiv
+     185: isub
+     186: iload_3
+     187: iload         4
+     189: iconst_1
+     190: isub
+     191: iconst_2
+     192: idiv
+     193: isub
+     194: iconst_0
+     195: iconst_1
+     196: invokevirtual #10                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     199: iconst_5
+     200: aload_0
+     201: getfield      #13                 // Field imageId:I
+     204: invokestatic  #14                 // Method Model/CRes.getCharPartInfo:(II)LGameObjects/CharPartInfo;
+     207: aload_1
+     208: iload_2
+     209: iload_3
+     210: iconst_0
+     211: iconst_0
+     212: invokevirtual #15                 // Method GameObjects/CharPartInfo.paintShow:(LCLib/mGraphics;IIII)V
+     215: return
+     216: aload_0
+     217: getfield      #11                 // Field ItemCatagory:I
+     220: iconst_5
+     221: if_icmpne     237
+     224: aload_0
+     225: getfield      #13                 // Field imageId:I
+     228: i2s
+     229: invokestatic  #16                 // Method GameObjects/ObjectData.getImageQuestItem:(S)LModel/MainImage;
+     232: astore        7
+     234: goto          342
+     237: aload_0
+     238: getfield      #11                 // Field ItemCatagory:I
+     241: iconst_4
+     242: if_icmpne     258
+     245: aload_0
+     246: getfield      #13                 // Field imageId:I
+     249: i2s
+     250: invokestatic  #17                 // Method GameObjects/ObjectData.getImagePotion:(S)LModel/MainImage;
+     253: astore        7
+     255: goto          342
+     258: aload_0
+     259: getfield      #11                 // Field ItemCatagory:I
+     262: iconst_3
+     263: if_icmpne     279
+     266: aload_0
+     267: getfield      #13                 // Field imageId:I
+     270: i2s
+     271: invokestatic  #18                 // Method GameObjects/ObjectData.getImageItem:(S)LModel/MainImage;
+     274: astore        7
+     276: goto          342
+     279: aload_0
+     280: getfield      #11                 // Field ItemCatagory:I
+     283: bipush        7
+     285: if_icmpne     301
+     288: aload_0
+     289: getfield      #13                 // Field imageId:I
+     292: i2s
+     293: invokestatic  #19                 // Method GameObjects/ObjectData.getImageMaterial:(S)LModel/MainImage;
+     296: astore        7
+     298: goto          342
+     301: aload_0
+     302: getfield      #11                 // Field ItemCatagory:I
+     305: bipush        8
+     307: if_icmpne     323
+     310: aload_0
+     311: getfield      #20                 // Field Id:I
+     314: i2s
+     315: invokestatic  #21                 // Method GameObjects/ObjectData.getImageIconClan:(S)LModel/MainImage;
+     318: astore        7
+     320: goto          342
+     323: aload_0
+     324: getfield      #11                 // Field ItemCatagory:I
+     327: bipush        9
+     329: if_icmpne     342
+     332: aload_0
+     333: getfield      #13                 // Field imageId:I
+     336: i2s
+     337: invokestatic  #22                 // Method GameObjects/ObjectData.getImageIconPet:(S)LModel/MainImage;
+     340: astore        7
+     342: aload_0
+     343: getfield      #11                 // Field ItemCatagory:I
+     346: bipush        6
+     348: if_icmpeq     494
+     351: aload         7
+     353: ifnull        468
+     356: aload         7
+     358: getfield      #23                 // Field Model/MainImage.img:LCLib/mImage;
+     361: ifnull        468
+     364: aload         7
+     366: getfield      #23                 // Field Model/MainImage.img:LCLib/mImage;
+     369: getfield      #24                 // Field CLib/mImage.image:Ljavax/microedition/lcdui/Image;
+     372: invokestatic  #25                 // Method CLib/mImage.getImageHeight:(Ljavax/microedition/lcdui/Image;)I
+     375: bipush        18
+     377: idiv
+     378: iconst_3
+     379: if_icmpne     452
+     382: getstatic     #26                 // Field Main/GameCanvas.gameTick:I
+     385: bipush        6
+     387: irem
+     388: ifne          419
+     391: getstatic     #27                 // Field frameicon:[B
+     394: arraylength
+     395: istore        8
+     397: iload         8
+     399: ifne          405
+     402: iconst_1
+     403: istore        8
+     405: aload_0
+     406: aload_0
+     407: getfield      #28                 // Field frame:B
+     410: iconst_1
+     411: iadd
+     412: iload         8
+     414: irem
+     415: i2b
+     416: putfield      #28                 // Field frame:B
+     419: aload_1
+     420: aload         7
+     422: getfield      #23                 // Field Model/MainImage.img:LCLib/mImage;
+     425: iconst_0
+     426: getstatic     #27                 // Field frameicon:[B
+     429: aload_0
+     430: getfield      #28                 // Field frame:B
+     433: baload
+     434: bipush        18
+     436: imul
+     437: bipush        18
+     439: bipush        18
+     441: iconst_0
+     442: iload_2
+     443: iload_3
+     444: iconst_3
+     445: iconst_1
+     446: invokevirtual #10                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     449: goto          494
+     452: aload_1
+     453: aload         7
+     455: getfield      #23                 // Field Model/MainImage.img:LCLib/mImage;
+     458: iload_2
+     459: iload_3
+     460: iconst_3
+     461: iconst_1
+     462: invokevirtual #29                 // Method CLib/mGraphics.drawImage:(LCLib/mImage;IIIZ)V
+     465: goto          494
+     468: aload_1
+     469: getstatic     #30                 // Field Model/AvMain.imgLoadImg:LCLib/mImage;
+     472: iconst_0
+     473: getstatic     #26                 // Field Main/GameCanvas.gameTick:I
+     476: bipush        12
+     478: irem
+     479: bipush        16
+     481: imul
+     482: bipush        16
+     484: bipush        16
+     486: iconst_0
+     487: iload_2
+     488: iload_3
+     489: iconst_3
+     490: iconst_1
+     491: invokevirtual #10                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     494: aload_0
+     495: getfield      #11                 // Field ItemCatagory:I
+     498: iconst_3
+     499: if_icmpne     549
+     502: aload_0
+     503: getfield      #31                 // Field tier:B
+     506: ifle          549
+     509: aload_0
+     510: getfield      #31                 // Field tier:B
+     513: istore        8
+     515: aload_0
+     516: getfield      #32                 // Field type_Only_Item:I
+     519: bipush        7
+     521: if_icmpne     532
+     524: aload_0
+     525: getfield      #31                 // Field tier:B
+     528: iconst_2
+     529: idiv
+     530: istore        8
+     532: getstatic     #33                 // Field eff_UpLv:LGameEffect/Effect_UpLv_Item;
+     535: iload_2
+     536: iload_3
+     537: iload         8
+     539: iload         4
+     541: iconst_4
+     542: isub
+     543: aload_1
+     544: iload         5
+     546: invokevirtual #34                 // Method GameEffect/Effect_UpLv_Item.paintUpgradeEffect:(IIIILCLib/mGraphics;I)V
+     549: aload_0
+     550: getfield      #35                 // Field numPotion:I
+     553: iconst_1
+     554: if_icmple     611
+     557: getstatic     #36                 // Field CLib/mFont.number_Yellow_Small:LCLib/mFont;
+     560: aload_1
+     561: new           #37                 // class java/lang/StringBuffer
+     564: dup
+     565: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     568: aload_0
+     569: getfield      #35                 // Field numPotion:I
+     572: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+     575: ldc           #40                 // String
+     577: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     580: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     583: iload_2
+     584: iload         4
+     586: iconst_2
+     587: idiv
+     588: iadd
+     589: iconst_1
+     590: isub
+     591: iload         6
+     593: isub
+     594: iload_3
+     595: iload         4
+     597: iconst_2
+     598: idiv
+     599: iadd
+     600: bipush        9
+     602: isub
+     603: iload         6
+     605: isub
+     606: iconst_1
+     607: iconst_1
+     608: invokevirtual #43                 // Method CLib/mFont.drawString:(LCLib/mGraphics;Ljava/lang/String;IIIZ)V
+     611: aload_0
+     612: getfield      #44                 // Field isLock:B
+     615: ifle          633
+     618: aload_1
+     619: getstatic     #45                 // Field Model/AvMain.imgLock:LCLib/mImage;
+     622: iload_2
+     623: iconst_4
+     624: iadd
+     625: iload_3
+     626: iconst_3
+     627: iadd
+     628: iconst_0
+     629: iconst_1
+     630: invokevirtual #29                 // Method CLib/mGraphics.drawImage:(LCLib/mImage;IIIZ)V
+     633: aload_0
+     634: getfield      #11                 // Field ItemCatagory:I
+     637: iconst_3
+     638: if_icmpne     663
+     641: aload_0
+     642: getfield      #46                 // Field timeUse:I
+     645: ifle          652
+     648: aload_0
+     649: invokevirtual #47                 // Method updateTime:()V
+     652: aload_0
+     653: invokevirtual #48                 // Method isFashionItem:()Z
+     656: ifeq          663
+     659: aload_0
+     660: invokevirtual #49                 // Method updateFashion:()V
+     663: return
+
+  public void paintItem_notnum(CLib.mGraphics, int, int, int, int, int);
+    Code:
+       0: aconst_null
+       1: astore        7
+       3: aload_0
+       4: getfield      #6                  // Field itemName:Ljava/lang/String;
+       7: ifnonnull     18
+      10: aload_0
+      11: invokevirtual #7                  // Method setNameNull:()Z
+      14: ifeq          549
+      17: return
+      18: aload_0
+      19: getfield      #8                  // Field colorNameItem:I
+      22: ifle          145
+      25: aload_0
+      26: getfield      #8                  // Field colorNameItem:I
+      29: istore        8
+      31: aload_0
+      32: getfield      #8                  // Field colorNameItem:I
+      35: bipush        20
+      37: if_icmplt     56
+      40: aload_0
+      41: getfield      #8                  // Field colorNameItem:I
+      44: bipush        30
+      46: if_icmpge     56
+      49: bipush        6
+      51: istore        8
+      53: goto          103
+      56: aload_0
+      57: getfield      #8                  // Field colorNameItem:I
+      60: bipush        30
+      62: if_icmplt     81
+      65: aload_0
+      66: getfield      #8                  // Field colorNameItem:I
+      69: bipush        40
+      71: if_icmpge     81
+      74: bipush        7
+      76: istore        8
+      78: goto          103
+      81: aload_0
+      82: getfield      #8                  // Field colorNameItem:I
+      85: bipush        40
+      87: if_icmplt     103
+      90: aload_0
+      91: getfield      #8                  // Field colorNameItem:I
+      94: bipush        50
+      96: if_icmpge     103
+      99: bipush        8
+     101: istore        8
+     103: aload_1
+     104: getstatic     #9                  // Field Model/AvMain.imgColorItem:LCLib/mImage;
+     107: iconst_0
+     108: iload         8
+     110: iconst_1
+     111: isub
+     112: bipush        32
+     114: imul
+     115: iload         4
+     117: iconst_1
+     118: isub
+     119: iload         4
+     121: iconst_1
+     122: isub
+     123: iconst_2
+     124: iload_2
+     125: iload         4
+     127: iconst_1
+     128: isub
+     129: iconst_2
+     130: idiv
+     131: isub
+     132: iload_3
+     133: iload         4
+     135: iconst_1
+     136: isub
+     137: iconst_2
+     138: idiv
+     139: isub
+     140: iconst_0
+     141: iconst_1
+     142: invokevirtual #10                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     145: aload_0
+     146: getfield      #11                 // Field ItemCatagory:I
+     149: bipush        6
+     151: if_icmpne     216
+     154: aload_0
+     155: getfield      #12                 // Field priceItem:J
+     158: lconst_0
+     159: lcmp
+     160: ifgt          199
+     163: aload_1
+     164: getstatic     #9                  // Field Model/AvMain.imgColorItem:LCLib/mImage;
+     167: iconst_0
+     168: iconst_0
+     169: iload         4
+     171: iconst_1
+     172: isub
+     173: iload         4
+     175: iconst_1
+     176: isub
+     177: iconst_2
+     178: iload_2
+     179: iload         4
+     181: iconst_1
+     182: isub
+     183: iconst_2
+     184: idiv
+     185: isub
+     186: iload_3
+     187: iload         4
+     189: iconst_1
+     190: isub
+     191: iconst_2
+     192: idiv
+     193: isub
+     194: iconst_0
+     195: iconst_1
+     196: invokevirtual #10                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     199: iconst_5
+     200: aload_0
+     201: getfield      #13                 // Field imageId:I
+     204: invokestatic  #14                 // Method Model/CRes.getCharPartInfo:(II)LGameObjects/CharPartInfo;
+     207: aload_1
+     208: iload_2
+     209: iload_3
+     210: iconst_0
+     211: iconst_0
+     212: invokevirtual #15                 // Method GameObjects/CharPartInfo.paintShow:(LCLib/mGraphics;IIII)V
+     215: return
+     216: aload_0
+     217: getfield      #11                 // Field ItemCatagory:I
+     220: iconst_5
+     221: if_icmpne     237
+     224: aload_0
+     225: getfield      #13                 // Field imageId:I
+     228: i2s
+     229: invokestatic  #16                 // Method GameObjects/ObjectData.getImageQuestItem:(S)LModel/MainImage;
+     232: astore        7
+     234: goto          342
+     237: aload_0
+     238: getfield      #11                 // Field ItemCatagory:I
+     241: iconst_4
+     242: if_icmpne     258
+     245: aload_0
+     246: getfield      #13                 // Field imageId:I
+     249: i2s
+     250: invokestatic  #17                 // Method GameObjects/ObjectData.getImagePotion:(S)LModel/MainImage;
+     253: astore        7
+     255: goto          342
+     258: aload_0
+     259: getfield      #11                 // Field ItemCatagory:I
+     262: iconst_3
+     263: if_icmpne     279
+     266: aload_0
+     267: getfield      #13                 // Field imageId:I
+     270: i2s
+     271: invokestatic  #18                 // Method GameObjects/ObjectData.getImageItem:(S)LModel/MainImage;
+     274: astore        7
+     276: goto          342
+     279: aload_0
+     280: getfield      #11                 // Field ItemCatagory:I
+     283: bipush        7
+     285: if_icmpne     301
+     288: aload_0
+     289: getfield      #13                 // Field imageId:I
+     292: i2s
+     293: invokestatic  #19                 // Method GameObjects/ObjectData.getImageMaterial:(S)LModel/MainImage;
+     296: astore        7
+     298: goto          342
+     301: aload_0
+     302: getfield      #11                 // Field ItemCatagory:I
+     305: bipush        8
+     307: if_icmpne     323
+     310: aload_0
+     311: getfield      #20                 // Field Id:I
+     314: i2s
+     315: invokestatic  #21                 // Method GameObjects/ObjectData.getImageIconClan:(S)LModel/MainImage;
+     318: astore        7
+     320: goto          342
+     323: aload_0
+     324: getfield      #11                 // Field ItemCatagory:I
+     327: bipush        9
+     329: if_icmpne     342
+     332: aload_0
+     333: getfield      #13                 // Field imageId:I
+     336: i2s
+     337: invokestatic  #22                 // Method GameObjects/ObjectData.getImageIconPet:(S)LModel/MainImage;
+     340: astore        7
+     342: aload_0
+     343: getfield      #11                 // Field ItemCatagory:I
+     346: bipush        6
+     348: if_icmpeq     494
+     351: aload         7
+     353: ifnull        468
+     356: aload         7
+     358: getfield      #23                 // Field Model/MainImage.img:LCLib/mImage;
+     361: ifnull        468
+     364: aload         7
+     366: getfield      #23                 // Field Model/MainImage.img:LCLib/mImage;
+     369: getfield      #24                 // Field CLib/mImage.image:Ljavax/microedition/lcdui/Image;
+     372: invokestatic  #25                 // Method CLib/mImage.getImageHeight:(Ljavax/microedition/lcdui/Image;)I
+     375: bipush        18
+     377: idiv
+     378: iconst_3
+     379: if_icmpne     452
+     382: getstatic     #26                 // Field Main/GameCanvas.gameTick:I
+     385: bipush        6
+     387: irem
+     388: ifne          419
+     391: getstatic     #27                 // Field frameicon:[B
+     394: arraylength
+     395: istore        8
+     397: iload         8
+     399: ifne          405
+     402: iconst_1
+     403: istore        8
+     405: aload_0
+     406: aload_0
+     407: getfield      #28                 // Field frame:B
+     410: iconst_1
+     411: iadd
+     412: iload         8
+     414: irem
+     415: i2b
+     416: putfield      #28                 // Field frame:B
+     419: aload_1
+     420: aload         7
+     422: getfield      #23                 // Field Model/MainImage.img:LCLib/mImage;
+     425: iconst_0
+     426: getstatic     #27                 // Field frameicon:[B
+     429: aload_0
+     430: getfield      #28                 // Field frame:B
+     433: baload
+     434: bipush        18
+     436: imul
+     437: bipush        18
+     439: bipush        18
+     441: iconst_0
+     442: iload_2
+     443: iload_3
+     444: iconst_3
+     445: iconst_1
+     446: invokevirtual #10                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     449: goto          494
+     452: aload_1
+     453: aload         7
+     455: getfield      #23                 // Field Model/MainImage.img:LCLib/mImage;
+     458: iload_2
+     459: iload_3
+     460: iconst_3
+     461: iconst_1
+     462: invokevirtual #29                 // Method CLib/mGraphics.drawImage:(LCLib/mImage;IIIZ)V
+     465: goto          494
+     468: aload_1
+     469: getstatic     #30                 // Field Model/AvMain.imgLoadImg:LCLib/mImage;
+     472: iconst_0
+     473: getstatic     #26                 // Field Main/GameCanvas.gameTick:I
+     476: bipush        12
+     478: irem
+     479: bipush        16
+     481: imul
+     482: bipush        16
+     484: bipush        16
+     486: iconst_0
+     487: iload_2
+     488: iload_3
+     489: iconst_3
+     490: iconst_1
+     491: invokevirtual #10                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     494: aload_0
+     495: getfield      #11                 // Field ItemCatagory:I
+     498: iconst_3
+     499: if_icmpne     549
+     502: aload_0
+     503: getfield      #31                 // Field tier:B
+     506: ifle          549
+     509: aload_0
+     510: getfield      #31                 // Field tier:B
+     513: istore        8
+     515: aload_0
+     516: getfield      #32                 // Field type_Only_Item:I
+     519: bipush        7
+     521: if_icmpne     532
+     524: aload_0
+     525: getfield      #31                 // Field tier:B
+     528: iconst_2
+     529: idiv
+     530: istore        8
+     532: getstatic     #33                 // Field eff_UpLv:LGameEffect/Effect_UpLv_Item;
+     535: iload_2
+     536: iload_3
+     537: iload         8
+     539: iload         4
+     541: iconst_4
+     542: isub
+     543: aload_1
+     544: iload         5
+     546: invokevirtual #34                 // Method GameEffect/Effect_UpLv_Item.paintUpgradeEffect:(IIIILCLib/mGraphics;I)V
+     549: aload_0
+     550: getfield      #44                 // Field isLock:B
+     553: ifle          571
+     556: aload_1
+     557: getstatic     #45                 // Field Model/AvMain.imgLock:LCLib/mImage;
+     560: iload_2
+     561: iconst_4
+     562: iadd
+     563: iload_3
+     564: iconst_3
+     565: iadd
+     566: iconst_0
+     567: iconst_1
+     568: invokevirtual #29                 // Method CLib/mGraphics.drawImage:(LCLib/mImage;IIIZ)V
+     571: aload_0
+     572: getfield      #11                 // Field ItemCatagory:I
+     575: iconst_3
+     576: if_icmpne     601
+     579: aload_0
+     580: getfield      #46                 // Field timeUse:I
+     583: ifle          590
+     586: aload_0
+     587: invokevirtual #47                 // Method updateTime:()V
+     590: aload_0
+     591: invokevirtual #48                 // Method isFashionItem:()Z
+     594: ifeq          601
+     597: aload_0
+     598: invokevirtual #49                 // Method updateFashion:()V
+     601: return
+
+  public void paintItemNew(CLib.mGraphics, int, int, int, int, int);
+    Code:
+       0: aconst_null
+       1: astore        7
+       3: aload_0
+       4: getfield      #6                  // Field itemName:Ljava/lang/String;
+       7: ifnonnull     18
+      10: aload_0
+      11: invokevirtual #7                  // Method setNameNull:()Z
+      14: ifeq          549
+      17: return
+      18: aload_0
+      19: getfield      #8                  // Field colorNameItem:I
+      22: ifle          145
+      25: aload_0
+      26: getfield      #8                  // Field colorNameItem:I
+      29: istore        8
+      31: aload_0
+      32: getfield      #8                  // Field colorNameItem:I
+      35: bipush        20
+      37: if_icmplt     56
+      40: aload_0
+      41: getfield      #8                  // Field colorNameItem:I
+      44: bipush        30
+      46: if_icmpge     56
+      49: bipush        6
+      51: istore        8
+      53: goto          103
+      56: aload_0
+      57: getfield      #8                  // Field colorNameItem:I
+      60: bipush        30
+      62: if_icmplt     81
+      65: aload_0
+      66: getfield      #8                  // Field colorNameItem:I
+      69: bipush        40
+      71: if_icmpge     81
+      74: bipush        7
+      76: istore        8
+      78: goto          103
+      81: aload_0
+      82: getfield      #8                  // Field colorNameItem:I
+      85: bipush        40
+      87: if_icmplt     103
+      90: aload_0
+      91: getfield      #8                  // Field colorNameItem:I
+      94: bipush        50
+      96: if_icmpge     103
+      99: bipush        8
+     101: istore        8
+     103: aload_1
+     104: getstatic     #9                  // Field Model/AvMain.imgColorItem:LCLib/mImage;
+     107: iconst_0
+     108: iload         8
+     110: iconst_1
+     111: isub
+     112: bipush        32
+     114: imul
+     115: iload         4
+     117: iconst_1
+     118: isub
+     119: iload         4
+     121: iconst_1
+     122: isub
+     123: iconst_2
+     124: iload_2
+     125: iload         4
+     127: iconst_1
+     128: isub
+     129: iconst_2
+     130: idiv
+     131: isub
+     132: iload_3
+     133: iload         4
+     135: iconst_1
+     136: isub
+     137: iconst_2
+     138: idiv
+     139: isub
+     140: iconst_0
+     141: iconst_1
+     142: invokevirtual #10                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     145: aload_0
+     146: getfield      #11                 // Field ItemCatagory:I
+     149: bipush        6
+     151: if_icmpne     216
+     154: aload_0
+     155: getfield      #12                 // Field priceItem:J
+     158: lconst_0
+     159: lcmp
+     160: ifgt          199
+     163: aload_1
+     164: getstatic     #9                  // Field Model/AvMain.imgColorItem:LCLib/mImage;
+     167: iconst_0
+     168: iconst_0
+     169: iload         4
+     171: iconst_1
+     172: isub
+     173: iload         4
+     175: iconst_1
+     176: isub
+     177: iconst_2
+     178: iload_2
+     179: iload         4
+     181: iconst_1
+     182: isub
+     183: iconst_2
+     184: idiv
+     185: isub
+     186: iload_3
+     187: iload         4
+     189: iconst_1
+     190: isub
+     191: iconst_2
+     192: idiv
+     193: isub
+     194: iconst_0
+     195: iconst_1
+     196: invokevirtual #10                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     199: iconst_5
+     200: aload_0
+     201: getfield      #13                 // Field imageId:I
+     204: invokestatic  #14                 // Method Model/CRes.getCharPartInfo:(II)LGameObjects/CharPartInfo;
+     207: aload_1
+     208: iload_2
+     209: iload_3
+     210: iconst_0
+     211: iconst_0
+     212: invokevirtual #15                 // Method GameObjects/CharPartInfo.paintShow:(LCLib/mGraphics;IIII)V
+     215: return
+     216: aload_0
+     217: getfield      #11                 // Field ItemCatagory:I
+     220: iconst_5
+     221: if_icmpne     237
+     224: aload_0
+     225: getfield      #13                 // Field imageId:I
+     228: i2s
+     229: invokestatic  #16                 // Method GameObjects/ObjectData.getImageQuestItem:(S)LModel/MainImage;
+     232: astore        7
+     234: goto          342
+     237: aload_0
+     238: getfield      #11                 // Field ItemCatagory:I
+     241: iconst_4
+     242: if_icmpne     258
+     245: aload_0
+     246: getfield      #13                 // Field imageId:I
+     249: i2s
+     250: invokestatic  #17                 // Method GameObjects/ObjectData.getImagePotion:(S)LModel/MainImage;
+     253: astore        7
+     255: goto          342
+     258: aload_0
+     259: getfield      #11                 // Field ItemCatagory:I
+     262: iconst_3
+     263: if_icmpne     279
+     266: aload_0
+     267: getfield      #13                 // Field imageId:I
+     270: i2s
+     271: invokestatic  #18                 // Method GameObjects/ObjectData.getImageItem:(S)LModel/MainImage;
+     274: astore        7
+     276: goto          342
+     279: aload_0
+     280: getfield      #11                 // Field ItemCatagory:I
+     283: bipush        7
+     285: if_icmpne     301
+     288: aload_0
+     289: getfield      #13                 // Field imageId:I
+     292: i2s
+     293: invokestatic  #19                 // Method GameObjects/ObjectData.getImageMaterial:(S)LModel/MainImage;
+     296: astore        7
+     298: goto          342
+     301: aload_0
+     302: getfield      #11                 // Field ItemCatagory:I
+     305: bipush        8
+     307: if_icmpne     323
+     310: aload_0
+     311: getfield      #20                 // Field Id:I
+     314: i2s
+     315: invokestatic  #21                 // Method GameObjects/ObjectData.getImageIconClan:(S)LModel/MainImage;
+     318: astore        7
+     320: goto          342
+     323: aload_0
+     324: getfield      #11                 // Field ItemCatagory:I
+     327: bipush        9
+     329: if_icmpne     342
+     332: aload_0
+     333: getfield      #13                 // Field imageId:I
+     336: i2s
+     337: invokestatic  #22                 // Method GameObjects/ObjectData.getImageIconPet:(S)LModel/MainImage;
+     340: astore        7
+     342: aload_0
+     343: getfield      #11                 // Field ItemCatagory:I
+     346: bipush        6
+     348: if_icmpeq     494
+     351: aload         7
+     353: ifnull        468
+     356: aload         7
+     358: getfield      #23                 // Field Model/MainImage.img:LCLib/mImage;
+     361: ifnull        468
+     364: aload         7
+     366: getfield      #23                 // Field Model/MainImage.img:LCLib/mImage;
+     369: getfield      #24                 // Field CLib/mImage.image:Ljavax/microedition/lcdui/Image;
+     372: invokestatic  #25                 // Method CLib/mImage.getImageHeight:(Ljavax/microedition/lcdui/Image;)I
+     375: bipush        18
+     377: idiv
+     378: iconst_3
+     379: if_icmpne     452
+     382: getstatic     #26                 // Field Main/GameCanvas.gameTick:I
+     385: bipush        10
+     387: irem
+     388: ifne          419
+     391: getstatic     #27                 // Field frameicon:[B
+     394: arraylength
+     395: istore        8
+     397: iload         8
+     399: ifne          405
+     402: iconst_1
+     403: istore        8
+     405: aload_0
+     406: aload_0
+     407: getfield      #28                 // Field frame:B
+     410: iconst_1
+     411: iadd
+     412: iload         8
+     414: irem
+     415: i2b
+     416: putfield      #28                 // Field frame:B
+     419: aload_1
+     420: aload         7
+     422: getfield      #23                 // Field Model/MainImage.img:LCLib/mImage;
+     425: iconst_0
+     426: getstatic     #27                 // Field frameicon:[B
+     429: aload_0
+     430: getfield      #28                 // Field frame:B
+     433: baload
+     434: bipush        18
+     436: imul
+     437: bipush        18
+     439: bipush        18
+     441: iconst_0
+     442: iload_2
+     443: iload_3
+     444: iconst_3
+     445: iconst_1
+     446: invokevirtual #10                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     449: goto          494
+     452: aload_1
+     453: aload         7
+     455: getfield      #23                 // Field Model/MainImage.img:LCLib/mImage;
+     458: iload_2
+     459: iload_3
+     460: iconst_3
+     461: iconst_1
+     462: invokevirtual #29                 // Method CLib/mGraphics.drawImage:(LCLib/mImage;IIIZ)V
+     465: goto          494
+     468: aload_1
+     469: getstatic     #30                 // Field Model/AvMain.imgLoadImg:LCLib/mImage;
+     472: iconst_0
+     473: getstatic     #26                 // Field Main/GameCanvas.gameTick:I
+     476: bipush        12
+     478: irem
+     479: bipush        16
+     481: imul
+     482: bipush        16
+     484: bipush        16
+     486: iconst_0
+     487: iload_2
+     488: iload_3
+     489: iconst_3
+     490: iconst_1
+     491: invokevirtual #10                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     494: aload_0
+     495: getfield      #11                 // Field ItemCatagory:I
+     498: iconst_3
+     499: if_icmpne     549
+     502: aload_0
+     503: getfield      #31                 // Field tier:B
+     506: ifle          549
+     509: aload_0
+     510: getfield      #31                 // Field tier:B
+     513: istore        8
+     515: aload_0
+     516: getfield      #32                 // Field type_Only_Item:I
+     519: bipush        7
+     521: if_icmpne     532
+     524: aload_0
+     525: getfield      #31                 // Field tier:B
+     528: iconst_2
+     529: idiv
+     530: istore        8
+     532: getstatic     #33                 // Field eff_UpLv:LGameEffect/Effect_UpLv_Item;
+     535: iload_2
+     536: iload_3
+     537: iload         8
+     539: iload         4
+     541: iconst_4
+     542: isub
+     543: aload_1
+     544: iload         5
+     546: invokevirtual #34                 // Method GameEffect/Effect_UpLv_Item.paintUpgradeEffect:(IIIILCLib/mGraphics;I)V
+     549: aload_0
+     550: getfield      #44                 // Field isLock:B
+     553: ifle          571
+     556: aload_1
+     557: getstatic     #45                 // Field Model/AvMain.imgLock:LCLib/mImage;
+     560: iload_2
+     561: iconst_4
+     562: iadd
+     563: iload_3
+     564: iconst_3
+     565: iadd
+     566: iconst_0
+     567: iconst_1
+     568: invokevirtual #29                 // Method CLib/mGraphics.drawImage:(LCLib/mImage;IIIZ)V
+     571: aload_0
+     572: getfield      #11                 // Field ItemCatagory:I
+     575: iconst_3
+     576: if_icmpne     601
+     579: aload_0
+     580: getfield      #46                 // Field timeUse:I
+     583: ifle          590
+     586: aload_0
+     587: invokevirtual #47                 // Method updateTime:()V
+     590: aload_0
+     591: invokevirtual #48                 // Method isFashionItem:()Z
+     594: ifeq          601
+     597: aload_0
+     598: invokevirtual #49                 // Method updateFashion:()V
+     601: return
+
+  public void updateTime();
+    Code:
+       0: getstatic     #50                 // Field Main/GameCanvas.timeNow:J
+       3: aload_0
+       4: getfield      #51                 // Field timeDem:J
+       7: lsub
+       8: ldc2_w        #2                  // long 1000l
+      11: ldiv
+      12: ldc2_w        #52                 // long 60l
+      15: lcmp
+      16: iflt          149
+      19: aload_0
+      20: invokevirtual #48                 // Method isFashionItem:()Z
+      23: ifne          149
+      26: aload_0
+      27: dup
+      28: getfield      #51                 // Field timeDem:J
+      31: ldc2_w        #54                 // long 60000l
+      34: ladd
+      35: putfield      #51                 // Field timeDem:J
+      38: aload_0
+      39: dup
+      40: getfield      #46                 // Field timeUse:I
+      43: iconst_1
+      44: isub
+      45: putfield      #46                 // Field timeUse:I
+      48: aload_0
+      49: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+      52: ifnull        149
+      55: aload_0
+      56: getfield      #46                 // Field timeUse:I
+      59: ifle          141
+      62: aload_0
+      63: getfield      #32                 // Field type_Only_Item:I
+      66: bipush        14
+      68: if_icmpne     106
+      71: aload_0
+      72: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+      75: iconst_0
+      76: new           #37                 // class java/lang/StringBuffer
+      79: dup
+      80: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+      83: getstatic     #57                 // Field Model/T.thoigianaptrung:Ljava/lang/String;
+      86: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      89: aload_0
+      90: getfield      #46                 // Field timeUse:I
+      93: invokestatic  #58                 // Method GameScreen/PaintInfoGameScreen.getStringTime:(I)Ljava/lang/String;
+      96: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      99: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     102: aastore
+     103: goto          149
+     106: aload_0
+     107: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     110: iconst_0
+     111: new           #37                 // class java/lang/StringBuffer
+     114: dup
+     115: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     118: getstatic     #59                 // Field Model/T.thoigianconlai:Ljava/lang/String;
+     121: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     124: aload_0
+     125: getfield      #46                 // Field timeUse:I
+     128: invokestatic  #58                 // Method GameScreen/PaintInfoGameScreen.getStringTime:(I)Ljava/lang/String;
+     131: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     134: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     137: aastore
+     138: goto          149
+     141: aload_0
+     142: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     145: iconst_0
+     146: ldc           #40                 // String
+     148: aastore
+     149: return
+
+  public void updateFashion();
+    Code:
+       0: getstatic     #50                 // Field Main/GameCanvas.timeNow:J
+       3: aload_0
+       4: getfield      #51                 // Field timeDem:J
+       7: lsub
+       8: ldc2_w        #2                  // long 1000l
+      11: ldiv
+      12: ldc2_w        #52                 // long 60l
+      15: lcmp
+      16: iflt          139
+      19: aload_0
+      20: dup
+      21: getfield      #51                 // Field timeDem:J
+      24: ldc2_w        #54                 // long 60000l
+      27: ladd
+      28: putfield      #51                 // Field timeDem:J
+      31: aload_0
+      32: getfield      #5                  // Field timeDefaultItemFashion:I
+      35: i2l
+      36: aload_0
+      37: invokevirtual #60                 // Method getTimeItemFashion:()J
+      40: ldc2_w        #54                 // long 60000l
+      43: ldiv
+      44: lsub
+      45: l2i
+      46: istore_1
+      47: aload_0
+      48: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+      51: ifnull        139
+      54: iload_1
+      55: ifle          131
+      58: aload_0
+      59: getfield      #32                 // Field type_Only_Item:I
+      62: bipush        14
+      64: if_icmpne     99
+      67: aload_0
+      68: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+      71: iconst_0
+      72: new           #37                 // class java/lang/StringBuffer
+      75: dup
+      76: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+      79: getstatic     #57                 // Field Model/T.thoigianaptrung:Ljava/lang/String;
+      82: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      85: iload_1
+      86: invokestatic  #58                 // Method GameScreen/PaintInfoGameScreen.getStringTime:(I)Ljava/lang/String;
+      89: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      92: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+      95: aastore
+      96: goto          139
+      99: aload_0
+     100: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     103: iconst_0
+     104: new           #37                 // class java/lang/StringBuffer
+     107: dup
+     108: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     111: getstatic     #59                 // Field Model/T.thoigianconlai:Ljava/lang/String;
+     114: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     117: iload_1
+     118: invokestatic  #58                 // Method GameScreen/PaintInfoGameScreen.getStringTime:(I)Ljava/lang/String;
+     121: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     124: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     127: aastore
+     128: goto          139
+     131: aload_0
+     132: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     135: iconst_0
+     136: ldc           #40                 // String
+     138: aastore
+     139: return
+
+  public boolean setNameNull();
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field itemName:Ljava/lang/String;
+       4: ifnonnull     49
+       7: aload_0
+       8: getfield      #61                 // Field IdTem:S
+      11: invokestatic  #62                 // Method Model/MainTemplateItem.getItemTem:(S)LModel/MainTemplateItem;
+      14: astore_1
+      15: aload_1
+      16: ifnull        33
+      19: aload_1
+      20: getfield      #63                 // Field Model/MainTemplateItem.name:Ljava/lang/String;
+      23: ifnull        33
+      26: aload_0
+      27: aload_1
+      28: invokevirtual #64                 // Method setValueItem:(LModel/MainTemplateItem;)V
+      31: iconst_0
+      32: ireturn
+      33: aload_0
+      34: getfield      #61                 // Field IdTem:S
+      37: invokestatic  #62                 // Method Model/MainTemplateItem.getItemTem:(S)LModel/MainTemplateItem;
+      40: pop
+      41: getstatic     #65                 // Field Model/T.danglaydulieu:Ljava/lang/String;
+      44: invokestatic  #66                 // Method Main/GameCanvas.start_Ok_Dialog:(Ljava/lang/String;)V
+      47: iconst_1
+      48: ireturn
+      49: iconst_0
+      50: ireturn
+
+  public void setValueItem(Model.MainTemplateItem);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: getfield      #63                 // Field Model/MainTemplateItem.name:Ljava/lang/String;
+       5: putfield      #6                  // Field itemName:Ljava/lang/String;
+       8: aload_0
+       9: aload_1
+      10: getfield      #67                 // Field Model/MainTemplateItem.IconId:I
+      13: putfield      #13                 // Field imageId:I
+      16: aload_0
+      17: aload_1
+      18: getfield      #68                 // Field Model/MainTemplateItem.typeItem:I
+      21: putfield      #32                 // Field type_Only_Item:I
+      24: aload_0
+      25: getfield      #69                 // Field mInfo:[LGameObjects/MainInfoItem;
+      28: ifnonnull     83
+      31: aload_1
+      32: getfield      #70                 // Field Model/MainTemplateItem.mValueItem:[I
+      35: arraylength
+      36: anewarray     #71                 // class GameObjects/MainInfoItem
+      39: astore_2
+      40: iconst_0
+      41: istore_3
+      42: iload_3
+      43: aload_1
+      44: getfield      #70                 // Field Model/MainTemplateItem.mValueItem:[I
+      47: arraylength
+      48: if_icmpge     74
+      51: aload_2
+      52: iload_3
+      53: new           #71                 // class GameObjects/MainInfoItem
+      56: dup
+      57: iload_3
+      58: aload_1
+      59: getfield      #70                 // Field Model/MainTemplateItem.mValueItem:[I
+      62: iload_3
+      63: iaload
+      64: invokespecial #72                 // Method GameObjects/MainInfoItem."<init>":(II)V
+      67: aastore
+      68: iinc          3, 1
+      71: goto          42
+      74: aload_0
+      75: aload_2
+      76: putfield      #69                 // Field mInfo:[LGameObjects/MainInfoItem;
+      79: aload_0
+      80: invokevirtual #73                 // Method setContentTem:()V
+      83: return
+
+  public void setContentTem();
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iconst_0
+       3: istore_2
+       4: iload_2
+       5: aload_0
+       6: getfield      #69                 // Field mInfo:[LGameObjects/MainInfoItem;
+       9: arraylength
+      10: if_icmpge     36
+      13: aload_0
+      14: getfield      #69                 // Field mInfo:[LGameObjects/MainInfoItem;
+      17: iload_2
+      18: aaload
+      19: astore_3
+      20: aload_3
+      21: getfield      #74                 // Field GameObjects/MainInfoItem.value:I
+      24: ifle          30
+      27: iinc          1, 1
+      30: iinc          2, 1
+      33: goto          4
+      36: aload_0
+      37: iload_1
+      38: anewarray     #75                 // class java/lang/String
+      41: putfield      #76                 // Field mcontent:[Ljava/lang/String;
+      44: aload_0
+      45: iload_1
+      46: newarray       int
+      48: putfield      #77                 // Field mColor:[I
+      51: iconst_0
+      52: istore_1
+      53: getstatic     #78                 // Field CLib/mFont.tahoma_7b_white:LCLib/mFont;
+      56: aload_0
+      57: getfield      #6                  // Field itemName:Ljava/lang/String;
+      60: invokevirtual #79                 // Method CLib/mFont.getWidth:(Ljava/lang/String;)I
+      63: istore_2
+      64: iload_2
+      65: aload_0
+      66: getfield      #80                 // Field sizeW:I
+      69: bipush        10
+      71: isub
+      72: if_icmple     83
+      75: aload_0
+      76: iload_2
+      77: bipush        10
+      79: iadd
+      80: putfield      #80                 // Field sizeW:I
+      83: iconst_0
+      84: istore_3
+      85: iload_3
+      86: aload_0
+      87: getfield      #69                 // Field mInfo:[LGameObjects/MainInfoItem;
+      90: arraylength
+      91: if_icmpge     234
+      94: aload_0
+      95: getfield      #69                 // Field mInfo:[LGameObjects/MainInfoItem;
+      98: iload_3
+      99: aaload
+     100: astore        4
+     102: aload         4
+     104: getfield      #74                 // Field GameObjects/MainInfoItem.value:I
+     107: ifle          228
+     110: aload_0
+     111: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+     114: iload_1
+     115: new           #37                 // class java/lang/StringBuffer
+     118: dup
+     119: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     122: getstatic     #81                 // Field nameInfoItem:[Ljava/lang/String;
+     125: iload_3
+     126: aaload
+     127: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     130: ldc           #82                 // String :
+     132: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     135: aload         4
+     137: getfield      #74                 // Field GameObjects/MainInfoItem.value:I
+     140: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+     143: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     146: aastore
+     147: getstatic     #83                 // Field isPercentInfoItem:[B
+     150: iload_3
+     151: baload
+     152: iconst_1
+     153: if_icmpne     182
+     156: new           #37                 // class java/lang/StringBuffer
+     159: dup
+     160: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     163: aload_0
+     164: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+     167: iload_1
+     168: dup2_x1
+     169: aaload
+     170: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     173: ldc           #84                 // String %
+     175: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     178: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     181: aastore
+     182: aload_0
+     183: getfield      #77                 // Field mColor:[I
+     186: iload_1
+     187: getstatic     #85                 // Field colorInfoItem:[B
+     190: iload_3
+     191: baload
+     192: iastore
+     193: getstatic     #86                 // Field CLib/mFont.tahoma_7_black:LCLib/mFont;
+     196: aload_0
+     197: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+     200: iload_1
+     201: aaload
+     202: invokevirtual #79                 // Method CLib/mFont.getWidth:(Ljava/lang/String;)I
+     205: istore_2
+     206: iload_2
+     207: aload_0
+     208: getfield      #80                 // Field sizeW:I
+     211: bipush        10
+     213: isub
+     214: if_icmple     225
+     217: aload_0
+     218: iload_2
+     219: bipush        10
+     221: iadd
+     222: putfield      #80                 // Field sizeW:I
+     225: iinc          1, 1
+     228: iinc          3, 1
+     231: goto          85
+     234: aload_0
+     235: getfield      #80                 // Field sizeW:I
+     238: sipush        200
+     241: if_icmple     257
+     244: getstatic     #87                 // Field Main/GameCanvas.isTouch:Z
+     247: ifeq          257
+     250: aload_0
+     251: sipush        130
+     254: putfield      #80                 // Field sizeW:I
+     257: aload_0
+     258: invokevirtual #88                 // Method setSliptConten:()V
+     261: return
+
+  public void setContentItem();
+    Code:
+       0: aload_0
+       1: getfield      #6                  // Field itemName:Ljava/lang/String;
+       4: ifnonnull     13
+       7: aload_0
+       8: aconst_null
+       9: putfield      #6                  // Field itemName:Ljava/lang/String;
+      12: return
+      13: aload_0
+      14: getfield      #69                 // Field mInfo:[LGameObjects/MainInfoItem;
+      17: arraylength
+      18: istore_1
+      19: new           #89                 // class CLib/mVector
+      22: dup
+      23: ldc           #90                 // String EffectSkill tem
+      25: invokespecial #91                 // Method CLib/mVector."<init>":(Ljava/lang/String;)V
+      28: astore_2
+      29: iconst_0
+      30: istore_3
+      31: iload_3
+      32: aload_0
+      33: getfield      #69                 // Field mInfo:[LGameObjects/MainInfoItem;
+      36: arraylength
+      37: if_icmpge     115
+      40: aload_0
+      41: getfield      #69                 // Field mInfo:[LGameObjects/MainInfoItem;
+      44: iload_3
+      45: aaload
+      46: astore        4
+      48: getstatic     #83                 // Field isPercentInfoItem:[B
+      51: aload         4
+      53: getfield      #92                 // Field GameObjects/MainInfoItem.id:I
+      56: baload
+      57: iconst_4
+      58: if_icmpne     88
+      61: new           #93                 // class Model/InfocontenNew
+      64: dup
+      65: aload         4
+      67: getfield      #74                 // Field GameObjects/MainInfoItem.value:I
+      70: iload_3
+      71: invokespecial #94                 // Method Model/InfocontenNew."<init>":(II)V
+      74: astore        5
+      76: aload_0
+      77: getfield      #95                 // Field moreContenGem:LCLib/mVector;
+      80: aload         5
+      82: invokevirtual #96                 // Method CLib/mVector.addElement:(Ljava/lang/Object;)V
+      85: goto          109
+      88: getstatic     #83                 // Field isPercentInfoItem:[B
+      91: aload         4
+      93: getfield      #92                 // Field GameObjects/MainInfoItem.id:I
+      96: baload
+      97: invokestatic  #97                 // Method isATB_Can_paint:(I)Z
+     100: ifeq          109
+     103: aload_2
+     104: aload         4
+     106: invokevirtual #96                 // Method CLib/mVector.addElement:(Ljava/lang/Object;)V
+     109: iinc          3, 1
+     112: goto          31
+     115: aload_2
+     116: invokevirtual #98                 // Method CLib/mVector.size:()I
+     119: istore_1
+     120: aload_0
+     121: iload_1
+     122: anewarray     #75                 // class java/lang/String
+     125: putfield      #76                 // Field mcontent:[Ljava/lang/String;
+     128: aload_0
+     129: iload_1
+     130: newarray       int
+     132: putfield      #77                 // Field mColor:[I
+     135: getstatic     #78                 // Field CLib/mFont.tahoma_7b_white:LCLib/mFont;
+     138: aload_0
+     139: getfield      #6                  // Field itemName:Ljava/lang/String;
+     142: invokevirtual #79                 // Method CLib/mFont.getWidth:(Ljava/lang/String;)I
+     145: istore_3
+     146: iload_3
+     147: aload_0
+     148: getfield      #80                 // Field sizeW:I
+     151: bipush        10
+     153: isub
+     154: if_icmple     165
+     157: aload_0
+     158: iload_3
+     159: bipush        10
+     161: iadd
+     162: putfield      #80                 // Field sizeW:I
+     165: iconst_0
+     166: istore        4
+     168: iload         4
+     170: iload_1
+     171: if_icmpge     502
+     174: aload_2
+     175: iload         4
+     177: invokevirtual #99                 // Method CLib/mVector.elementAt:(I)Ljava/lang/Object;
+     180: checkcast     #71                 // class GameObjects/MainInfoItem
+     183: astore        5
+     185: aload         5
+     187: getfield      #74                 // Field GameObjects/MainInfoItem.value:I
+     190: ifne          212
+     193: aload_0
+     194: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+     197: iload         4
+     199: getstatic     #81                 // Field nameInfoItem:[Ljava/lang/String;
+     202: aload         5
+     204: getfield      #92                 // Field GameObjects/MainInfoItem.id:I
+     207: aaload
+     208: aastore
+     209: goto          447
+     212: aload_0
+     213: getfield      #32                 // Field type_Only_Item:I
+     216: bipush        14
+     218: if_icmpne     356
+     221: aload         5
+     223: getfield      #100                // Field GameObjects/MainInfoItem.maxDam:I
+     226: ifle          299
+     229: aload_0
+     230: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+     233: iload         4
+     235: new           #37                 // class java/lang/StringBuffer
+     238: dup
+     239: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     242: getstatic     #81                 // Field nameInfoItem:[Ljava/lang/String;
+     245: aload         5
+     247: getfield      #92                 // Field GameObjects/MainInfoItem.id:I
+     250: aaload
+     251: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     254: ldc           #82                 // String :
+     256: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     259: getstatic     #83                 // Field isPercentInfoItem:[B
+     262: aload         5
+     264: getfield      #92                 // Field GameObjects/MainInfoItem.id:I
+     267: baload
+     268: aload         5
+     270: getfield      #74                 // Field GameObjects/MainInfoItem.value:I
+     273: invokestatic  #101                // Method getPercent:(II)Ljava/lang/String;
+     276: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     279: ldc           #102                // String -
+     281: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     284: aload         5
+     286: getfield      #100                // Field GameObjects/MainInfoItem.maxDam:I
+     289: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+     292: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     295: aastore
+     296: goto          447
+     299: aload_0
+     300: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+     303: iload         4
+     305: new           #37                 // class java/lang/StringBuffer
+     308: dup
+     309: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     312: getstatic     #81                 // Field nameInfoItem:[Ljava/lang/String;
+     315: aload         5
+     317: getfield      #92                 // Field GameObjects/MainInfoItem.id:I
+     320: aaload
+     321: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     324: ldc           #82                 // String :
+     326: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     329: getstatic     #83                 // Field isPercentInfoItem:[B
+     332: aload         5
+     334: getfield      #92                 // Field GameObjects/MainInfoItem.id:I
+     337: baload
+     338: aload         5
+     340: getfield      #74                 // Field GameObjects/MainInfoItem.value:I
+     343: invokestatic  #101                // Method getPercent:(II)Ljava/lang/String;
+     346: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     349: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     352: aastore
+     353: goto          447
+     356: aload_0
+     357: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+     360: iload         4
+     362: new           #37                 // class java/lang/StringBuffer
+     365: dup
+     366: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     369: getstatic     #81                 // Field nameInfoItem:[Ljava/lang/String;
+     372: aload         5
+     374: getfield      #92                 // Field GameObjects/MainInfoItem.id:I
+     377: aaload
+     378: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     381: ldc           #82                 // String :
+     383: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     386: aload         5
+     388: getfield      #92                 // Field GameObjects/MainInfoItem.id:I
+     391: bipush        70
+     393: if_icmpne     408
+     396: aload         5
+     398: getfield      #74                 // Field GameObjects/MainInfoItem.value:I
+     401: i2l
+     402: invokestatic  #103                // Method GameObjects/MainItem.getDotNumber:(J)Ljava/lang/String;
+     405: goto          425
+     408: getstatic     #83                 // Field isPercentInfoItem:[B
+     411: aload         5
+     413: getfield      #92                 // Field GameObjects/MainInfoItem.id:I
+     416: baload
+     417: aload         5
+     419: getfield      #74                 // Field GameObjects/MainInfoItem.value:I
+     422: invokestatic  #101                // Method getPercent:(II)Ljava/lang/String;
+     425: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     428: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     431: aastore
+     432: aload         5
+     434: getfield      #92                 // Field GameObjects/MainInfoItem.id:I
+     437: bipush        70
+     439: if_icmpne     447
+     442: aload_0
+     443: iconst_1
+     444: putfield      #104                // Field Selling:B
+     447: aload_0
+     448: getfield      #77                 // Field mColor:[I
+     451: iload         4
+     453: getstatic     #85                 // Field colorInfoItem:[B
+     456: aload         5
+     458: getfield      #92                 // Field GameObjects/MainInfoItem.id:I
+     461: baload
+     462: iastore
+     463: getstatic     #86                 // Field CLib/mFont.tahoma_7_black:LCLib/mFont;
+     466: aload_0
+     467: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+     470: iload         4
+     472: aaload
+     473: invokevirtual #79                 // Method CLib/mFont.getWidth:(Ljava/lang/String;)I
+     476: istore_3
+     477: iload_3
+     478: aload_0
+     479: getfield      #80                 // Field sizeW:I
+     482: bipush        10
+     484: isub
+     485: if_icmple     496
+     488: aload_0
+     489: iload_3
+     490: bipush        10
+     492: iadd
+     493: putfield      #80                 // Field sizeW:I
+     496: iinc          4, 1
+     499: goto          168
+     502: iconst_0
+     503: istore        4
+     505: aload_0
+     506: getfield      #46                 // Field timeUse:I
+     509: ifle          515
+     512: iinc          4, 1
+     515: aload_0
+     516: invokevirtual #48                 // Method isFashionItem:()Z
+     519: istore        5
+     521: aload_0
+     522: getfield      #5                  // Field timeDefaultItemFashion:I
+     525: i2l
+     526: aload_0
+     527: invokevirtual #60                 // Method getTimeItemFashion:()J
+     530: ldc2_w        #54                 // long 60000l
+     533: ldiv
+     534: lsub
+     535: l2i
+     536: istore        6
+     538: iload         6
+     540: ifgt          546
+     543: iconst_0
+     544: istore        5
+     546: iload         5
+     548: ifeq          554
+     551: iinc          4, 1
+     554: aload_0
+     555: getfield      #12                 // Field priceItem:J
+     558: lconst_0
+     559: lcmp
+     560: ifle          566
+     563: iinc          4, 1
+     566: aload_0
+     567: getfield      #11                 // Field ItemCatagory:I
+     570: iconst_3
+     571: if_icmpne     593
+     574: aload_0
+     575: getfield      #105                // Field classcharItem:I
+     578: iconst_4
+     579: if_icmpge     593
+     582: aload_0
+     583: getfield      #105                // Field classcharItem:I
+     586: iconst_m1
+     587: if_icmple     593
+     590: iinc          4, 1
+     593: aload_0
+     594: getfield      #32                 // Field type_Only_Item:I
+     597: bipush        14
+     599: if_icmpeq     612
+     602: aload_0
+     603: getfield      #106                // Field LvItem:I
+     606: ifle          612
+     609: iinc          4, 1
+     612: iload         4
+     614: ifle          1065
+     617: aload_0
+     618: iload         4
+     620: anewarray     #75                 // class java/lang/String
+     623: putfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     626: aload_0
+     627: iload         4
+     629: newarray       int
+     631: putfield      #107                // Field mPlusColor:[I
+     634: iconst_0
+     635: istore        4
+     637: aload_0
+     638: getfield      #46                 // Field timeUse:I
+     641: ifle          767
+     644: aload_0
+     645: getfield      #107                // Field mPlusColor:[I
+     648: iload         4
+     650: bipush        6
+     652: iastore
+     653: aload_0
+     654: getfield      #32                 // Field type_Only_Item:I
+     657: bipush        14
+     659: if_icmpne     698
+     662: aload_0
+     663: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     666: iload         4
+     668: new           #37                 // class java/lang/StringBuffer
+     671: dup
+     672: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     675: getstatic     #57                 // Field Model/T.thoigianaptrung:Ljava/lang/String;
+     678: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     681: aload_0
+     682: getfield      #46                 // Field timeUse:I
+     685: invokestatic  #58                 // Method GameScreen/PaintInfoGameScreen.getStringTime:(I)Ljava/lang/String;
+     688: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     691: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     694: aastore
+     695: goto          731
+     698: aload_0
+     699: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     702: iload         4
+     704: new           #37                 // class java/lang/StringBuffer
+     707: dup
+     708: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     711: getstatic     #59                 // Field Model/T.thoigianconlai:Ljava/lang/String;
+     714: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     717: aload_0
+     718: getfield      #46                 // Field timeUse:I
+     721: invokestatic  #58                 // Method GameScreen/PaintInfoGameScreen.getStringTime:(I)Ljava/lang/String;
+     724: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     727: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     730: aastore
+     731: getstatic     #86                 // Field CLib/mFont.tahoma_7_black:LCLib/mFont;
+     734: aload_0
+     735: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     738: iload         4
+     740: aaload
+     741: invokevirtual #79                 // Method CLib/mFont.getWidth:(Ljava/lang/String;)I
+     744: istore_3
+     745: iload_3
+     746: aload_0
+     747: getfield      #80                 // Field sizeW:I
+     750: bipush        10
+     752: isub
+     753: if_icmple     764
+     756: aload_0
+     757: iload_3
+     758: bipush        10
+     760: iadd
+     761: putfield      #80                 // Field sizeW:I
+     764: iinc          4, 1
+     767: iload         5
+     769: ifeq          815
+     772: aload_0
+     773: getfield      #107                // Field mPlusColor:[I
+     776: iload         4
+     778: bipush        6
+     780: iastore
+     781: aload_0
+     782: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     785: iload         4
+     787: new           #37                 // class java/lang/StringBuffer
+     790: dup
+     791: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     794: getstatic     #59                 // Field Model/T.thoigianconlai:Ljava/lang/String;
+     797: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     800: iload         6
+     802: invokestatic  #58                 // Method GameScreen/PaintInfoGameScreen.getStringTime:(I)Ljava/lang/String;
+     805: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     808: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     811: aastore
+     812: iinc          4, 1
+     815: aload_0
+     816: getfield      #11                 // Field ItemCatagory:I
+     819: iconst_3
+     820: if_icmpne     913
+     823: aload_0
+     824: getfield      #105                // Field classcharItem:I
+     827: iconst_4
+     828: if_icmpge     913
+     831: aload_0
+     832: getfield      #105                // Field classcharItem:I
+     835: iconst_m1
+     836: if_icmple     913
+     839: aload_0
+     840: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     843: iload         4
+     845: new           #37                 // class java/lang/StringBuffer
+     848: dup
+     849: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     852: ldc           #108                // String [
+     854: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     857: getstatic     #109                // Field Model/T.mClass:[Ljava/lang/String;
+     860: aload_0
+     861: getfield      #105                // Field classcharItem:I
+     864: aaload
+     865: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     868: ldc           #110                // String ]
+     870: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     873: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     876: aastore
+     877: aload_0
+     878: getfield      #105                // Field classcharItem:I
+     881: getstatic     #111                // Field GameScreen/GameScreen.player:LGameObjects/Player;
+     884: getfield      #112                // Field GameObjects/MainObject.clazz:B
+     887: if_icmpne     901
+     890: aload_0
+     891: getfield      #107                // Field mPlusColor:[I
+     894: iload         4
+     896: iconst_0
+     897: iastore
+     898: goto          910
+     901: aload_0
+     902: getfield      #107                // Field mPlusColor:[I
+     905: iload         4
+     907: bipush        6
+     909: iastore
+     910: iinc          4, 1
+     913: aload_0
+     914: getfield      #12                 // Field priceItem:J
+     917: lconst_0
+     918: lcmp
+     919: ifle          975
+     922: aload_0
+     923: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     926: iload         4
+     928: new           #37                 // class java/lang/StringBuffer
+     931: dup
+     932: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     935: getstatic     #113                // Field Model/T.price:Ljava/lang/String;
+     938: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     941: ldc           #82                 // String :
+     943: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     946: aload_0
+     947: getfield      #12                 // Field priceItem:J
+     950: invokevirtual #114                // Method java/lang/StringBuffer.append:(J)Ljava/lang/StringBuffer;
+     953: aload_0
+     954: invokevirtual #115                // Method getPriceType:()Ljava/lang/String;
+     957: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     960: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     963: aastore
+     964: aload_0
+     965: getfield      #107                // Field mPlusColor:[I
+     968: iload         4
+     970: iconst_2
+     971: iastore
+     972: iinc          4, 1
+     975: aload_0
+     976: getfield      #32                 // Field type_Only_Item:I
+     979: bipush        14
+     981: if_icmpeq     1075
+     984: aload_0
+     985: getfield      #106                // Field LvItem:I
+     988: ifle          1075
+     991: aload_0
+     992: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     995: iload         4
+     997: new           #37                 // class java/lang/StringBuffer
+    1000: dup
+    1001: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+    1004: getstatic     #116                // Field Model/T.LVyeucau:Ljava/lang/String;
+    1007: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    1010: aload_0
+    1011: getfield      #106                // Field LvItem:I
+    1014: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+    1017: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+    1020: aastore
+    1021: aload_0
+    1022: getfield      #107                // Field mPlusColor:[I
+    1025: iload         4
+    1027: iconst_0
+    1028: iastore
+    1029: getstatic     #86                 // Field CLib/mFont.tahoma_7_black:LCLib/mFont;
+    1032: aload_0
+    1033: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+    1036: iload         4
+    1038: aaload
+    1039: invokevirtual #79                 // Method CLib/mFont.getWidth:(Ljava/lang/String;)I
+    1042: istore_3
+    1043: iload_3
+    1044: aload_0
+    1045: getfield      #80                 // Field sizeW:I
+    1048: bipush        10
+    1050: isub
+    1051: if_icmple     1075
+    1054: aload_0
+    1055: iload_3
+    1056: bipush        10
+    1058: iadd
+    1059: putfield      #80                 // Field sizeW:I
+    1062: goto          1075
+    1065: aload_0
+    1066: aconst_null
+    1067: putfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+    1070: aload_0
+    1071: aconst_null
+    1072: putfield      #107                // Field mPlusColor:[I
+    1075: aload_0
+    1076: getfield      #80                 // Field sizeW:I
+    1079: sipush        200
+    1082: if_icmple     1098
+    1085: getstatic     #87                 // Field Main/GameCanvas.isTouch:Z
+    1088: ifeq          1098
+    1091: aload_0
+    1092: sipush        130
+    1095: putfield      #80                 // Field sizeW:I
+    1098: aload_0
+    1099: invokevirtual #88                 // Method setSliptConten:()V
+    1102: return
+
+  public void setSliptConten();
+    Code:
+       0: aload_0
+       1: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+       4: ifnull        31
+       7: aload_0
+       8: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+      11: ifnull        23
+      14: aload_0
+      15: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+      18: arraylength
+      19: iconst_1
+      20: if_icmpeq     31
+      23: aload_0
+      24: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+      27: arraylength
+      28: ifne          32
+      31: return
+      32: aload_0
+      33: getfield      #11                 // Field ItemCatagory:I
+      36: iconst_3
+      37: if_icmpeq     41
+      40: return
+      41: aload_0
+      42: getfield      #80                 // Field sizeW:I
+      45: istore_1
+      46: new           #89                 // class CLib/mVector
+      49: dup
+      50: invokespecial #117                // Method CLib/mVector."<init>":()V
+      53: astore_2
+      54: aload_0
+      55: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+      58: iconst_0
+      59: aaload
+      60: astore_3
+      61: aload_0
+      62: getfield      #77                 // Field mColor:[I
+      65: iconst_0
+      66: iaload
+      67: istore        4
+      69: iconst_1
+      70: istore        5
+      72: iload         5
+      74: aload_0
+      75: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+      78: arraylength
+      79: if_icmpge     149
+      82: getstatic     #86                 // Field CLib/mFont.tahoma_7_black:LCLib/mFont;
+      85: aload_0
+      86: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+      89: iload         5
+      91: aaload
+      92: iload_1
+      93: invokevirtual #118                // Method CLib/mFont.splitFontArray:(Ljava/lang/String;I)[Ljava/lang/String;
+      96: astore        6
+      98: iconst_0
+      99: istore        7
+     101: iload         7
+     103: aload         6
+     105: arraylength
+     106: if_icmpge     143
+     109: new           #119                // class GameObjects/Atb_info
+     112: dup
+     113: aload         6
+     115: iload         7
+     117: aaload
+     118: aload_0
+     119: getfield      #77                 // Field mColor:[I
+     122: iload         5
+     124: iaload
+     125: i2b
+     126: invokespecial #120                // Method GameObjects/Atb_info."<init>":(Ljava/lang/String;B)V
+     129: astore        8
+     131: aload_2
+     132: aload         8
+     134: invokevirtual #96                 // Method CLib/mVector.addElement:(Ljava/lang/Object;)V
+     137: iinc          7, 1
+     140: goto          101
+     143: iinc          5, 1
+     146: goto          72
+     149: aload_0
+     150: aload_2
+     151: invokevirtual #98                 // Method CLib/mVector.size:()I
+     154: iconst_1
+     155: iadd
+     156: anewarray     #75                 // class java/lang/String
+     159: putfield      #76                 // Field mcontent:[Ljava/lang/String;
+     162: aload_0
+     163: aload_2
+     164: invokevirtual #98                 // Method CLib/mVector.size:()I
+     167: iconst_1
+     168: iadd
+     169: newarray       int
+     171: putfield      #77                 // Field mColor:[I
+     174: aload_0
+     175: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+     178: iconst_0
+     179: aload_3
+     180: aastore
+     181: aload_0
+     182: getfield      #77                 // Field mColor:[I
+     185: iconst_0
+     186: iload         4
+     188: iastore
+     189: iconst_0
+     190: istore        5
+     192: iload         5
+     194: aload_2
+     195: invokevirtual #98                 // Method CLib/mVector.size:()I
+     198: if_icmpge     246
+     201: aload_2
+     202: iload         5
+     204: invokevirtual #99                 // Method CLib/mVector.elementAt:(I)Ljava/lang/Object;
+     207: checkcast     #119                // class GameObjects/Atb_info
+     210: astore        6
+     212: aload_0
+     213: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+     216: iload         5
+     218: iconst_1
+     219: iadd
+     220: aload         6
+     222: getfield      #121                // Field GameObjects/Atb_info.info:Ljava/lang/String;
+     225: aastore
+     226: aload_0
+     227: getfield      #77                 // Field mColor:[I
+     230: iload         5
+     232: iconst_1
+     233: iadd
+     234: aload         6
+     236: getfield      #122                // Field GameObjects/Atb_info.id_color:B
+     239: iastore
+     240: iinc          5, 1
+     243: goto          192
+     246: return
+
+  public static java.lang.String getPercent(int, int);
+    Code:
+       0: iload_0
+       1: iconst_1
+       2: if_icmpne     130
+       5: iload_1
+       6: bipush        100
+       8: irem
+       9: ifne          35
+      12: new           #37                 // class java/lang/StringBuffer
+      15: dup
+      16: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+      19: iload_1
+      20: bipush        100
+      22: idiv
+      23: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+      26: ldc           #84                 // String %
+      28: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      31: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+      34: areturn
+      35: iload_1
+      36: bipush        10
+      38: irem
+      39: ifne          80
+      42: new           #37                 // class java/lang/StringBuffer
+      45: dup
+      46: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+      49: iload_1
+      50: bipush        100
+      52: idiv
+      53: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+      56: ldc           #123                // String .
+      58: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      61: iload_1
+      62: bipush        100
+      64: irem
+      65: bipush        10
+      67: idiv
+      68: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+      71: ldc           #84                 // String %
+      73: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      76: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+      79: areturn
+      80: new           #37                 // class java/lang/StringBuffer
+      83: dup
+      84: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+      87: iload_1
+      88: bipush        100
+      90: idiv
+      91: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+      94: ldc           #123                // String .
+      96: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      99: iload_1
+     100: bipush        100
+     102: irem
+     103: bipush        10
+     105: idiv
+     106: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+     109: ldc           #40                 // String
+     111: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     114: iload_1
+     115: bipush        10
+     117: irem
+     118: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+     121: ldc           #84                 // String %
+     123: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     126: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     129: areturn
+     130: iload_0
+     131: iconst_2
+     132: if_icmpne     175
+     135: new           #37                 // class java/lang/StringBuffer
+     138: dup
+     139: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     142: iload_1
+     143: sipush        1000
+     146: idiv
+     147: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+     150: ldc           #124                // String ,
+     152: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     155: iload_1
+     156: sipush        1000
+     159: irem
+     160: bipush        100
+     162: idiv
+     163: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+     166: ldc           #125                // String s
+     168: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     171: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     174: areturn
+     175: iload_0
+     176: iconst_3
+     177: if_icmpne     200
+     180: new           #37                 // class java/lang/StringBuffer
+     183: dup
+     184: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     187: iload_1
+     188: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+     191: ldc           #126                // String $
+     193: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     196: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     199: areturn
+     200: iload_0
+     201: iconst_4
+     202: if_icmpne     208
+     205: ldc           #127                // String
+     207: areturn
+     208: iload_0
+     209: bipush        6
+     211: if_icmpne     240
+     214: new           #37                 // class java/lang/StringBuffer
+     217: dup
+     218: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     221: iload_1
+     222: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+     225: ldc           #127                // String
+     227: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     230: getstatic     #128                // Field Model/T.coin:Ljava/lang/String;
+     233: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     236: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     239: areturn
+     240: iload_0
+     241: bipush        7
+     243: if_icmpne     249
+     246: ldc           #40                 // String
+     248: areturn
+     249: new           #37                 // class java/lang/StringBuffer
+     252: dup
+     253: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     256: ldc           #40                 // String
+     258: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     261: iload_1
+     262: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+     265: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     268: areturn
+
+  public java.lang.String getPriceType();
+    Code:
+       0: new           #37                 // class java/lang/StringBuffer
+       3: dup
+       4: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+       7: ldc           #127                // String
+       9: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      12: getstatic     #128                // Field Model/T.coin:Ljava/lang/String;
+      15: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      18: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+      21: astore_1
+      22: aload_0
+      23: getfield      #129                // Field priceType:B
+      26: iconst_1
+      27: if_icmpne     52
+      30: new           #37                 // class java/lang/StringBuffer
+      33: dup
+      34: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+      37: ldc           #127                // String
+      39: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      42: getstatic     #130                // Field Model/T.gem:Ljava/lang/String;
+      45: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      48: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+      51: astore_1
+      52: aload_1
+      53: areturn
+
+  public static GameObjects.Item getItemVec(int, short, CLib.mVector);
+    Code:
+       0: iconst_0
+       1: istore_3
+       2: iload_3
+       3: aload_2
+       4: invokevirtual #98                 // Method CLib/mVector.size:()I
+       7: if_icmpge     47
+      10: aload_2
+      11: iload_3
+      12: invokevirtual #99                 // Method CLib/mVector.elementAt:(I)Ljava/lang/Object;
+      15: checkcast     #131                // class GameObjects/Item
+      18: astore        4
+      20: aload         4
+      22: getfield      #20                 // Field Id:I
+      25: iload_1
+      26: if_icmpne     41
+      29: aload         4
+      31: getfield      #11                 // Field ItemCatagory:I
+      34: iload_0
+      35: if_icmpne     41
+      38: aload         4
+      40: areturn
+      41: iinc          3, 1
+      44: goto          2
+      47: aconst_null
+      48: areturn
+
+  public static GameObjects.Item getItemInventory(int, short);
+    Code:
+       0: iconst_0
+       1: istore_2
+       2: iload_2
+       3: getstatic     #132                // Field VecInvetoryPlayer:LCLib/mVector;
+       6: invokevirtual #98                 // Method CLib/mVector.size:()I
+       9: if_icmpge     47
+      12: getstatic     #132                // Field VecInvetoryPlayer:LCLib/mVector;
+      15: iload_2
+      16: invokevirtual #99                 // Method CLib/mVector.elementAt:(I)Ljava/lang/Object;
+      19: checkcast     #131                // class GameObjects/Item
+      22: astore_3
+      23: aload_3
+      24: getfield      #20                 // Field Id:I
+      27: iload_1
+      28: if_icmpne     41
+      31: aload_3
+      32: getfield      #11                 // Field ItemCatagory:I
+      35: iload_0
+      36: if_icmpne     41
+      39: aload_3
+      40: areturn
+      41: iinc          2, 1
+      44: goto          2
+      47: aconst_null
+      48: areturn
+
+  public static GameObjects.Item getItemChest(int, short);
+    Code:
+       0: iconst_0
+       1: istore_2
+       2: iload_2
+       3: getstatic     #133                // Field VecChestPlayer:LCLib/mVector;
+       6: invokevirtual #98                 // Method CLib/mVector.size:()I
+       9: if_icmpge     47
+      12: getstatic     #133                // Field VecChestPlayer:LCLib/mVector;
+      15: iload_2
+      16: invokevirtual #99                 // Method CLib/mVector.elementAt:(I)Ljava/lang/Object;
+      19: checkcast     #131                // class GameObjects/Item
+      22: astore_3
+      23: aload_3
+      24: getfield      #20                 // Field Id:I
+      27: iload_1
+      28: if_icmpne     41
+      31: aload_3
+      32: getfield      #11                 // Field ItemCatagory:I
+      35: iload_0
+      36: if_icmpne     41
+      39: aload_3
+      40: areturn
+      41: iinc          2, 1
+      44: goto          2
+      47: aconst_null
+      48: areturn
+
+  public static GameObjects.MainItem getMaterial(int);
+    Code:
+       0: aconst_null
+       1: astore_1
+       2: getstatic     #134                // Field Model/MainTemplateItem.hashMaterialTem:LCLib/mHashtable;
+       5: new           #37                 // class java/lang/StringBuffer
+       8: dup
+       9: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+      12: iload_0
+      13: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+      16: ldc           #40                 // String
+      18: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      21: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+      24: invokevirtual #135                // Method CLib/mHashtable.get:(Ljava/lang/String;)Ljava/lang/Object;
+      27: checkcast     #136                // class GameObjects/MainItem
+      30: astore_1
+      31: aload_1
+      32: ifnull        37
+      35: aload_1
+      36: areturn
+      37: aconst_null
+      38: areturn
+
+  public static void put_Material(int);
+    Code:
+       0: new           #136                // class GameObjects/MainItem
+       3: dup
+       4: invokespecial #137                // Method GameObjects/MainItem."<init>":()V
+       7: astore_1
+       8: getstatic     #134                // Field Model/MainTemplateItem.hashMaterialTem:LCLib/mHashtable;
+      11: new           #37                 // class java/lang/StringBuffer
+      14: dup
+      15: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+      18: ldc           #40                 // String
+      20: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      23: iload_0
+      24: invokevirtual #39                 // Method java/lang/StringBuffer.append:(I)Ljava/lang/StringBuffer;
+      27: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+      30: aload_1
+      31: invokevirtual #138                // Method CLib/mHashtable.put:(Ljava/lang/String;Ljava/lang/Object;)V
+      34: invokestatic  #139                // Method netcommand/global/GlobalService.gI:()Lnetcommand/global/GlobalService;
+      37: iload_0
+      38: i2s
+      39: invokevirtual #140                // Method netcommand/global/GlobalService.RequestMaterialTemplate:(S)V
+      42: return
+
+  public boolean isMaterialHopNguyenLieu();
+    Code:
+       0: iconst_0
+       1: ireturn
+
+  public void setinfo(int, java.lang.String, int, int, long, byte, java.lang.String, int, byte, short, byte, byte);
+    Code:
+       0: aload_0
+       1: aload_2
+       2: putfield      #6                  // Field itemName:Ljava/lang/String;
+       5: aload_0
+       6: iload_3
+       7: putfield      #13                 // Field imageId:I
+      10: aload_0
+      11: iload_1
+      12: putfield      #20                 // Field Id:I
+      15: aload_0
+      16: iload         4
+      18: putfield      #11                 // Field ItemCatagory:I
+      21: aload_0
+      22: lload         5
+      24: putfield      #12                 // Field priceItem:J
+      27: aload_0
+      28: iload         7
+      30: putfield      #129                // Field priceType:B
+      33: aload_0
+      34: iload         9
+      36: putfield      #141                // Field value:I
+      39: aload_0
+      40: iload         12
+      42: putfield      #142                // Field canSell:B
+      45: aload_0
+      46: iload         13
+      48: putfield      #143                // Field canTrade:B
+      51: aload_0
+      52: aload         8
+      54: putfield      #144                // Field content:Ljava/lang/String;
+      57: aload_0
+      58: iload         10
+      60: putfield      #145                // Field typeMaterial:B
+      63: aload         8
+      65: ifnull        74
+      68: aload_0
+      69: aload         8
+      71: invokevirtual #146                // Method mMoreContent:(Ljava/lang/String;)V
+      74: aload_0
+      75: iconst_2
+      76: putfield      #147                // Field IndexSort:B
+      79: return
+
+  public void setinfo(java.lang.String, int, int, long, byte, java.lang.String, int, byte, short, byte, byte);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #6                  // Field itemName:Ljava/lang/String;
+       5: aload_0
+       6: iload_2
+       7: putfield      #13                 // Field imageId:I
+      10: aload_0
+      11: iload_3
+      12: putfield      #11                 // Field ItemCatagory:I
+      15: aload_0
+      16: lload         4
+      18: putfield      #12                 // Field priceItem:J
+      21: aload_0
+      22: iload         6
+      24: putfield      #129                // Field priceType:B
+      27: aload_0
+      28: iload         8
+      30: putfield      #141                // Field value:I
+      33: aload_0
+      34: iload         11
+      36: putfield      #142                // Field canSell:B
+      39: aload_0
+      40: iload         12
+      42: putfield      #143                // Field canTrade:B
+      45: aload_0
+      46: aload         7
+      48: putfield      #144                // Field content:Ljava/lang/String;
+      51: aload_0
+      52: iload         9
+      54: putfield      #145                // Field typeMaterial:B
+      57: aload         7
+      59: ifnull        68
+      62: aload_0
+      63: aload         7
+      65: invokevirtual #146                // Method mMoreContent:(Ljava/lang/String;)V
+      68: aload_0
+      69: iconst_2
+      70: putfield      #147                // Field IndexSort:B
+      73: return
+
+  public void mMoreContent(java.lang.String);
+    Code:
+       0: aload_0
+       1: bipush        86
+       3: putfield      #80                 // Field sizeW:I
+       6: getstatic     #148                // Field InterfaceComponents/MainTabNew.longwidth:I
+       9: ifle          21
+      12: aload_0
+      13: getstatic     #148                // Field InterfaceComponents/MainTabNew.longwidth:I
+      16: iconst_5
+      17: isub
+      18: putfield      #80                 // Field sizeW:I
+      21: aload_0
+      22: getstatic     #86                 // Field CLib/mFont.tahoma_7_black:LCLib/mFont;
+      25: aload_1
+      26: aload_0
+      27: getfield      #80                 // Field sizeW:I
+      30: iconst_5
+      31: isub
+      32: invokevirtual #118                // Method CLib/mFont.splitFontArray:(Ljava/lang/String;I)[Ljava/lang/String;
+      35: putfield      #76                 // Field mcontent:[Ljava/lang/String;
+      38: getstatic     #148                // Field InterfaceComponents/MainTabNew.longwidth:I
+      41: ifne          103
+      44: aload_0
+      45: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+      48: arraylength
+      49: iconst_1
+      50: iadd
+      51: getstatic     #149                // Field Main/GameCanvas.hText:I
+      54: imul
+      55: getstatic     #150                // Field Main/GameCanvas.h:I
+      58: iconst_4
+      59: idiv
+      60: iconst_3
+      61: imul
+      62: if_icmpgt     80
+      65: getstatic     #151                // Field CLib/mFont.tahoma_7b_black:LCLib/mFont;
+      68: aload_0
+      69: getfield      #6                  // Field itemName:Ljava/lang/String;
+      72: invokevirtual #79                 // Method CLib/mFont.getWidth:(Ljava/lang/String;)I
+      75: bipush        70
+      77: if_icmple     103
+      80: aload_0
+      81: bipush        120
+      83: putfield      #80                 // Field sizeW:I
+      86: aload_0
+      87: getstatic     #86                 // Field CLib/mFont.tahoma_7_black:LCLib/mFont;
+      90: aload_1
+      91: aload_0
+      92: getfield      #80                 // Field sizeW:I
+      95: iconst_5
+      96: isub
+      97: invokevirtual #118                // Method CLib/mFont.splitFontArray:(Ljava/lang/String;I)[Ljava/lang/String;
+     100: putfield      #76                 // Field mcontent:[Ljava/lang/String;
+     103: aload_0
+     104: aload_0
+     105: getfield      #76                 // Field mcontent:[Ljava/lang/String;
+     108: arraylength
+     109: newarray       int
+     111: putfield      #77                 // Field mColor:[I
+     114: iconst_0
+     115: istore_2
+     116: iload_2
+     117: aload_0
+     118: getfield      #77                 // Field mColor:[I
+     121: arraylength
+     122: if_icmpge     138
+     125: aload_0
+     126: getfield      #77                 // Field mColor:[I
+     129: iload_2
+     130: iconst_0
+     131: iastore
+     132: iinc          2, 1
+     135: goto          116
+     138: iconst_0
+     139: istore_2
+     140: aload_0
+     141: getfield      #12                 // Field priceItem:J
+     144: lconst_0
+     145: lcmp
+     146: ifle          152
+     149: iinc          2, 1
+     152: iload_2
+     153: ifle          238
+     156: aload_0
+     157: iload_2
+     158: anewarray     #75                 // class java/lang/String
+     161: putfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     164: aload_0
+     165: iload_2
+     166: newarray       int
+     168: putfield      #107                // Field mPlusColor:[I
+     171: aload_0
+     172: getfield      #12                 // Field priceItem:J
+     175: lconst_0
+     176: lcmp
+     177: ifle          248
+     180: aload_0
+     181: getfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     184: iload_2
+     185: iconst_1
+     186: isub
+     187: new           #37                 // class java/lang/StringBuffer
+     190: dup
+     191: invokespecial #38                 // Method java/lang/StringBuffer."<init>":()V
+     194: getstatic     #113                // Field Model/T.price:Ljava/lang/String;
+     197: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     200: ldc           #82                 // String :
+     202: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     205: aload_0
+     206: getfield      #12                 // Field priceItem:J
+     209: invokestatic  #103                // Method GameObjects/MainItem.getDotNumber:(J)Ljava/lang/String;
+     212: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     215: aload_0
+     216: invokevirtual #115                // Method getPriceType:()Ljava/lang/String;
+     219: invokevirtual #41                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+     222: invokevirtual #42                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+     225: aastore
+     226: aload_0
+     227: getfield      #107                // Field mPlusColor:[I
+     230: iload_2
+     231: iconst_1
+     232: isub
+     233: iconst_2
+     234: iastore
+     235: goto          248
+     238: aload_0
+     239: aconst_null
+     240: putfield      #56                 // Field mPlusContent:[Ljava/lang/String;
+     243: aload_0
+     244: aconst_null
+     245: putfield      #107                // Field mPlusColor:[I
+     248: aload_0
+     249: getfield      #80                 // Field sizeW:I
+     252: sipush        200
+     255: if_icmple     270
+     258: getstatic     #87                 // Field Main/GameCanvas.isTouch:Z
+     261: ifeq          270
+     264: aload_0
+     265: bipush        120
+     267: putfield      #80                 // Field sizeW:I
+     270: aload_0
+     271: invokevirtual #88                 // Method setSliptConten:()V
+     274: return
+
+  public GameObjects.Item();
+    Code:
+       0: aload_0
+       1: invokespecial #152                // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: bipush        60
+       7: putfield      #80                 // Field sizeW:I
+      10: aload_0
+      11: bipush        16
+      13: putfield      #153                // Field wImage:I
+      16: aload_0
+      17: iconst_0
+      18: putfield      #142                // Field canSell:B
+      21: aload_0
+      22: iconst_0
+      23: putfield      #143                // Field canTrade:B
+      26: aload_0
+      27: iconst_0
+      28: putfield      #31                 // Field tier:B
+      31: aload_0
+      32: iconst_0
+      33: putfield      #44                 // Field isLock:B
+      36: aload_0
+      37: iconst_0
+      38: putfield      #147                // Field IndexSort:B
+      41: aload_0
+      42: lconst_0
+      43: putfield      #51                 // Field timeDem:J
+      46: aload_0
+      47: iconst_0
+      48: putfield      #104                // Field Selling:B
+      51: aload_0
+      52: iconst_0
+      53: putfield      #154                // Field can_sell_for_other_player:B
+      56: aload_0
+      57: iconst_m1
+      58: putfield      #5                  // Field timeDefaultItemFashion:I
+      61: aload_0
+      62: ldc2_w        #155                // long -1l
+      65: putfield      #4                  // Field currentTimeItemFashion:J
+      68: aload_0
+      69: iconst_0
+      70: putfield      #157                // Field CanShell_CanNotTrade:B
+      73: aload_0
+      74: iconst_0
+      75: putfield      #158                // Field isSell:Z
+      78: aload_0
+      79: iconst_2
+      80: anewarray     #75                 // class java/lang/String
+      83: dup
+      84: iconst_0
+      85: ldc           #40                 // String
+      87: aastore
+      88: dup
+      89: iconst_1
+      90: ldc           #40                 // String
+      92: aastore
+      93: putfield      #159                // Field infoHop:[Ljava/lang/String;
+      96: aload_0
+      97: new           #89                 // class CLib/mVector
+     100: dup
+     101: ldc           #160                // String EffectSkill moreContenGem
+     103: invokespecial #91                 // Method CLib/mVector."<init>":(Ljava/lang/String;)V
+     106: putfield      #95                 // Field moreContenGem:LCLib/mVector;
+     109: aload_0
+     110: iconst_0
+     111: putfield      #8                  // Field colorNameItem:I
+     114: aload_0
+     115: ldc           #40                 // String
+     117: putfield      #161                // Field diaHoiEvent:Ljava/lang/String;
+     120: aload_0
+     121: iconst_0
+     122: putfield      #28                 // Field frame:B
+     125: return
+
+  public static boolean isATB_Can_paint(int);
+    Code:
+       0: iconst_0
+       1: istore_1
+       2: iload_1
+       3: getstatic     #162                // Field ATB_Can_Not_Paint:[B
+       6: arraylength
+       7: if_icmpge     27
+      10: iload_0
+      11: getstatic     #162                // Field ATB_Can_Not_Paint:[B
+      14: iload_1
+      15: baload
+      16: if_icmpne     21
+      19: iconst_0
+      20: ireturn
+      21: iinc          1, 1
+      24: goto          2
+      27: iconst_1
+      28: ireturn
+
+  public void setColorName(int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #8                  // Field colorNameItem:I
+       5: return
+
+  public void addATBitem(int, int, int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: anewarray     #71                 // class GameObjects/MainInfoItem
+       5: putfield      #69                 // Field mInfo:[LGameObjects/MainInfoItem;
+       8: iconst_0
+       9: istore        4
+      11: iload         4
+      13: iload_1
+      14: if_icmpge     39
+      17: aload_0
+      18: getfield      #69                 // Field mInfo:[LGameObjects/MainInfoItem;
+      21: iload         4
+      23: new           #71                 // class GameObjects/MainInfoItem
+      26: dup
+      27: iload_3
+      28: iload_2
+      29: invokespecial #72                 // Method GameObjects/MainInfoItem."<init>":(II)V
+      32: aastore
+      33: iinc          4, 1
+      36: goto          11
+      39: return
+
+  static {};
+    Code:
+       0: bipush        49
+       2: putstatic     #163                // Field TYPE_NGOC_KHAM:B
+       5: bipush        50
+       7: putstatic     #164                // Field TYPE_BUA_HUYEN_BI:B
+      10: bipush        51
+      12: putstatic     #165                // Field ID_TEM_VE_MUA_BAN:I
+      15: new           #166                // class GameEffect/Effect_UpLv_Item
+      18: dup
+      19: invokespecial #167                // Method GameEffect/Effect_UpLv_Item."<init>":()V
+      22: putstatic     #33                 // Field eff_UpLv:LGameEffect/Effect_UpLv_Item;
+      25: new           #168                // class CLib/mHashtable
+      28: dup
+      29: invokespecial #169                // Method CLib/mHashtable."<init>":()V
+      32: putstatic     #170                // Field VecEquipPlayer:LCLib/mHashtable;
+      35: new           #89                 // class CLib/mVector
+      38: dup
+      39: ldc           #171                // String Item VecInvetoryPlayer
+      41: invokespecial #91                 // Method CLib/mVector."<init>":(Ljava/lang/String;)V
+      44: putstatic     #132                // Field VecInvetoryPlayer:LCLib/mVector;
+      47: new           #89                 // class CLib/mVector
+      50: dup
+      51: ldc           #172                // String Item VecChestPlayer
+      53: invokespecial #91                 // Method CLib/mVector."<init>":(Ljava/lang/String;)V
+      56: putstatic     #133                // Field VecChestPlayer:LCLib/mVector;
+      59: new           #89                 // class CLib/mVector
+      62: dup
+      63: ldc           #173                // String Item VecPetContainer
+      65: invokespecial #91                 // Method CLib/mVector."<init>":(Ljava/lang/String;)V
+      68: putstatic     #174                // Field VecPetContainer:LCLib/mVector;
+      71: new           #89                 // class CLib/mVector
+      74: dup
+      75: ldc           #175                // String Item VecClanInvetory
+      77: invokespecial #91                 // Method CLib/mVector."<init>":(Ljava/lang/String;)V
+      80: putstatic     #176                // Field VecClanInvetory:LCLib/mVector;
+      83: new           #89                 // class CLib/mVector
+      86: dup
+      87: ldc           #177                // String Item VecLotteryReward
+      89: invokespecial #91                 // Method CLib/mVector."<init>":(Ljava/lang/String;)V
+      92: putstatic     #178                // Field VecLotteryReward:LCLib/mVector;
+      95: new           #89                 // class CLib/mVector
+      98: dup
+      99: ldc           #179                // String Item Sell
+     101: invokespecial #91                 // Method CLib/mVector."<init>":(Ljava/lang/String;)V
+     104: putstatic     #180                // Field VecItemSell:LCLib/mVector;
+     107: new           #89                 // class CLib/mVector
+     110: dup
+     111: ldc           #181                // String Item Sell in store
+     113: invokespecial #91                 // Method CLib/mVector."<init>":(Ljava/lang/String;)V
+     116: putstatic     #182                // Field VecItem_Sell_in_store:LCLib/mVector;
+     119: new           #168                // class CLib/mHashtable
+     122: dup
+     123: invokespecial #169                // Method CLib/mHashtable."<init>":()V
+     126: putstatic     #183                // Field HashImageItem:LCLib/mHashtable;
+     129: new           #168                // class CLib/mHashtable
+     132: dup
+     133: invokespecial #169                // Method CLib/mHashtable."<init>":()V
+     136: putstatic     #184                // Field HashImagePotion:LCLib/mHashtable;
+     139: new           #168                // class CLib/mHashtable
+     142: dup
+     143: invokespecial #169                // Method CLib/mHashtable."<init>":()V
+     146: putstatic     #185                // Field HashImageQuestItem:LCLib/mHashtable;
+     149: new           #168                // class CLib/mHashtable
+     152: dup
+     153: invokespecial #169                // Method CLib/mHashtable."<init>":()V
+     156: putstatic     #186                // Field HashImageMaterial:LCLib/mHashtable;
+     159: new           #168                // class CLib/mHashtable
+     162: dup
+     163: invokespecial #169                // Method CLib/mHashtable."<init>":()V
+     166: putstatic     #187                // Field HashImageIconClan:LCLib/mHashtable;
+     169: new           #168                // class CLib/mHashtable
+     172: dup
+     173: invokespecial #169                // Method CLib/mHashtable."<init>":()V
+     176: putstatic     #188                // Field HashImageIconArcheClan:LCLib/mHashtable;
+     179: new           #168                // class CLib/mHashtable
+     182: dup
+     183: invokespecial #169                // Method CLib/mHashtable."<init>":()V
+     186: putstatic     #189                // Field HashImagePetIcon:LCLib/mHashtable;
+     189: new           #168                // class CLib/mHashtable
+     192: dup
+     193: invokespecial #169                // Method CLib/mHashtable."<init>":()V
+     196: putstatic     #190                // Field HashImageMount:LCLib/mHashtable;
+     199: iconst_4
+     200: newarray       byte
+     202: dup
+     203: iconst_0
+     204: iconst_0
+     205: bastore
+     206: dup
+     207: iconst_1
+     208: iconst_1
+     209: bastore
+     210: dup
+     211: iconst_2
+     212: iconst_2
+     213: bastore
+     214: dup
+     215: iconst_3
+     216: iconst_1
+     217: bastore
+     218: putstatic     #27                 // Field frameicon:[B
+     221: return
+}

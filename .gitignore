@@ -1,0 +1,17 @@
+# Recreated from the original JAR / pinned build dependencies.
+/analysis/extracted/
+/mod/.cache/
+/mod/build/
+
+# Local Python state and captured gameplay data.
+__pycache__/
+*.py[cod]
+*.knav
+*.knav.part
+/captures/
+
+# Local editor / OS files.
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,1854 @@
+Compiled from "Monstervantieu.java"
+public class GameObjects.Monstervantieu extends GameObjects.MainMonster {
+  public static final int ID_TEMPLATE_LUA_TRANG;
+
+  public static final int ID_TEMPLATE_LUA_DEN;
+
+  public static final int ID_TEMPLATE_LAC_DA_TRANG;
+
+  public static final int ID_TEMPLATE_LAC_DA_DEN;
+
+  public static final int ID_TEMPLATE_BO_TRANG;
+
+  public static final int ID_TEMPLATE_BO_DEN;
+
+  public static final int ID_TEMPLATE_VOI_TRANG;
+
+  public static final int ID_TEMPLATE_VOI_DEN;
+
+  public byte Maxspeed;
+
+  byte typemove;
+
+  public byte[][][] FRAMEMOVE;
+
+  public byte[][] FRAMESTAND;
+
+  public byte[] dysai;
+
+  byte numW;
+
+  byte numH;
+
+  byte vTam;
+
+  byte xwater;
+
+  public GameObjects.Monstervantieu(int, int, int, java.lang.String, int, int, int, int);
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method GameObjects/MainMonster."<init>":()V
+       4: aload_0
+       5: iconst_0
+       6: putfield      #2                  // Field typemove:B
+       9: aload_0
+      10: iconst_3
+      11: anewarray     #3                  // class "[[B"
+      14: dup
+      15: iconst_0
+      16: iconst_4
+      17: anewarray     #4                  // class "[B"
+      20: dup
+      21: iconst_0
+      22: bipush        13
+      24: newarray       byte
+      26: dup
+      27: iconst_0
+      28: bipush        7
+      30: bastore
+      31: dup
+      32: iconst_1
+      33: bipush        7
+      35: bastore
+      36: dup
+      37: iconst_2
+      38: bipush        7
+      40: bastore
+      41: dup
+      42: iconst_3
+      43: bipush        8
+      45: bastore
+      46: dup
+      47: iconst_4
+      48: bipush        8
+      50: bastore
+      51: dup
+      52: iconst_5
+      53: bipush        8
+      55: bastore
+      56: dup
+      57: bipush        6
+      59: bipush        9
+      61: bastore
+      62: dup
+      63: bipush        7
+      65: bipush        9
+      67: bastore
+      68: dup
+      69: bipush        8
+      71: bipush        9
+      73: bastore
+      74: dup
+      75: bipush        9
+      77: bipush        6
+      79: bastore
+      80: dup
+      81: bipush        10
+      83: bipush        6
+      85: bastore
+      86: dup
+      87: bipush        11
+      89: bipush        6
+      91: bastore
+      92: dup
+      93: bipush        12
+      95: bipush        6
+      97: bastore
+      98: aastore
+      99: dup
+     100: iconst_1
+     101: bipush        13
+     103: newarray       byte
+     105: dup
+     106: iconst_0
+     107: bipush        12
+     109: bastore
+     110: dup
+     111: iconst_1
+     112: bipush        12
+     114: bastore
+     115: dup
+     116: iconst_2
+     117: bipush        12
+     119: bastore
+     120: dup
+     121: iconst_3
+     122: bipush        13
+     124: bastore
+     125: dup
+     126: iconst_4
+     127: bipush        13
+     129: bastore
+     130: dup
+     131: iconst_5
+     132: bipush        13
+     134: bastore
+     135: dup
+     136: bipush        6
+     138: bipush        14
+     140: bastore
+     141: dup
+     142: bipush        7
+     144: bipush        14
+     146: bastore
+     147: dup
+     148: bipush        8
+     150: bipush        14
+     152: bastore
+     153: dup
+     154: bipush        9
+     156: bipush        11
+     158: bastore
+     159: dup
+     160: bipush        10
+     162: bipush        11
+     164: bastore
+     165: dup
+     166: bipush        11
+     168: bipush        11
+     170: bastore
+     171: dup
+     172: bipush        12
+     174: bipush        11
+     176: bastore
+     177: aastore
+     178: dup
+     179: iconst_2
+     180: bipush        13
+     182: newarray       byte
+     184: dup
+     185: iconst_0
+     186: iconst_2
+     187: bastore
+     188: dup
+     189: iconst_1
+     190: iconst_2
+     191: bastore
+     192: dup
+     193: iconst_2
+     194: iconst_2
+     195: bastore
+     196: dup
+     197: iconst_3
+     198: iconst_3
+     199: bastore
+     200: dup
+     201: iconst_4
+     202: iconst_3
+     203: bastore
+     204: dup
+     205: iconst_5
+     206: iconst_3
+     207: bastore
+     208: dup
+     209: bipush        6
+     211: iconst_4
+     212: bastore
+     213: dup
+     214: bipush        7
+     216: iconst_4
+     217: bastore
+     218: dup
+     219: bipush        8
+     221: iconst_4
+     222: bastore
+     223: dup
+     224: bipush        9
+     226: iconst_1
+     227: bastore
+     228: dup
+     229: bipush        10
+     231: iconst_1
+     232: bastore
+     233: dup
+     234: bipush        11
+     236: iconst_1
+     237: bastore
+     238: dup
+     239: bipush        12
+     241: iconst_1
+     242: bastore
+     243: aastore
+     244: dup
+     245: iconst_3
+     246: bipush        13
+     248: newarray       byte
+     250: dup
+     251: iconst_0
+     252: iconst_2
+     253: bastore
+     254: dup
+     255: iconst_1
+     256: iconst_2
+     257: bastore
+     258: dup
+     259: iconst_2
+     260: iconst_2
+     261: bastore
+     262: dup
+     263: iconst_3
+     264: iconst_3
+     265: bastore
+     266: dup
+     267: iconst_4
+     268: iconst_3
+     269: bastore
+     270: dup
+     271: iconst_5
+     272: iconst_3
+     273: bastore
+     274: dup
+     275: bipush        6
+     277: iconst_4
+     278: bastore
+     279: dup
+     280: bipush        7
+     282: iconst_4
+     283: bastore
+     284: dup
+     285: bipush        8
+     287: iconst_4
+     288: bastore
+     289: dup
+     290: bipush        9
+     292: iconst_1
+     293: bastore
+     294: dup
+     295: bipush        10
+     297: iconst_1
+     298: bastore
+     299: dup
+     300: bipush        11
+     302: iconst_1
+     303: bastore
+     304: dup
+     305: bipush        12
+     307: iconst_1
+     308: bastore
+     309: aastore
+     310: aastore
+     311: dup
+     312: iconst_1
+     313: iconst_4
+     314: anewarray     #4                  // class "[B"
+     317: dup
+     318: iconst_0
+     319: bipush        16
+     321: newarray       byte
+     323: dup
+     324: iconst_0
+     325: bipush        7
+     327: bastore
+     328: dup
+     329: iconst_1
+     330: bipush        7
+     332: bastore
+     333: dup
+     334: iconst_2
+     335: bipush        7
+     337: bastore
+     338: dup
+     339: iconst_3
+     340: bipush        7
+     342: bastore
+     343: dup
+     344: iconst_4
+     345: bipush        8
+     347: bastore
+     348: dup
+     349: iconst_5
+     350: bipush        8
+     352: bastore
+     353: dup
+     354: bipush        6
+     356: bipush        8
+     358: bastore
+     359: dup
+     360: bipush        7
+     362: bipush        8
+     364: bastore
+     365: dup
+     366: bipush        8
+     368: bipush        9
+     370: bastore
+     371: dup
+     372: bipush        9
+     374: bipush        9
+     376: bastore
+     377: dup
+     378: bipush        10
+     380: bipush        9
+     382: bastore
+     383: dup
+     384: bipush        11
+     386: bipush        9
+     388: bastore
+     389: dup
+     390: bipush        12
+     392: bipush        6
+     394: bastore
+     395: dup
+     396: bipush        13
+     398: bipush        6
+     400: bastore
+     401: dup
+     402: bipush        14
+     404: bipush        6
+     406: bastore
+     407: dup
+     408: bipush        15
+     410: bipush        6
+     412: bastore
+     413: aastore
+     414: dup
+     415: iconst_1
+     416: bipush        16
+     418: newarray       byte
+     420: dup
+     421: iconst_0
+     422: bipush        12
+     424: bastore
+     425: dup
+     426: iconst_1
+     427: bipush        12
+     429: bastore
+     430: dup
+     431: iconst_2
+     432: bipush        12
+     434: bastore
+     435: dup
+     436: iconst_3
+     437: bipush        12
+     439: bastore
+     440: dup
+     441: iconst_4
+     442: bipush        13
+     444: bastore
+     445: dup
+     446: iconst_5
+     447: bipush        13
+     449: bastore
+     450: dup
+     451: bipush        6
+     453: bipush        13
+     455: bastore
+     456: dup
+     457: bipush        7
+     459: bipush        13
+     461: bastore
+     462: dup
+     463: bipush        8
+     465: bipush        14
+     467: bastore
+     468: dup
+     469: bipush        9
+     471: bipush        14
+     473: bastore
+     474: dup
+     475: bipush        10
+     477: bipush        14
+     479: bastore
+     480: dup
+     481: bipush        11
+     483: bipush        14
+     485: bastore
+     486: dup
+     487: bipush        12
+     489: bipush        11
+     491: bastore
+     492: dup
+     493: bipush        13
+     495: bipush        11
+     497: bastore
+     498: dup
+     499: bipush        14
+     501: bipush        11
+     503: bastore
+     504: dup
+     505: bipush        15
+     507: bipush        11
+     509: bastore
+     510: aastore
+     511: dup
+     512: iconst_2
+     513: bipush        16
+     515: newarray       byte
+     517: dup
+     518: iconst_0
+     519: iconst_2
+     520: bastore
+     521: dup
+     522: iconst_1
+     523: iconst_2
+     524: bastore
+     525: dup
+     526: iconst_2
+     527: iconst_2
+     528: bastore
+     529: dup
+     530: iconst_3
+     531: iconst_2
+     532: bastore
+     533: dup
+     534: iconst_4
+     535: iconst_3
+     536: bastore
+     537: dup
+     538: iconst_5
+     539: iconst_3
+     540: bastore
+     541: dup
+     542: bipush        6
+     544: iconst_3
+     545: bastore
+     546: dup
+     547: bipush        7
+     549: iconst_3
+     550: bastore
+     551: dup
+     552: bipush        8
+     554: iconst_4
+     555: bastore
+     556: dup
+     557: bipush        9
+     559: iconst_4
+     560: bastore
+     561: dup
+     562: bipush        10
+     564: iconst_4
+     565: bastore
+     566: dup
+     567: bipush        11
+     569: iconst_4
+     570: bastore
+     571: dup
+     572: bipush        12
+     574: iconst_1
+     575: bastore
+     576: dup
+     577: bipush        13
+     579: iconst_1
+     580: bastore
+     581: dup
+     582: bipush        14
+     584: iconst_1
+     585: bastore
+     586: dup
+     587: bipush        15
+     589: iconst_1
+     590: bastore
+     591: aastore
+     592: dup
+     593: iconst_3
+     594: bipush        16
+     596: newarray       byte
+     598: dup
+     599: iconst_0
+     600: iconst_2
+     601: bastore
+     602: dup
+     603: iconst_1
+     604: iconst_2
+     605: bastore
+     606: dup
+     607: iconst_2
+     608: iconst_2
+     609: bastore
+     610: dup
+     611: iconst_3
+     612: iconst_2
+     613: bastore
+     614: dup
+     615: iconst_4
+     616: iconst_3
+     617: bastore
+     618: dup
+     619: iconst_5
+     620: iconst_3
+     621: bastore
+     622: dup
+     623: bipush        6
+     625: iconst_3
+     626: bastore
+     627: dup
+     628: bipush        7
+     630: iconst_3
+     631: bastore
+     632: dup
+     633: bipush        8
+     635: iconst_4
+     636: bastore
+     637: dup
+     638: bipush        9
+     640: iconst_4
+     641: bastore
+     642: dup
+     643: bipush        10
+     645: iconst_4
+     646: bastore
+     647: dup
+     648: bipush        11
+     650: iconst_4
+     651: bastore
+     652: dup
+     653: bipush        12
+     655: iconst_1
+     656: bastore
+     657: dup
+     658: bipush        13
+     660: iconst_1
+     661: bastore
+     662: dup
+     663: bipush        14
+     665: iconst_1
+     666: bastore
+     667: dup
+     668: bipush        15
+     670: iconst_1
+     671: bastore
+     672: aastore
+     673: aastore
+     674: dup
+     675: iconst_2
+     676: iconst_4
+     677: anewarray     #4                  // class "[B"
+     680: dup
+     681: iconst_0
+     682: bipush        16
+     684: newarray       byte
+     686: dup
+     687: iconst_0
+     688: bipush        7
+     690: bastore
+     691: dup
+     692: iconst_1
+     693: bipush        7
+     695: bastore
+     696: dup
+     697: iconst_2
+     698: bipush        7
+     700: bastore
+     701: dup
+     702: iconst_3
+     703: bipush        7
+     705: bastore
+     706: dup
+     707: iconst_4
+     708: bipush        8
+     710: bastore
+     711: dup
+     712: iconst_5
+     713: bipush        8
+     715: bastore
+     716: dup
+     717: bipush        6
+     719: bipush        8
+     721: bastore
+     722: dup
+     723: bipush        7
+     725: bipush        8
+     727: bastore
+     728: dup
+     729: bipush        8
+     731: bipush        9
+     733: bastore
+     734: dup
+     735: bipush        9
+     737: bipush        9
+     739: bastore
+     740: dup
+     741: bipush        10
+     743: bipush        9
+     745: bastore
+     746: dup
+     747: bipush        11
+     749: bipush        9
+     751: bastore
+     752: dup
+     753: bipush        12
+     755: bipush        6
+     757: bastore
+     758: dup
+     759: bipush        13
+     761: bipush        6
+     763: bastore
+     764: dup
+     765: bipush        14
+     767: bipush        6
+     769: bastore
+     770: dup
+     771: bipush        15
+     773: bipush        6
+     775: bastore
+     776: aastore
+     777: dup
+     778: iconst_1
+     779: bipush        16
+     781: newarray       byte
+     783: dup
+     784: iconst_0
+     785: bipush        12
+     787: bastore
+     788: dup
+     789: iconst_1
+     790: bipush        12
+     792: bastore
+     793: dup
+     794: iconst_2
+     795: bipush        12
+     797: bastore
+     798: dup
+     799: iconst_3
+     800: bipush        12
+     802: bastore
+     803: dup
+     804: iconst_4
+     805: bipush        13
+     807: bastore
+     808: dup
+     809: iconst_5
+     810: bipush        13
+     812: bastore
+     813: dup
+     814: bipush        6
+     816: bipush        13
+     818: bastore
+     819: dup
+     820: bipush        7
+     822: bipush        13
+     824: bastore
+     825: dup
+     826: bipush        8
+     828: bipush        14
+     830: bastore
+     831: dup
+     832: bipush        9
+     834: bipush        14
+     836: bastore
+     837: dup
+     838: bipush        10
+     840: bipush        14
+     842: bastore
+     843: dup
+     844: bipush        11
+     846: bipush        14
+     848: bastore
+     849: dup
+     850: bipush        12
+     852: bipush        11
+     854: bastore
+     855: dup
+     856: bipush        13
+     858: bipush        11
+     860: bastore
+     861: dup
+     862: bipush        14
+     864: bipush        11
+     866: bastore
+     867: dup
+     868: bipush        15
+     870: bipush        11
+     872: bastore
+     873: aastore
+     874: dup
+     875: iconst_2
+     876: bipush        16
+     878: newarray       byte
+     880: dup
+     881: iconst_0
+     882: iconst_2
+     883: bastore
+     884: dup
+     885: iconst_1
+     886: iconst_2
+     887: bastore
+     888: dup
+     889: iconst_2
+     890: iconst_2
+     891: bastore
+     892: dup
+     893: iconst_3
+     894: iconst_2
+     895: bastore
+     896: dup
+     897: iconst_4
+     898: iconst_3
+     899: bastore
+     900: dup
+     901: iconst_5
+     902: iconst_3
+     903: bastore
+     904: dup
+     905: bipush        6
+     907: iconst_3
+     908: bastore
+     909: dup
+     910: bipush        7
+     912: iconst_3
+     913: bastore
+     914: dup
+     915: bipush        8
+     917: iconst_4
+     918: bastore
+     919: dup
+     920: bipush        9
+     922: iconst_4
+     923: bastore
+     924: dup
+     925: bipush        10
+     927: iconst_4
+     928: bastore
+     929: dup
+     930: bipush        11
+     932: iconst_4
+     933: bastore
+     934: dup
+     935: bipush        12
+     937: iconst_1
+     938: bastore
+     939: dup
+     940: bipush        13
+     942: iconst_1
+     943: bastore
+     944: dup
+     945: bipush        14
+     947: iconst_1
+     948: bastore
+     949: dup
+     950: bipush        15
+     952: iconst_1
+     953: bastore
+     954: aastore
+     955: dup
+     956: iconst_3
+     957: bipush        16
+     959: newarray       byte
+     961: dup
+     962: iconst_0
+     963: iconst_2
+     964: bastore
+     965: dup
+     966: iconst_1
+     967: iconst_2
+     968: bastore
+     969: dup
+     970: iconst_2
+     971: iconst_2
+     972: bastore
+     973: dup
+     974: iconst_3
+     975: iconst_2
+     976: bastore
+     977: dup
+     978: iconst_4
+     979: iconst_3
+     980: bastore
+     981: dup
+     982: iconst_5
+     983: iconst_3
+     984: bastore
+     985: dup
+     986: bipush        6
+     988: iconst_3
+     989: bastore
+     990: dup
+     991: bipush        7
+     993: iconst_3
+     994: bastore
+     995: dup
+     996: bipush        8
+     998: iconst_4
+     999: bastore
+    1000: dup
+    1001: bipush        9
+    1003: iconst_4
+    1004: bastore
+    1005: dup
+    1006: bipush        10
+    1008: iconst_4
+    1009: bastore
+    1010: dup
+    1011: bipush        11
+    1013: iconst_4
+    1014: bastore
+    1015: dup
+    1016: bipush        12
+    1018: iconst_1
+    1019: bastore
+    1020: dup
+    1021: bipush        13
+    1023: iconst_1
+    1024: bastore
+    1025: dup
+    1026: bipush        14
+    1028: iconst_1
+    1029: bastore
+    1030: dup
+    1031: bipush        15
+    1033: iconst_1
+    1034: bastore
+    1035: aastore
+    1036: aastore
+    1037: putfield      #5                  // Field FRAMEMOVE:[[[B
+    1040: aload_0
+    1041: iconst_4
+    1042: anewarray     #4                  // class "[B"
+    1045: dup
+    1046: iconst_0
+    1047: bipush        21
+    1049: newarray       byte
+    1051: dup
+    1052: iconst_0
+    1053: iconst_5
+    1054: bastore
+    1055: dup
+    1056: iconst_1
+    1057: iconst_5
+    1058: bastore
+    1059: dup
+    1060: iconst_2
+    1061: iconst_5
+    1062: bastore
+    1063: dup
+    1064: iconst_3
+    1065: iconst_5
+    1066: bastore
+    1067: dup
+    1068: iconst_4
+    1069: iconst_5
+    1070: bastore
+    1071: dup
+    1072: iconst_5
+    1073: iconst_5
+    1074: bastore
+    1075: dup
+    1076: bipush        6
+    1078: iconst_5
+    1079: bastore
+    1080: dup
+    1081: bipush        7
+    1083: iconst_5
+    1084: bastore
+    1085: dup
+    1086: bipush        8
+    1088: iconst_5
+    1089: bastore
+    1090: dup
+    1091: bipush        9
+    1093: iconst_5
+    1094: bastore
+    1095: dup
+    1096: bipush        10
+    1098: iconst_5
+    1099: bastore
+    1100: dup
+    1101: bipush        11
+    1103: bipush        6
+    1105: bastore
+    1106: dup
+    1107: bipush        12
+    1109: bipush        6
+    1111: bastore
+    1112: dup
+    1113: bipush        13
+    1115: bipush        6
+    1117: bastore
+    1118: dup
+    1119: bipush        14
+    1121: bipush        6
+    1123: bastore
+    1124: dup
+    1125: bipush        15
+    1127: bipush        6
+    1129: bastore
+    1130: dup
+    1131: bipush        16
+    1133: bipush        6
+    1135: bastore
+    1136: dup
+    1137: bipush        17
+    1139: bipush        6
+    1141: bastore
+    1142: dup
+    1143: bipush        18
+    1145: bipush        6
+    1147: bastore
+    1148: dup
+    1149: bipush        19
+    1151: bipush        6
+    1153: bastore
+    1154: dup
+    1155: bipush        20
+    1157: bipush        6
+    1159: bastore
+    1160: aastore
+    1161: dup
+    1162: iconst_1
+    1163: bipush        20
+    1165: newarray       byte
+    1167: dup
+    1168: iconst_0
+    1169: bipush        10
+    1171: bastore
+    1172: dup
+    1173: iconst_1
+    1174: bipush        10
+    1176: bastore
+    1177: dup
+    1178: iconst_2
+    1179: bipush        10
+    1181: bastore
+    1182: dup
+    1183: iconst_3
+    1184: bipush        10
+    1186: bastore
+    1187: dup
+    1188: iconst_4
+    1189: bipush        10
+    1191: bastore
+    1192: dup
+    1193: iconst_5
+    1194: bipush        10
+    1196: bastore
+    1197: dup
+    1198: bipush        6
+    1200: bipush        10
+    1202: bastore
+    1203: dup
+    1204: bipush        7
+    1206: bipush        10
+    1208: bastore
+    1209: dup
+    1210: bipush        8
+    1212: bipush        10
+    1214: bastore
+    1215: dup
+    1216: bipush        9
+    1218: bipush        10
+    1220: bastore
+    1221: dup
+    1222: bipush        10
+    1224: bipush        11
+    1226: bastore
+    1227: dup
+    1228: bipush        11
+    1230: bipush        11
+    1232: bastore
+    1233: dup
+    1234: bipush        12
+    1236: bipush        11
+    1238: bastore
+    1239: dup
+    1240: bipush        13
+    1242: bipush        11
+    1244: bastore
+    1245: dup
+    1246: bipush        14
+    1248: bipush        11
+    1250: bastore
+    1251: dup
+    1252: bipush        15
+    1254: bipush        11
+    1256: bastore
+    1257: dup
+    1258: bipush        16
+    1260: bipush        11
+    1262: bastore
+    1263: dup
+    1264: bipush        17
+    1266: bipush        11
+    1268: bastore
+    1269: dup
+    1270: bipush        18
+    1272: bipush        11
+    1274: bastore
+    1275: dup
+    1276: bipush        19
+    1278: bipush        11
+    1280: bastore
+    1281: aastore
+    1282: dup
+    1283: iconst_2
+    1284: bipush        20
+    1286: newarray       byte
+    1288: dup
+    1289: iconst_0
+    1290: iconst_0
+    1291: bastore
+    1292: dup
+    1293: iconst_1
+    1294: iconst_0
+    1295: bastore
+    1296: dup
+    1297: iconst_2
+    1298: iconst_0
+    1299: bastore
+    1300: dup
+    1301: iconst_3
+    1302: iconst_0
+    1303: bastore
+    1304: dup
+    1305: iconst_4
+    1306: iconst_0
+    1307: bastore
+    1308: dup
+    1309: iconst_5
+    1310: iconst_0
+    1311: bastore
+    1312: dup
+    1313: bipush        6
+    1315: iconst_0
+    1316: bastore
+    1317: dup
+    1318: bipush        7
+    1320: iconst_0
+    1321: bastore
+    1322: dup
+    1323: bipush        8
+    1325: iconst_0
+    1326: bastore
+    1327: dup
+    1328: bipush        9
+    1330: iconst_0
+    1331: bastore
+    1332: dup
+    1333: bipush        10
+    1335: iconst_1
+    1336: bastore
+    1337: dup
+    1338: bipush        11
+    1340: iconst_1
+    1341: bastore
+    1342: dup
+    1343: bipush        12
+    1345: iconst_1
+    1346: bastore
+    1347: dup
+    1348: bipush        13
+    1350: iconst_1
+    1351: bastore
+    1352: dup
+    1353: bipush        14
+    1355: iconst_1
+    1356: bastore
+    1357: dup
+    1358: bipush        15
+    1360: iconst_1
+    1361: bastore
+    1362: dup
+    1363: bipush        16
+    1365: iconst_1
+    1366: bastore
+    1367: dup
+    1368: bipush        17
+    1370: iconst_1
+    1371: bastore
+    1372: dup
+    1373: bipush        18
+    1375: iconst_1
+    1376: bastore
+    1377: dup
+    1378: bipush        19
+    1380: iconst_1
+    1381: bastore
+    1382: aastore
+    1383: dup
+    1384: iconst_3
+    1385: bipush        20
+    1387: newarray       byte
+    1389: dup
+    1390: iconst_0
+    1391: iconst_0
+    1392: bastore
+    1393: dup
+    1394: iconst_1
+    1395: iconst_0
+    1396: bastore
+    1397: dup
+    1398: iconst_2
+    1399: iconst_0
+    1400: bastore
+    1401: dup
+    1402: iconst_3
+    1403: iconst_0
+    1404: bastore
+    1405: dup
+    1406: iconst_4
+    1407: iconst_0
+    1408: bastore
+    1409: dup
+    1410: iconst_5
+    1411: iconst_0
+    1412: bastore
+    1413: dup
+    1414: bipush        6
+    1416: iconst_0
+    1417: bastore
+    1418: dup
+    1419: bipush        7
+    1421: iconst_0
+    1422: bastore
+    1423: dup
+    1424: bipush        8
+    1426: iconst_0
+    1427: bastore
+    1428: dup
+    1429: bipush        9
+    1431: iconst_0
+    1432: bastore
+    1433: dup
+    1434: bipush        10
+    1436: iconst_1
+    1437: bastore
+    1438: dup
+    1439: bipush        11
+    1441: iconst_1
+    1442: bastore
+    1443: dup
+    1444: bipush        12
+    1446: iconst_1
+    1447: bastore
+    1448: dup
+    1449: bipush        13
+    1451: iconst_1
+    1452: bastore
+    1453: dup
+    1454: bipush        14
+    1456: iconst_1
+    1457: bastore
+    1458: dup
+    1459: bipush        15
+    1461: iconst_1
+    1462: bastore
+    1463: dup
+    1464: bipush        16
+    1466: iconst_1
+    1467: bastore
+    1468: dup
+    1469: bipush        17
+    1471: iconst_1
+    1472: bastore
+    1473: dup
+    1474: bipush        18
+    1476: iconst_1
+    1477: bastore
+    1478: dup
+    1479: bipush        19
+    1481: iconst_1
+    1482: bastore
+    1483: aastore
+    1484: putfield      #6                  // Field FRAMESTAND:[[B
+    1487: aload_0
+    1488: iconst_3
+    1489: newarray       byte
+    1491: dup
+    1492: iconst_0
+    1493: bipush        -11
+    1495: bastore
+    1496: dup
+    1497: iconst_1
+    1498: bipush        -7
+    1500: bastore
+    1501: dup
+    1502: iconst_2
+    1503: bipush        -7
+    1505: bastore
+    1506: putfield      #7                  // Field dysai:[B
+    1509: aload_0
+    1510: iconst_0
+    1511: putfield      #8                  // Field vTam:B
+    1514: aload_0
+    1515: iconst_0
+    1516: putfield      #9                  // Field xwater:B
+    1519: aload_0
+    1520: iload_3
+    1521: putfield      #10                 // Field GameObjects/MainObject.typeMonster:I
+    1524: aload_0
+    1525: iload_1
+    1526: putfield      #11                 // Field GameObjects/MainObject.ID:I
+    1529: aload_0
+    1530: iload_2
+    1531: putfield      #12                 // Field GameObjects/MainMonster.catalogyMonster:I
+    1534: aload_0
+    1535: iconst_1
+    1536: putfield      #13                 // Field GameObjects/MainObject.typeObject:B
+    1539: aload_0
+    1540: aload         4
+    1542: putfield      #14                 // Field GameObjects/MainObject.name:Ljava/lang/String;
+    1545: aload_0
+    1546: iload         5
+    1548: putfield      #15                 // Field GameObjects/MainObject.x:I
+    1551: aload_0
+    1552: iload         6
+    1554: putfield      #16                 // Field GameObjects/MainObject.y:I
+    1557: aload_0
+    1558: iconst_m1
+    1559: putfield      #17                 // Field GameObjects/MainObject.hOne:I
+    1562: aload_0
+    1563: iconst_m1
+    1564: putfield      #18                 // Field GameObjects/MainObject.wOne:I
+    1567: aload_0
+    1568: iload         7
+    1570: putfield      #19                 // Field GameObjects/MainObject.maxHp:I
+    1573: aload_0
+    1574: iload         8
+    1576: i2s
+    1577: putfield      #20                 // Field GameObjects/MainObject.Lv:S
+    1580: aload_0
+    1581: aload_0
+    1582: invokevirtual #21                 // Method getTypemove:()B
+    1585: putfield      #2                  // Field typemove:B
+    1588: aload_0
+    1589: iconst_0
+    1590: putfield      #22                 // Field GameObjects/MainObject.Action:I
+    1593: aload_0
+    1594: iconst_0
+    1595: putfield      #23                 // Field GameObjects/MainMonster.MonWater:I
+    1598: aload_0
+    1599: iconst_3
+    1600: putfield      #24                 // Field numW:B
+    1603: aload_0
+    1604: iconst_5
+    1605: putfield      #25                 // Field numH:B
+    1608: aload_0
+    1609: aload_0
+    1610: getfield      #24                 // Field numW:B
+    1613: aload_0
+    1614: getfield      #25                 // Field numH:B
+    1617: imul
+    1618: putfield      #26                 // Field GameObjects/MainMonster.nFrame:I
+    1621: aload_0
+    1622: invokestatic  #27                 // Method CLib/mSystem.currentTimeMillis:()J
+    1625: putfield      #28                 // Field GameObjects/MainObject.timeLoadInfo:J
+    1628: return
+
+  public boolean isMonsterVantieuTrang();
+    Code:
+       0: aload_0
+       1: getfield      #12                 // Field GameObjects/MainMonster.catalogyMonster:I
+       4: sipush        129
+       7: if_icmpeq     39
+      10: aload_0
+      11: getfield      #12                 // Field GameObjects/MainMonster.catalogyMonster:I
+      14: sipush        131
+      17: if_icmpeq     39
+      20: aload_0
+      21: getfield      #12                 // Field GameObjects/MainMonster.catalogyMonster:I
+      24: bipush        127
+      26: if_icmpeq     39
+      29: aload_0
+      30: getfield      #12                 // Field GameObjects/MainMonster.catalogyMonster:I
+      33: sipush        177
+      36: if_icmpne     43
+      39: iconst_1
+      40: goto          44
+      43: iconst_0
+      44: ireturn
+
+  public boolean isMonsterVantieuDen();
+    Code:
+       0: aload_0
+       1: getfield      #12                 // Field GameObjects/MainMonster.catalogyMonster:I
+       4: sipush        128
+       7: if_icmpeq     40
+      10: aload_0
+      11: getfield      #12                 // Field GameObjects/MainMonster.catalogyMonster:I
+      14: sipush        130
+      17: if_icmpeq     40
+      20: aload_0
+      21: getfield      #12                 // Field GameObjects/MainMonster.catalogyMonster:I
+      24: sipush        132
+      27: if_icmpeq     40
+      30: aload_0
+      31: getfield      #12                 // Field GameObjects/MainMonster.catalogyMonster:I
+      34: sipush        176
+      37: if_icmpne     44
+      40: iconst_1
+      41: goto          45
+      44: iconst_0
+      45: ireturn
+
+  public boolean isMonstervantieu();
+    Code:
+       0: iconst_1
+       1: ireturn
+
+  public void setspeedVantieu(int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #29                 // Field GameObjects/MainObject.vMax:I
+       5: aload_0
+       6: iload_1
+       7: i2b
+       8: putfield      #30                 // Field Maxspeed:B
+      11: aload_0
+      12: iload_1
+      13: iconst_1
+      14: iadd
+      15: i2b
+      16: putfield      #8                  // Field vTam:B
+      19: return
+
+  public java.lang.String getnameOwner();
+    Code:
+       0: aload_0
+       1: getfield      #31                 // Field GameObjects/MainMonster.nameowner:Ljava/lang/String;
+       4: areturn
+
+  protected byte getTypemove();
+    Code:
+       0: aload_0
+       1: getfield      #12                 // Field GameObjects/MainMonster.catalogyMonster:I
+       4: lookupswitch  { // 8
+
+                   127: 80
+
+                   128: 80
+
+                   129: 82
+
+                   130: 82
+
+                   131: 84
+
+                   132: 84
+
+                   176: 84
+
+                   177: 84
+               default: 86
+          }
+      80: iconst_0
+      81: ireturn
+      82: iconst_1
+      83: ireturn
+      84: iconst_2
+      85: ireturn
+      86: iconst_0
+      87: ireturn
+
+  public void paint(CLib.mGraphics);
+    Code:
+       0: aload_0
+       1: getfield      #12                 // Field GameObjects/MainMonster.catalogyMonster:I
+       4: i2s
+       5: invokestatic  #32                 // Method GameObjects/ObjectData.getImagePartMonster:(S)LModel/MainImage;
+       8: astore_2
+       9: aload_2
+      10: ifnull        411
+      13: aload_0
+      14: getfield      #33                 // Field GameObjects/MainObject.isDongBang:Z
+      17: ifne          411
+      20: aload_2
+      21: getfield      #34                 // Field Model/MainImage.img:LCLib/mImage;
+      24: ifnull        411
+      27: aload_0
+      28: getfield      #35                 // Field GameObjects/MainObject.Direction:I
+      31: iconst_3
+      32: if_icmpne     44
+      35: aload_0
+      36: bipush        -2
+      38: putfield      #9                  // Field xwater:B
+      41: goto          65
+      44: aload_0
+      45: getfield      #35                 // Field GameObjects/MainObject.Direction:I
+      48: iconst_2
+      49: if_icmpne     60
+      52: aload_0
+      53: iconst_2
+      54: putfield      #9                  // Field xwater:B
+      57: goto          65
+      60: aload_0
+      61: iconst_0
+      62: putfield      #9                  // Field xwater:B
+      65: aload_0
+      66: getfield      #18                 // Field GameObjects/MainObject.wOne:I
+      69: ifge          120
+      72: aload_0
+      73: aload_2
+      74: getfield      #34                 // Field Model/MainImage.img:LCLib/mImage;
+      77: getfield      #36                 // Field CLib/mImage.image:Ljavax/microedition/lcdui/Image;
+      80: invokestatic  #37                 // Method CLib/mImage.getImageWidth:(Ljavax/microedition/lcdui/Image;)I
+      83: aload_0
+      84: getfield      #24                 // Field numW:B
+      87: idiv
+      88: putfield      #18                 // Field GameObjects/MainObject.wOne:I
+      91: aload_0
+      92: aload_2
+      93: getfield      #34                 // Field Model/MainImage.img:LCLib/mImage;
+      96: getfield      #36                 // Field CLib/mImage.image:Ljavax/microedition/lcdui/Image;
+      99: invokestatic  #38                 // Method CLib/mImage.getImageHeight:(Ljavax/microedition/lcdui/Image;)I
+     102: aload_0
+     103: getfield      #25                 // Field numH:B
+     106: idiv
+     107: putfield      #17                 // Field GameObjects/MainObject.hOne:I
+     110: aload_0
+     111: aload_0
+     112: getfield      #17                 // Field GameObjects/MainObject.hOne:I
+     115: iconst_2
+     116: idiv
+     117: putfield      #39                 // Field GameObjects/MainObject.yEffAuto:I
+     120: aload_0
+     121: aload_1
+     122: aload_0
+     123: getfield      #15                 // Field GameObjects/MainObject.x:I
+     126: aload_0
+     127: getfield      #16                 // Field GameObjects/MainObject.y:I
+     130: invokevirtual #40                 // Method GameObjects/MainObject.paintDataEff_Top:(LCLib/mGraphics;II)V
+     133: aload_0
+     134: getfield      #41                 // Field GameObjects/MainObject.frameMount:B
+     137: iflt          411
+     140: aload_0
+     141: getfield      #41                 // Field GameObjects/MainObject.frameMount:B
+     144: aload_0
+     145: getfield      #26                 // Field GameObjects/MainMonster.nFrame:I
+     148: if_icmpge     411
+     151: iconst_0
+     152: istore_3
+     153: iconst_0
+     154: istore        4
+     156: aload_0
+     157: getfield      #41                 // Field GameObjects/MainObject.frameMount:B
+     160: aload_0
+     161: getfield      #25                 // Field numH:B
+     164: idiv
+     165: aload_0
+     166: getfield      #18                 // Field GameObjects/MainObject.wOne:I
+     169: imul
+     170: istore_3
+     171: aload_0
+     172: getfield      #41                 // Field GameObjects/MainObject.frameMount:B
+     175: aload_0
+     176: getfield      #25                 // Field numH:B
+     179: irem
+     180: aload_0
+     181: getfield      #17                 // Field GameObjects/MainObject.hOne:I
+     184: imul
+     185: istore        4
+     187: aload_0
+     188: getfield      #42                 // Field GameObjects/MainObject.isWater:Z
+     191: ifeq          317
+     194: aload_1
+     195: aload_2
+     196: getfield      #34                 // Field Model/MainImage.img:LCLib/mImage;
+     199: iload_3
+     200: iload         4
+     202: aload_0
+     203: getfield      #18                 // Field GameObjects/MainObject.wOne:I
+     206: aload_0
+     207: getfield      #17                 // Field GameObjects/MainObject.hOne:I
+     210: aload_0
+     211: getfield      #35                 // Field GameObjects/MainObject.Direction:I
+     214: iconst_2
+     215: if_icmple     222
+     218: iconst_2
+     219: goto          223
+     222: iconst_0
+     223: aload_0
+     224: getfield      #15                 // Field GameObjects/MainObject.x:I
+     227: aload_0
+     228: getfield      #16                 // Field GameObjects/MainObject.y:I
+     231: aload_0
+     232: getfield      #43                 // Field GameObjects/MainObject.ysai:I
+     235: isub
+     236: aload_0
+     237: getfield      #44                 // Field GameObjects/MainObject.dy:I
+     240: isub
+     241: aload_0
+     242: getfield      #45                 // Field GameObjects/MainObject.dyWater:I
+     245: iadd
+     246: bipush        33
+     248: iconst_1
+     249: invokevirtual #46                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     252: aload_1
+     253: getstatic     #47                 // Field GameObjects/MainObject.water:LCLib/mImage;
+     256: iconst_0
+     257: aload_0
+     258: getfield      #22                 // Field GameObjects/MainObject.Action:I
+     261: ifeq          268
+     264: iconst_2
+     265: goto          269
+     268: iconst_0
+     269: bipush        17
+     271: imul
+     272: getstatic     #48                 // Field Main/GameCanvas.gameTick:I
+     275: iconst_2
+     276: idiv
+     277: iconst_2
+     278: irem
+     279: bipush        17
+     281: imul
+     282: iadd
+     283: bipush        28
+     285: bipush        17
+     287: iconst_0
+     288: aload_0
+     289: getfield      #15                 // Field GameObjects/MainObject.x:I
+     292: aload_0
+     293: getfield      #9                  // Field xwater:B
+     296: iadd
+     297: aload_0
+     298: getfield      #16                 // Field GameObjects/MainObject.y:I
+     301: aload_0
+     302: getfield      #45                 // Field GameObjects/MainObject.dyWater:I
+     305: iadd
+     306: bipush        8
+     308: isub
+     309: iconst_3
+     310: iconst_0
+     311: invokevirtual #46                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     314: goto          411
+     317: aload_1
+     318: aload_0
+     319: getfield      #35                 // Field GameObjects/MainObject.Direction:I
+     322: aload_0
+     323: getfield      #15                 // Field GameObjects/MainObject.x:I
+     326: aload_0
+     327: getfield      #9                  // Field xwater:B
+     330: iadd
+     331: aload_0
+     332: getfield      #16                 // Field GameObjects/MainObject.y:I
+     335: aload_0
+     336: getfield      #43                 // Field GameObjects/MainObject.ysai:I
+     339: isub
+     340: aload_0
+     341: getfield      #7                  // Field dysai:[B
+     344: aload_0
+     345: getfield      #2                  // Field typemove:B
+     348: baload
+     349: iadd
+     350: invokestatic  #49                 // Method GameObjects/MainObject.paintShadow:(LCLib/mGraphics;III)V
+     353: aload_1
+     354: aload_2
+     355: getfield      #34                 // Field Model/MainImage.img:LCLib/mImage;
+     358: iload_3
+     359: iload         4
+     361: aload_0
+     362: getfield      #18                 // Field GameObjects/MainObject.wOne:I
+     365: aload_0
+     366: getfield      #17                 // Field GameObjects/MainObject.hOne:I
+     369: aload_0
+     370: getfield      #35                 // Field GameObjects/MainObject.Direction:I
+     373: iconst_2
+     374: if_icmple     381
+     377: iconst_2
+     378: goto          382
+     381: iconst_0
+     382: aload_0
+     383: getfield      #15                 // Field GameObjects/MainObject.x:I
+     386: aload_0
+     387: getfield      #16                 // Field GameObjects/MainObject.y:I
+     390: aload_0
+     391: getfield      #43                 // Field GameObjects/MainObject.ysai:I
+     394: isub
+     395: aload_0
+     396: getfield      #44                 // Field GameObjects/MainObject.dy:I
+     399: isub
+     400: aload_0
+     401: getfield      #45                 // Field GameObjects/MainObject.dyWater:I
+     404: iadd
+     405: bipush        33
+     407: iconst_1
+     408: invokevirtual #46                 // Method CLib/mGraphics.drawRegion:(LCLib/mImage;IIIIIIIIZ)V
+     411: aload_0
+     412: aload_1
+     413: aload_0
+     414: getfield      #15                 // Field GameObjects/MainObject.x:I
+     417: aload_0
+     418: getfield      #16                 // Field GameObjects/MainObject.y:I
+     421: invokevirtual #50                 // Method GameObjects/MainObject.paintDataEff_Bot:(LCLib/mGraphics;II)V
+     424: getstatic     #51                 // Field CLib/mFont.tahoma_7_white:LCLib/mFont;
+     427: aload_1
+     428: aload_0
+     429: getfield      #31                 // Field GameObjects/MainMonster.nameowner:Ljava/lang/String;
+     432: aload_0
+     433: getfield      #15                 // Field GameObjects/MainObject.x:I
+     436: aload_0
+     437: getfield      #16                 // Field GameObjects/MainObject.y:I
+     440: aload_0
+     441: getfield      #17                 // Field GameObjects/MainObject.hOne:I
+     444: isub
+     445: iconst_3
+     446: isub
+     447: aload_0
+     448: getfield      #33                 // Field GameObjects/MainObject.isDongBang:Z
+     451: ifeq          458
+     454: iconst_5
+     455: goto          459
+     458: iconst_0
+     459: isub
+     460: iconst_2
+     461: iconst_0
+     462: invokevirtual #52                 // Method CLib/mFont.drawString:(LCLib/mGraphics;Ljava/lang/String;IIIZ)V
+     465: aload_0
+     466: aload_1
+     467: invokespecial #53                 // Method GameObjects/MainMonster.paint:(LCLib/mGraphics;)V
+     470: return
+
+  public void updateMonsterAction();
+    Code:
+       0: aload_0
+       1: dup
+       2: getfield      #54                 // Field GameObjects/MainObject.fMount:B
+       5: iconst_1
+       6: iadd
+       7: i2b
+       8: putfield      #54                 // Field GameObjects/MainObject.fMount:B
+      11: aload_0
+      12: getfield      #22                 // Field GameObjects/MainObject.Action:I
+      15: ifne          63
+      18: aload_0
+      19: getfield      #54                 // Field GameObjects/MainObject.fMount:B
+      22: aload_0
+      23: getfield      #6                  // Field FRAMESTAND:[[B
+      26: aload_0
+      27: getfield      #35                 // Field GameObjects/MainObject.Direction:I
+      30: aaload
+      31: arraylength
+      32: iconst_1
+      33: isub
+      34: if_icmple     42
+      37: aload_0
+      38: iconst_0
+      39: putfield      #54                 // Field GameObjects/MainObject.fMount:B
+      42: aload_0
+      43: aload_0
+      44: getfield      #6                  // Field FRAMESTAND:[[B
+      47: aload_0
+      48: getfield      #35                 // Field GameObjects/MainObject.Direction:I
+      51: aaload
+      52: aload_0
+      53: getfield      #54                 // Field GameObjects/MainObject.fMount:B
+      56: baload
+      57: putfield      #41                 // Field GameObjects/MainObject.frameMount:B
+      60: goto          123
+      63: aload_0
+      64: getfield      #22                 // Field GameObjects/MainObject.Action:I
+      67: iconst_1
+      68: if_icmpne     123
+      71: aload_0
+      72: getfield      #54                 // Field GameObjects/MainObject.fMount:B
+      75: aload_0
+      76: getfield      #5                  // Field FRAMEMOVE:[[[B
+      79: aload_0
+      80: getfield      #2                  // Field typemove:B
+      83: aaload
+      84: aload_0
+      85: getfield      #35                 // Field GameObjects/MainObject.Direction:I
+      88: aaload
+      89: arraylength
+      90: iconst_1
+      91: isub
+      92: if_icmple     100
+      95: aload_0
+      96: iconst_0
+      97: putfield      #54                 // Field GameObjects/MainObject.fMount:B
+     100: aload_0
+     101: aload_0
+     102: getfield      #5                  // Field FRAMEMOVE:[[[B
+     105: aload_0
+     106: getfield      #2                  // Field typemove:B
+     109: aaload
+     110: aload_0
+     111: getfield      #35                 // Field GameObjects/MainObject.Direction:I
+     114: aaload
+     115: aload_0
+     116: getfield      #54                 // Field GameObjects/MainObject.fMount:B
+     119: baload
+     120: putfield      #41                 // Field GameObjects/MainObject.frameMount:B
+     123: return
+
+  public void update();
+    Code:
+       0: aload_0
+       1: invokespecial #55                 // Method GameObjects/MainMonster.update:()V
+       4: aload_0
+       5: invokevirtual #56                 // Method updateMonsterAction:()V
+       8: aload_0
+       9: invokevirtual #57                 // Method GameObjects/MainObject.updateDataEffect:()V
+      12: getstatic     #58                 // Field Main/GameCanvas.loadmap:LThread_More/LoadMap;
+      15: aload_0
+      16: getfield      #15                 // Field GameObjects/MainObject.x:I
+      19: aload_0
+      20: getfield      #59                 // Field GameObjects/MainObject.vx:I
+      23: iadd
+      24: aload_0
+      25: getfield      #16                 // Field GameObjects/MainObject.y:I
+      28: aload_0
+      29: getfield      #60                 // Field GameObjects/MainObject.vy:I
+      32: iadd
+      33: invokevirtual #61                 // Method Thread_More/LoadMap.getTile:(II)I
+      36: istore_1
+      37: aload_0
+      38: aload_0
+      39: getfield      #23                 // Field GameObjects/MainMonster.MonWater:I
+      42: iload_1
+      43: invokevirtual #62                 // Method GameObjects/MainObject.setMove:(II)V
+      46: aload_0
+      47: invokevirtual #63                 // Method GameObjects/MainObject.Canmove:()Z
+      50: ifeq          60
+      53: aload_0
+      54: getfield      #64                 // Field GameObjects/MainObject.isBinded:Z
+      57: ifeq          61
+      60: return
+      61: aload_0
+      62: getfield      #65                 // Field GameObjects/MainObject.isInfo:Z
+      65: ifne          105
+      68: invokestatic  #27                 // Method CLib/mSystem.currentTimeMillis:()J
+      71: lstore_2
+      72: lload_2
+      73: aload_0
+      74: getfield      #28                 // Field GameObjects/MainObject.timeLoadInfo:J
+      77: lsub
+      78: lstore        4
+      80: lload         4
+      82: ldc2_w        #66                 // long 5000l
+      85: lcmp
+      86: iflt          105
+      89: aload_0
+      90: lload_2
+      91: putfield      #28                 // Field GameObjects/MainObject.timeLoadInfo:J
+      94: invokestatic  #68                 // Method netcommand/global/GlobalService.gI:()Lnetcommand/global/GlobalService;
+      97: aload_0
+      98: getfield      #11                 // Field GameObjects/MainObject.ID:I
+     101: i2s
+     102: invokevirtual #69                 // Method netcommand/global/GlobalService.monster_info:(S)V
+     105: aload_0
+     106: getfield      #59                 // Field GameObjects/MainObject.vx:I
+     109: ifne          124
+     112: aload_0
+     113: getfield      #60                 // Field GameObjects/MainObject.vy:I
+     116: ifne          124
+     119: aload_0
+     120: iconst_0
+     121: putfield      #22                 // Field GameObjects/MainObject.Action:I
+     124: aload_0
+     125: getfield      #15                 // Field GameObjects/MainObject.x:I
+     128: aload_0
+     129: getfield      #16                 // Field GameObjects/MainObject.y:I
+     132: aload_0
+     133: getfield      #70                 // Field GameObjects/MainObject.toX:I
+     136: aload_0
+     137: getfield      #71                 // Field GameObjects/MainObject.toY:I
+     140: invokestatic  #72                 // Method GameObjects/MainObject.getDistance:(IIII)I
+     143: getstatic     #73                 // Field Thread_More/LoadMap.wTile:I
+     146: iconst_3
+     147: imul
+     148: if_icmplt     186
+     151: aload_0
+     152: getfield      #15                 // Field GameObjects/MainObject.x:I
+     155: aload_0
+     156: getfield      #16                 // Field GameObjects/MainObject.y:I
+     159: aload_0
+     160: getfield      #70                 // Field GameObjects/MainObject.toX:I
+     163: aload_0
+     164: getfield      #71                 // Field GameObjects/MainObject.toY:I
+     167: invokestatic  #72                 // Method GameObjects/MainObject.getDistance:(IIII)I
+     170: getstatic     #73                 // Field Thread_More/LoadMap.wTile:I
+     173: iconst_4
+     174: imul
+     175: if_icmpgt     186
+     178: aload_0
+     179: aload_0
+     180: getfield      #8                  // Field vTam:B
+     183: putfield      #30                 // Field Maxspeed:B
+     186: aload_0
+     187: getfield      #15                 // Field GameObjects/MainObject.x:I
+     190: aload_0
+     191: getfield      #16                 // Field GameObjects/MainObject.y:I
+     194: aload_0
+     195: getfield      #70                 // Field GameObjects/MainObject.toX:I
+     198: aload_0
+     199: getfield      #71                 // Field GameObjects/MainObject.toY:I
+     202: invokestatic  #72                 // Method GameObjects/MainObject.getDistance:(IIII)I
+     205: getstatic     #73                 // Field Thread_More/LoadMap.wTile:I
+     208: iconst_3
+     209: imul
+     210: if_icmpge     224
+     213: aload_0
+     214: aload_0
+     215: getfield      #8                  // Field vTam:B
+     218: iconst_1
+     219: isub
+     220: i2b
+     221: putfield      #29                 // Field GameObjects/MainObject.vMax:I
+     224: aload_0
+     225: getfield      #30                 // Field Maxspeed:B
+     228: iconst_1
+     229: if_icmple     279
+     232: aload_0
+     233: getfield      #41                 // Field GameObjects/MainObject.frameMount:B
+     236: iconst_3
+     237: if_icmpeq     258
+     240: aload_0
+     241: getfield      #41                 // Field GameObjects/MainObject.frameMount:B
+     244: bipush        8
+     246: if_icmpeq     258
+     249: aload_0
+     250: getfield      #41                 // Field GameObjects/MainObject.frameMount:B
+     253: bipush        13
+     255: if_icmpne     271
+     258: aload_0
+     259: aload_0
+     260: getfield      #30                 // Field Maxspeed:B
+     263: iconst_1
+     264: isub
+     265: putfield      #29                 // Field GameObjects/MainObject.vMax:I
+     268: goto          279
+     271: aload_0
+     272: aload_0
+     273: getfield      #30                 // Field Maxspeed:B
+     276: putfield      #29                 // Field GameObjects/MainObject.vMax:I
+     279: return
+}

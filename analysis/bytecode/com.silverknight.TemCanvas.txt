@@ -1,0 +1,183 @@
+Compiled from "TemCanvas.java"
+public class com.silverknight.TemCanvas extends javax.microedition.lcdui.Canvas implements java.lang.Runnable {
+  public static com.silverknight.TemCanvas instance;
+
+  public static Main.GameCanvas gamecanvas;
+
+  public static CLib.TemGraphics tem;
+
+  public static int wMain;
+
+  public static int hMain;
+
+  public static java.util.Vector listPoint;
+
+  public com.silverknight.TemCanvas();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method javax/microedition/lcdui/Canvas."<init>":()V
+       4: aload_0
+       5: putstatic     #2                  // Field instance:Lcom/silverknight/TemCanvas;
+       8: aload_0
+       9: iconst_1
+      10: invokevirtual #3                  // Method javax/microedition/lcdui/Canvas.setFullScreenMode:(Z)V
+      13: aload_0
+      14: invokevirtual #4                  // Method javax/microedition/lcdui/Displayable.getHeight:()I
+      17: putstatic     #5                  // Field hMain:I
+      20: aload_0
+      21: invokevirtual #6                  // Method javax/microedition/lcdui/Displayable.getWidth:()I
+      24: putstatic     #7                  // Field wMain:I
+      27: aload_0
+      28: getstatic     #7                  // Field wMain:I
+      31: getstatic     #5                  // Field hMain:I
+      34: invokespecial #8                  // Method checkZoomLevel:(II)V
+      37: aload_0
+      38: invokevirtual #9                  // Method javax/microedition/lcdui/Canvas.hasPointerEvents:()Z
+      41: putstatic     #10                 // Field Main/GameCanvas.isTouch:Z
+      44: new           #11                 // class Main/GameCanvas
+      47: dup
+      48: invokespecial #12                 // Method Main/GameCanvas."<init>":()V
+      51: putstatic     #13                 // Field gamecanvas:LMain/GameCanvas;
+      54: new           #14                 // class java/lang/Thread
+      57: dup
+      58: getstatic     #15                 // Field Thread_More/Load_Data_And_Img.load:LThread_More/Load_Data_And_Img$LoadData;
+      61: invokespecial #16                 // Method java/lang/Thread."<init>":(Ljava/lang/Runnable;)V
+      64: invokevirtual #17                 // Method java/lang/Thread.start:()V
+      67: return
+
+  private void checkZoomLevel(int, int);
+    Code:
+       0: iconst_1
+       1: putstatic     #18                 // Field CLib/mGraphics.zoomLevel:I
+       4: getstatic     #7                  // Field wMain:I
+       7: getstatic     #18                 // Field CLib/mGraphics.zoomLevel:I
+      10: iadd
+      11: iconst_1
+      12: isub
+      13: getstatic     #18                 // Field CLib/mGraphics.zoomLevel:I
+      16: idiv
+      17: putstatic     #7                  // Field wMain:I
+      20: getstatic     #5                  // Field hMain:I
+      23: getstatic     #18                 // Field CLib/mGraphics.zoomLevel:I
+      26: iadd
+      27: iconst_1
+      28: isub
+      29: getstatic     #18                 // Field CLib/mGraphics.zoomLevel:I
+      32: idiv
+      33: putstatic     #5                  // Field hMain:I
+      36: return
+
+  public void start();
+    Code:
+       0: new           #14                 // class java/lang/Thread
+       3: dup
+       4: aload_0
+       5: invokespecial #16                 // Method java/lang/Thread."<init>":(Ljava/lang/Runnable;)V
+       8: invokevirtual #17                 // Method java/lang/Thread.start:()V
+      11: return
+
+  protected void paint(javax.microedition.lcdui.Graphics);
+    Code:
+       0: getstatic     #19                 // Field tem:LCLib/TemGraphics;
+       3: aload_1
+       4: putfield      #20                 // Field CLib/TemGraphics.g:Ljavax/microedition/lcdui/Graphics;
+       7: getstatic     #13                 // Field gamecanvas:LMain/GameCanvas;
+      10: getstatic     #19                 // Field tem:LCLib/TemGraphics;
+      13: invokevirtual #21                 // Method Main/GameCanvas.paint:(LCLib/TemGraphics;)V
+      16: return
+
+  protected void update();
+    Code:
+       0: getstatic     #13                 // Field gamecanvas:LMain/GameCanvas;
+       3: invokevirtual #22                 // Method Main/GameCanvas.update:()V
+       6: return
+
+  public void run();
+    Code:
+       0: invokestatic  #23                 // Method CLib/mSystem.currentTimeMillis:()J
+       3: lstore_3
+       4: aload_0
+       5: invokevirtual #24                 // Method update:()V
+       8: aload_0
+       9: invokevirtual #25                 // Method javax/microedition/lcdui/Canvas.repaint:()V
+      12: aload_0
+      13: invokevirtual #26                 // Method javax/microedition/lcdui/Canvas.serviceRepaints:()V
+      16: invokestatic  #23                 // Method CLib/mSystem.currentTimeMillis:()J
+      19: lload_3
+      20: lsub
+      21: lstore_1
+      22: lload_1
+      23: ldc2_w        #27                 // long 40l
+      26: lcmp
+      27: ifge          41
+      30: ldc2_w        #27                 // long 40l
+      33: lload_1
+      34: lsub
+      35: invokestatic  #29                 // Method java/lang/Thread.sleep:(J)V
+      38: goto          73
+      41: new           #30                 // class java/lang/StringBuffer
+      44: dup
+      45: invokespecial #31                 // Method java/lang/StringBuffer."<init>":()V
+      48: lload_1
+      49: invokevirtual #32                 // Method java/lang/StringBuffer.append:(J)Ljava/lang/StringBuffer;
+      52: ldc           #33                 // String   >>>>>>>>
+      54: invokevirtual #34                 // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      57: invokevirtual #35                 // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+      60: invokestatic  #36                 // Method CLib/mSystem.outloi:(Ljava/lang/String;)V
+      63: lconst_1
+      64: invokestatic  #29                 // Method java/lang/Thread.sleep:(J)V
+      67: invokestatic  #23                 // Method CLib/mSystem.currentTimeMillis:()J
+      70: putstatic     #37                 // Field Main/GameCanvas.timeNow:J
+      73: goto          0
+      76: astore        5
+      78: goto          0
+    Exception table:
+       from    to  target type
+          22    73    76   Class java/lang/InterruptedException
+
+  protected void keyPressed(int);
+    Code:
+       0: getstatic     #13                 // Field gamecanvas:LMain/GameCanvas;
+       3: iload_1
+       4: invokevirtual #39                 // Method Main/GameCanvas.keyPressed:(I)V
+       7: return
+
+  protected void keyReleased(int);
+    Code:
+       0: getstatic     #13                 // Field gamecanvas:LMain/GameCanvas;
+       3: iload_1
+       4: invokevirtual #40                 // Method Main/GameCanvas.keyReleased:(I)V
+       7: return
+
+  protected void pointerDragged(int, int);
+    Code:
+       0: getstatic     #13                 // Field gamecanvas:LMain/GameCanvas;
+       3: iload_1
+       4: iload_2
+       5: invokevirtual #41                 // Method Main/GameCanvas.pointerDragged:(II)V
+       8: return
+
+  protected void pointerPressed(int, int);
+    Code:
+       0: getstatic     #13                 // Field gamecanvas:LMain/GameCanvas;
+       3: iload_1
+       4: iload_2
+       5: invokevirtual #42                 // Method Main/GameCanvas.pointerPressed:(II)V
+       8: return
+
+  protected void pointerReleased(int, int);
+    Code:
+       0: getstatic     #13                 // Field gamecanvas:LMain/GameCanvas;
+       3: iload_1
+       4: iload_2
+       5: invokevirtual #43                 // Method Main/GameCanvas.pointerReleased:(II)V
+       8: return
+
+  static {};
+    Code:
+       0: new           #44                 // class CLib/TemGraphics
+       3: dup
+       4: invokespecial #45                 // Method CLib/TemGraphics."<init>":()V
+       7: putstatic     #19                 // Field tem:LCLib/TemGraphics;
+      10: return
+}

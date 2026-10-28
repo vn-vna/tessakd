@@ -1,0 +1,159 @@
+{
+  "input": "E:\\Projects\\tessakd\\KnightOnline_v403.jar",
+  "sha256": "f023b34e0ba0a3dcf44249ed5f90b78f0427deee4668562b8e3a0e9e349b18c6",
+  "bytes": 1469112,
+  "recognized_profile": "knightonline-4.0.3-reference",
+  "injection_performed": false,
+  "manifest": {
+    "Manifest-Version": "1.0",
+    "MIDlet-Vendor": "Midlet Suite Vendor",
+    "MIDlet-Version": "4.0.3",
+    "MIDlet-1": "KnightOnline,/icon.png,com.silverknight.TemMidlet",
+    "MicroEdition-Configuration": "CLDC-1.0",
+    "Created-By": "1.6.0_45 (Sun Microsystems Inc.)",
+    "MIDlet-Jar-URL": "KnightOnline.jar",
+    "MIDlet-Name": "KnightOnline Midlet Suite",
+    "MicroEdition-Profile": "MIDP-2.0"
+  },
+  "class_major_versions": {
+    "45": 202
+  },
+  "signature_entries": [],
+  "missing_required_classes": [],
+  "method_checks": [
+    {
+      "class": "com.silverknight.TemMidlet",
+      "method": "com.silverknight.TemMidlet",
+      "descriptor": "()V",
+      "present": true
+    },
+    {
+      "class": "com.silverknight.TemMidlet",
+      "method": "destroyApp",
+      "descriptor": "(Z)V",
+      "present": true
+    },
+    {
+      "class": "com.silverknight.TemMidlet",
+      "method": "pauseApp",
+      "descriptor": "()V",
+      "present": true
+    },
+    {
+      "class": "com.silverknight.TemMidlet",
+      "method": "startApp",
+      "descriptor": "()V",
+      "present": true
+    },
+    {
+      "class": "com.silverknight.TemCanvas",
+      "method": "pointerPressed",
+      "descriptor": "(II)V",
+      "present": true
+    },
+    {
+      "class": "com.silverknight.TemCanvas",
+      "method": "run",
+      "descriptor": "()V",
+      "present": true
+    },
+    {
+      "class": "Main.GameCanvas",
+      "method": "paint",
+      "descriptor": "(LCLib/TemGraphics;)V",
+      "present": true
+    },
+    {
+      "class": "Main.GameCanvas",
+      "method": "update",
+      "descriptor": "()V",
+      "present": true
+    },
+    {
+      "class": "CLib.Session_ME$MessageCollector",
+      "method": "readMessage",
+      "descriptor": "()Lnet/Message;",
+      "present": true
+    },
+    {
+      "class": "Thread_More.LoadMap",
+      "method": "loadmap",
+      "descriptor": "([B)V",
+      "present": true
+    },
+    {
+      "class": "netcommand.global.ReadMessenge",
+      "method": "Fire_Object",
+      "descriptor": "(Lnet/Message;BB)V",
+      "present": true
+    },
+    {
+      "class": "netcommand.global.ReadMessenge",
+      "method": "GetItemMap",
+      "descriptor": "(Lnet/Message;)V",
+      "present": true
+    },
+    {
+      "class": "netcommand.global.ReadMessenge",
+      "method": "ItemDrop",
+      "descriptor": "(Lnet/Message;)V",
+      "present": true
+    },
+    {
+      "class": "netcommand.global.ReadMessenge",
+      "method": "changeMap",
+      "descriptor": "(Lnet/Message;)V",
+      "present": true
+    },
+    {
+      "class": "netcommand.global.ReadMessenge",
+      "method": "dieMonster",
+      "descriptor": "(Lnet/Message;)V",
+      "present": true
+    },
+    {
+      "class": "netcommand.global.GlobalService",
+      "method": "Dynamic_Menu",
+      "descriptor": "(SBB)V",
+      "present": true
+    },
+    {
+      "class": "netcommand.global.GlobalService",
+      "method": "Get_Item_Map",
+      "descriptor": "(SB)V",
+      "present": true
+    },
+    {
+      "class": "netcommand.global.GlobalService",
+      "method": "Use_Potion",
+      "descriptor": "(S)V",
+      "present": true
+    },
+    {
+      "class": "netcommand.global.GlobalService",
+      "method": "buy_item",
+      "descriptor": "(BSS)V",
+      "present": true
+    },
+    {
+      "class": "GameObjects.Monstervantieu",
+      "method": "getnameOwner",
+      "descriptor": "()Ljava/lang/String;",
+      "present": true
+    },
+    {
+      "class": "GameObjects.Monstervantieu",
+      "method": "isMonstervantieu",
+      "descriptor": "()Z",
+      "present": true
+    }
+  ],
+  "structural_requirements_met": true,
+  "status": "recognized-input-not-patched",
+  "limitations": [
+    "Checks archive metadata and method descriptors, not injection byte patterns or CLDC verifier acceptance.",
+    "No helper is compiled or inserted and no modified JAR/JAD is produced.",
+    "Unknown hashes require a reviewed compatibility profile even when their version labels match.",
+    "Signature entries are listed, not cryptographically verified."
+  ]
+}

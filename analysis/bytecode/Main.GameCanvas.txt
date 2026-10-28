@@ -1,0 +1,2318 @@
+Compiled from "GameCanvas.java"
+public class Main.GameCanvas {
+  com.silverknight.TemCanvas mainCanvas;
+
+  public static GameScreen.MainScreen currentScreen;
+
+  public static GameScreen.LogoScreen logo;
+
+  public static GameScreen.LoginScreen login;
+
+  public static GameScreen.GameScreen game;
+
+  public static GameScreen.LoadMapScreen load;
+
+  public static GameScreen.WorldMapScreen worldmap;
+
+  public static GameScreen.StoryScreen story;
+
+  public static InterfaceComponents.MsgChat msgchat;
+
+  public static GameScreen.EventScreen mevent;
+
+  public static GameScreen.SelectCharScreen selectChar;
+
+  public static GameScreen.CreateChar createChar;
+
+  public static GameScreen.List_Ip_Server_Screen listIp;
+
+  public static GameScreen.Info_Other_Player info_other_player;
+
+  public static InterfaceComponents.infoShow showMount;
+
+  public static GameScreen.Clan_Screen clan;
+
+  public static Thread_More.MiniMapFull_Screen fullMiniMap;
+
+  public static Model.T t;
+
+  CLib.mGraphics g;
+
+  public static Model.Menu2 menu2;
+
+  public static Thread_More.LoadMap loadmap;
+
+  public static Thread_More.MiniMap minimap;
+
+  public static Main.GameCanvas instance;
+
+  public static InterfaceComponents.MainDialog currentDialog;
+
+  public static InterfaceComponents.MainDialog subDialog;
+
+  public static netcommand.global.ReadMessenge readMessenge;
+
+  public static InterfaceComponents.MainTabNew maintab;
+
+  public static GameScreen.TabScreenNew AllInfo;
+
+  public static GameScreen.TabScreenNew shopNpc;
+
+  public static GameScreen.TabScreenNew foodPet;
+
+  public static GameScreen.TabScreenNew TabEvent;
+
+  public static GameScreen.Buy_Sell_Screen buy_sell;
+
+  public static Map.MapBackGround mapBack;
+
+  public static Thread_More.SaveImageRMS saveImage;
+
+  public static boolean isTouch;
+
+  public static boolean lowGraphic;
+
+  public static boolean isSmallScreen;
+
+  public static boolean isVNLanguage;
+
+  public static byte device;
+
+  public static java.lang.String stringPackageName;
+
+  public static byte IndexRes;
+
+  public static byte IndexServer;
+
+  public static short IndexCharPar;
+
+  public static long timenextLogin;
+
+  public static int naptien;
+
+  public static int[] portServer;
+
+  public static int[] langServer;
+
+  public static long countLogin;
+
+  public static java.lang.String linkIP;
+
+  public static boolean isBB;
+
+  public static boolean isPointerDown;
+
+  public static boolean isPointerRelease;
+
+  public static boolean isPointerSelect;
+
+  public static boolean isPointerMove;
+
+  public static boolean isPointerClick;
+
+  public static boolean isPointerEnd;
+
+  public static int w;
+
+  public static int h;
+
+  public static int hw;
+
+  public static int hh;
+
+  public static int hCommand;
+
+  public static int hText;
+
+  public static int hFontBorder;
+
+  public static int hFontF;
+
+  public static int hNormal;
+
+  public static int wCommand;
+
+  public static int hLoad;
+
+  public static int px;
+
+  public static int py;
+
+  public static int pxLast;
+
+  public static int pyLast;
+
+  public static int gameTick;
+
+  public static long timeNow;
+
+  public static boolean[] keyMyPressed;
+
+  public static boolean[] keyMyReleased;
+
+  public static boolean[] keyMyHold;
+
+  public static int keyAsciiPress;
+
+  public static CLib.mVector listPoint;
+
+  public static boolean istest;
+
+  public static long countTips;
+
+  public static int iTips;
+
+  public Main.GameCanvas();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: new           #2                  // class CLib/mGraphics
+       8: dup
+       9: invokespecial #3                  // Method CLib/mGraphics."<init>":()V
+      12: putfield      #4                  // Field g:LCLib/mGraphics;
+      15: aload_0
+      16: putstatic     #5                  // Field instance:LMain/GameCanvas;
+      19: aload_0
+      20: getstatic     #6                  // Field com/silverknight/TemMidlet.temCanvas:Lcom/silverknight/TemCanvas;
+      23: putfield      #7                  // Field mainCanvas:Lcom/silverknight/TemCanvas;
+      26: iconst_0
+      27: putstatic     #8                  // Field device:B
+      30: invokestatic  #9                  // Method CLib/mSystem.getPackageName:()Ljava/lang/String;
+      33: putstatic     #10                 // Field stringPackageName:Ljava/lang/String;
+      36: iconst_0
+      37: invokestatic  #11                 // Method CLib/TField.setVendorTypeMode:(I)V
+      40: aload_0
+      41: invokevirtual #12                 // Method getSize:()V
+      44: invokestatic  #13                 // Method Model/CRes.load_TaiTho:()V
+      47: invokestatic  #14                 // Method CLib/mFont.loadmFont:()V
+      50: invokestatic  #15                 // Method Build_Usa/Usa_Server.setLinkIp:()V
+      53: invokestatic  #16                 // Method Build_Indo/IndoServer.setLinkIp:()V
+      56: getstatic     #17                 // Field w:I
+      59: sipush        200
+      62: if_icmplt     74
+      65: getstatic     #18                 // Field h:I
+      68: sipush        200
+      71: if_icmpge     94
+      74: iconst_1
+      75: putstatic     #19                 // Field isSmallScreen:Z
+      78: getstatic     #20                 // Field GameScreen/LoginScreen.indexInfoLogin:B
+      81: iconst_1
+      82: if_icmpne     89
+      85: iconst_2
+      86: putstatic     #20                 // Field GameScreen/LoginScreen.indexInfoLogin:B
+      89: bipush        56
+      91: putstatic     #21                 // Field InterfaceComponents/iCommand.wButtonCmd:I
+      94: bipush        36
+      96: putstatic     #22                 // Field wCommand:I
+      99: getstatic     #23                 // Field isTouch:Z
+     102: ifeq          140
+     105: bipush        40
+     107: putstatic     #22                 // Field wCommand:I
+     110: new           #24                 // class CLib/mVector
+     113: dup
+     114: ldc           #25                 // String GameCanvas listPoint
+     116: invokespecial #26                 // Method CLib/mVector."<init>":(Ljava/lang/String;)V
+     119: putstatic     #27                 // Field listPoint:LCLib/mVector;
+     122: bipush        30
+     124: putstatic     #28                 // Field InterfaceComponents/iCommand.hButtonCmd:I
+     127: bipush        80
+     129: putstatic     #21                 // Field InterfaceComponents/iCommand.wButtonCmd:I
+     132: bipush        58
+     134: putstatic     #29                 // Field InterfaceComponents/MsgDialog.hPlus:I
+     137: goto          151
+     140: getstatic     #19                 // Field isSmallScreen:Z
+     143: ifeq          151
+     146: bipush        30
+     148: putstatic     #22                 // Field wCommand:I
+     151: new           #30                 // class Thread_More/SaveImageRMS
+     154: dup
+     155: invokespecial #31                 // Method Thread_More/SaveImageRMS."<init>":()V
+     158: putstatic     #32                 // Field saveImage:LThread_More/SaveImageRMS;
+     161: ldc           #33                 // String isQty
+     163: invokestatic  #34                 // Method Model/CRes.loadRMS:(Ljava/lang/String;)[B
+     166: ifnull        173
+     169: iconst_1
+     170: putstatic     #35                 // Field CLib/TField.isQwerty:Z
+     173: ldc           #36                 // String isLowDevice
+     175: invokestatic  #34                 // Method Model/CRes.loadRMS:(Ljava/lang/String;)[B
+     178: astore_1
+     179: aload_1
+     180: ifnull        224
+     183: new           #37                 // class java/io/ByteArrayInputStream
+     186: dup
+     187: aload_1
+     188: invokespecial #38                 // Method java/io/ByteArrayInputStream."<init>":([B)V
+     191: astore_2
+     192: new           #39                 // class java/io/DataInputStream
+     195: dup
+     196: aload_2
+     197: invokespecial #40                 // Method java/io/DataInputStream."<init>":(Ljava/io/InputStream;)V
+     200: astore_3
+     201: aload_3
+     202: invokevirtual #41                 // Method java/io/DataInputStream.readByte:()B
+     205: istore        4
+     207: iload         4
+     209: iconst_1
+     210: if_icmpne     220
+     213: iconst_1
+     214: putstatic     #42                 // Field lowGraphic:Z
+     217: goto          224
+     220: iconst_0
+     221: putstatic     #42                 // Field lowGraphic:Z
+     224: goto          228
+     227: astore_1
+     228: ldc           #44                 // String isIndexRes
+     230: invokestatic  #34                 // Method Model/CRes.loadRMS:(Ljava/lang/String;)[B
+     233: astore_1
+     234: aload_1
+     235: ifnull        263
+     238: new           #37                 // class java/io/ByteArrayInputStream
+     241: dup
+     242: aload_1
+     243: invokespecial #38                 // Method java/io/ByteArrayInputStream."<init>":([B)V
+     246: astore_2
+     247: new           #39                 // class java/io/DataInputStream
+     250: dup
+     251: aload_2
+     252: invokespecial #40                 // Method java/io/DataInputStream."<init>":(Ljava/io/InputStream;)V
+     255: astore_3
+     256: aload_3
+     257: invokevirtual #41                 // Method java/io/DataInputStream.readByte:()B
+     260: putstatic     #45                 // Field IndexRes:B
+     263: goto          267
+     266: astore_1
+     267: iconst_0
+     268: putstatic     #46                 // Field IndexCharPar:S
+     271: goto          275
+     274: astore_1
+     275: iconst_0
+     276: putstatic     #47                 // Field IndexServer:B
+     279: ldc           #48                 // String isIndexServer
+     281: invokestatic  #34                 // Method Model/CRes.loadRMS:(Ljava/lang/String;)[B
+     284: astore_1
+     285: aload_1
+     286: ifnull        295
+     289: aload_1
+     290: iconst_0
+     291: baload
+     292: putstatic     #47                 // Field IndexServer:B
+     295: goto          299
+     298: astore_1
+     299: goto          302
+     302: getstatic     #49                 // Field Build_Indo/IndoServer.isIndoSv:Z
+     305: ifeq          332
+     308: iconst_1
+     309: putstatic     #47                 // Field IndexServer:B
+     312: ldc           #48                 // String isIndexServer
+     314: invokestatic  #34                 // Method Model/CRes.loadRMS:(Ljava/lang/String;)[B
+     317: astore_1
+     318: aload_1
+     319: ifnull        328
+     322: aload_1
+     323: iconst_0
+     324: baload
+     325: putstatic     #47                 // Field IndexServer:B
+     328: goto          332
+     331: astore_1
+     332: getstatic     #50                 // Field Build_Usa/Usa_Server.isUsa_server:Z
+     335: ifeq          342
+     338: iconst_0
+     339: putstatic     #47                 // Field IndexServer:B
+     342: invokestatic  #51                 // Method Main/CreateImageStatic.LoadImage:()V
+     345: new           #52                 // class Model/mCamera
+     348: dup
+     349: invokespecial #53                 // Method Model/mCamera."<init>":()V
+     352: putstatic     #54                 // Field GameScreen/MainScreen.cameraMain:LModel/mCamera;
+     355: new           #52                 // class Model/mCamera
+     358: dup
+     359: invokespecial #53                 // Method Model/mCamera."<init>":()V
+     362: putstatic     #55                 // Field GameScreen/MainScreen.cameraSub:LModel/mCamera;
+     365: new           #56                 // class Thread_More/LoadMap
+     368: dup
+     369: invokespecial #57                 // Method Thread_More/LoadMap."<init>":()V
+     372: putstatic     #58                 // Field loadmap:LThread_More/LoadMap;
+     375: new           #59                 // class Thread_More/MiniMap
+     378: dup
+     379: invokespecial #60                 // Method Thread_More/MiniMap."<init>":()V
+     382: putstatic     #61                 // Field minimap:LThread_More/MiniMap;
+     385: new           #62                 // class GameScreen/LoginScreen
+     388: dup
+     389: invokespecial #63                 // Method GameScreen/LoginScreen."<init>":()V
+     392: putstatic     #64                 // Field login:LGameScreen/LoginScreen;
+     395: new           #65                 // class GameScreen/GameScreen
+     398: dup
+     399: invokespecial #66                 // Method GameScreen/GameScreen."<init>":()V
+     402: putstatic     #67                 // Field game:LGameScreen/GameScreen;
+     405: new           #68                 // class GameScreen/LoadMapScreen
+     408: dup
+     409: invokespecial #69                 // Method GameScreen/LoadMapScreen."<init>":()V
+     412: putstatic     #70                 // Field load:LGameScreen/LoadMapScreen;
+     415: new           #71                 // class GameScreen/WorldMapScreen
+     418: dup
+     419: invokespecial #72                 // Method GameScreen/WorldMapScreen."<init>":()V
+     422: putstatic     #73                 // Field worldmap:LGameScreen/WorldMapScreen;
+     425: new           #74                 // class netcommand/global/ReadMessenge
+     428: dup
+     429: invokespecial #75                 // Method netcommand/global/ReadMessenge."<init>":()V
+     432: putstatic     #76                 // Field readMessenge:Lnetcommand/global/ReadMessenge;
+     435: new           #77                 // class InterfaceComponents/MainTabNew
+     438: dup
+     439: invokespecial #78                 // Method InterfaceComponents/MainTabNew."<init>":()V
+     442: putstatic     #79                 // Field maintab:LInterfaceComponents/MainTabNew;
+     445: new           #80                 // class GameScreen/TabScreenNew
+     448: dup
+     449: invokespecial #81                 // Method GameScreen/TabScreenNew."<init>":()V
+     452: putstatic     #82                 // Field AllInfo:LGameScreen/TabScreenNew;
+     455: new           #80                 // class GameScreen/TabScreenNew
+     458: dup
+     459: invokespecial #81                 // Method GameScreen/TabScreenNew."<init>":()V
+     462: putstatic     #83                 // Field TabEvent:LGameScreen/TabScreenNew;
+     465: new           #84                 // class InterfaceComponents/MsgChat
+     468: dup
+     469: invokespecial #85                 // Method InterfaceComponents/MsgChat."<init>":()V
+     472: putstatic     #86                 // Field msgchat:LInterfaceComponents/MsgChat;
+     475: new           #87                 // class GameScreen/SelectCharScreen
+     478: dup
+     479: invokespecial #88                 // Method GameScreen/SelectCharScreen."<init>":()V
+     482: putstatic     #89                 // Field selectChar:LGameScreen/SelectCharScreen;
+     485: new           #90                 // class GameScreen/EventScreen
+     488: dup
+     489: invokespecial #91                 // Method GameScreen/EventScreen."<init>":()V
+     492: putstatic     #92                 // Field mevent:LGameScreen/EventScreen;
+     495: invokestatic  #93                 // Method Skill/MainListSkill.loadIndexEffKill:()V
+     498: new           #94                 // class GameScreen/LogoScreen
+     501: dup
+     502: invokespecial #95                 // Method GameScreen/LogoScreen."<init>":()V
+     505: putstatic     #96                 // Field logo:LGameScreen/LogoScreen;
+     508: getstatic     #96                 // Field logo:LGameScreen/LogoScreen;
+     511: invokevirtual #97                 // Method GameScreen/MainScreen.Show:()V
+     514: invokestatic  #98                 // Method GameScreen/StoryScreen.setTypeStory:()V
+     517: return
+    Exception table:
+       from    to  target type
+         173   224   227   Class java/lang/Exception
+         228   263   266   Class java/lang/Exception
+         267   271   274   Class java/lang/Exception
+         279   295   298   Class java/lang/Exception
+         312   328   331   Class java/lang/Exception
+
+  public static void loadCaptionCmd();
+    Code:
+       0: getstatic     #64                 // Field login:LGameScreen/LoginScreen;
+       3: invokevirtual #99                 // Method GameScreen/LoginScreen.setCaptionCmd:()V
+       6: getstatic     #67                 // Field game:LGameScreen/GameScreen;
+       9: invokevirtual #100                // Method GameScreen/GameScreen.setCaptionCmd:()V
+      12: getstatic     #82                 // Field AllInfo:LGameScreen/TabScreenNew;
+      15: invokevirtual #101                // Method GameScreen/TabScreenNew.setCaptionCmd:()V
+      18: getstatic     #86                 // Field msgchat:LInterfaceComponents/MsgChat;
+      21: invokevirtual #102                // Method InterfaceComponents/MsgChat.setCaptionCmd:()V
+      24: getstatic     #89                 // Field selectChar:LGameScreen/SelectCharScreen;
+      27: invokevirtual #103                // Method GameScreen/SelectCharScreen.setCaptionCmd:()V
+      30: getstatic     #92                 // Field mevent:LGameScreen/EventScreen;
+      33: invokevirtual #104                // Method GameScreen/EventScreen.setCaptionCmd:()V
+      36: getstatic     #105                // Field GameScreen/GameScreen.help:LGameObjects/MainHelp;
+      39: invokevirtual #106                // Method GameObjects/MainHelp.setCaptionCmd:()V
+      42: return
+
+  public void paint(CLib.TemGraphics);
+    Code:
+       0: aload_0
+       1: getfield      #4                  // Field g:LCLib/mGraphics;
+       4: aload_1
+       5: getfield      #107                // Field CLib/TemGraphics.g:Ljavax/microedition/lcdui/Graphics;
+       8: putfield      #108                // Field CLib/mGraphics.g:Ljavax/microedition/lcdui/Graphics;
+      11: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+      14: aload_0
+      15: getfield      #4                  // Field g:LCLib/mGraphics;
+      18: invokevirtual #110                // Method GameScreen/MainScreen.paint:(LCLib/mGraphics;)V
+      21: aload_0
+      22: invokevirtual #111                // Method setShowEvent:()Z
+      25: ifeq          48
+      28: getstatic     #112                // Field GameScreen/GameScreen.infoGame:LGameScreen/PaintInfoGameScreen;
+      31: aload_0
+      32: getfield      #4                  // Field g:LCLib/mGraphics;
+      35: invokevirtual #113                // Method GameScreen/PaintInfoGameScreen.paintShowEvent:(LCLib/mGraphics;)V
+      38: getstatic     #112                // Field GameScreen/GameScreen.infoGame:LGameScreen/PaintInfoGameScreen;
+      41: aload_0
+      42: getfield      #4                  // Field g:LCLib/mGraphics;
+      45: invokevirtual #114                // Method GameScreen/PaintInfoGameScreen.paintInfoChar:(LCLib/mGraphics;)V
+      48: getstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+      51: ifnull        64
+      54: getstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+      57: aload_0
+      58: getfield      #4                  // Field g:LCLib/mGraphics;
+      61: invokevirtual #116                // Method Model/AvMain.paint:(LCLib/mGraphics;)V
+      64: getstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      67: ifnull        83
+      70: getstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      73: aload_0
+      74: getfield      #4                  // Field g:LCLib/mGraphics;
+      77: invokevirtual #116                // Method Model/AvMain.paint:(LCLib/mGraphics;)V
+      80: goto          121
+      83: getstatic     #118                // Field menu2:LModel/Menu2;
+      86: getfield      #119                // Field Model/Menu2.isShowMenu:Z
+      89: ifeq          105
+      92: getstatic     #118                // Field menu2:LModel/Menu2;
+      95: aload_0
+      96: getfield      #4                  // Field g:LCLib/mGraphics;
+      99: invokevirtual #120                // Method Model/Menu2.paintMenu:(LCLib/mGraphics;)V
+     102: goto          121
+     105: getstatic     #121                // Field InterfaceComponents/ChatTextField.isShow:Z
+     108: ifeq          121
+     111: invokestatic  #122                // Method InterfaceComponents/ChatTextField.gI:()LInterfaceComponents/ChatTextField;
+     114: aload_0
+     115: getfield      #4                  // Field g:LCLib/mGraphics;
+     118: invokevirtual #123                // Method InterfaceComponents/ChatTextField.paint:(LCLib/mGraphics;)V
+     121: aload_0
+     122: getfield      #4                  // Field g:LCLib/mGraphics;
+     125: invokestatic  #124                // Method resetTrans:(LCLib/mGraphics;)V
+     128: getstatic     #125                // Field hLoad:I
+     131: ifle          158
+     134: aload_0
+     135: getfield      #4                  // Field g:LCLib/mGraphics;
+     138: iconst_0
+     139: invokevirtual #126                // Method CLib/mGraphics.setColor:(I)V
+     142: aload_0
+     143: getfield      #4                  // Field g:LCLib/mGraphics;
+     146: iconst_0
+     147: iconst_0
+     148: getstatic     #17                 // Field w:I
+     151: getstatic     #18                 // Field h:I
+     154: iconst_0
+     155: invokevirtual #127                // Method CLib/mGraphics.fillRect:(IIIIZ)V
+     158: getstatic     #128                // Field istest:Z
+     161: ifeq          186
+     164: getstatic     #129                // Field CLib/mFont.tahoma_7_black:LCLib/mFont;
+     167: aload_0
+     168: getfield      #4                  // Field g:LCLib/mGraphics;
+     171: ldc           #130                // String sv test
+     173: bipush        10
+     175: getstatic     #18                 // Field h:I
+     178: bipush        10
+     180: isub
+     181: iconst_0
+     182: iconst_0
+     183: invokevirtual #131                // Method CLib/mFont.drawString:(LCLib/mGraphics;Ljava/lang/String;IIIZ)V
+     186: return
+
+  public boolean setShowEvent();
+    Code:
+       0: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+       3: getstatic     #83                 // Field TabEvent:LGameScreen/TabScreenNew;
+       6: if_acmpeq     108
+       9: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+      12: getstatic     #67                 // Field game:LGameScreen/GameScreen;
+      15: if_acmpeq     108
+      18: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+      21: getstatic     #82                 // Field AllInfo:LGameScreen/TabScreenNew;
+      24: if_acmpeq     108
+      27: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+      30: getstatic     #132                // Field shopNpc:LGameScreen/TabScreenNew;
+      33: if_acmpeq     108
+      36: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+      39: getstatic     #133                // Field foodPet:LGameScreen/TabScreenNew;
+      42: if_acmpeq     108
+      45: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+      48: getstatic     #73                 // Field worldmap:LGameScreen/WorldMapScreen;
+      51: if_acmpeq     108
+      54: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+      57: getstatic     #134                // Field buy_sell:LGameScreen/Buy_Sell_Screen;
+      60: if_acmpeq     108
+      63: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+      66: getstatic     #135                // Field info_other_player:LGameScreen/Info_Other_Player;
+      69: if_acmpeq     108
+      72: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+      75: getstatic     #92                 // Field mevent:LGameScreen/EventScreen;
+      78: if_acmpeq     108
+      81: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+      84: getstatic     #136                // Field clan:LGameScreen/Clan_Screen;
+      87: if_acmpeq     108
+      90: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+      93: invokestatic  #137                // Method Thread_More/MiniMapFull_Screen.gI:()LThread_More/MiniMapFull_Screen;
+      96: if_acmpeq     108
+      99: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+     102: invokestatic  #138                // Method GameScreen/List_Server.gI:()LGameScreen/List_Server;
+     105: if_acmpne     110
+     108: iconst_1
+     109: ireturn
+     110: iconst_0
+     111: ireturn
+
+  public void update();
+    Code:
+       0: getstatic     #139                // Field gameTick:I
+       3: iconst_1
+       4: iadd
+       5: putstatic     #139                // Field gameTick:I
+       8: getstatic     #139                // Field gameTick:I
+      11: sipush        10000
+      14: if_icmple     21
+      17: iconst_0
+      18: putstatic     #139                // Field gameTick:I
+      21: getstatic     #139                // Field gameTick:I
+      24: iconst_5
+      25: irem
+      26: ifne          35
+      29: invokestatic  #140                // Method CLib/mSystem.currentTimeMillis:()J
+      32: putstatic     #141                // Field timeNow:J
+      35: getstatic     #125                // Field hLoad:I
+      38: ifle          54
+      41: getstatic     #125                // Field hLoad:I
+      44: getstatic     #18                 // Field h:I
+      47: bipush        10
+      49: idiv
+      50: isub
+      51: putstatic     #125                // Field hLoad:I
+      54: aload_0
+      55: invokevirtual #111                // Method setShowEvent:()Z
+      58: ifeq          85
+      61: getstatic     #112                // Field GameScreen/GameScreen.infoGame:LGameScreen/PaintInfoGameScreen;
+      64: invokevirtual #142                // Method GameScreen/PaintInfoGameScreen.updateEvent:()V
+      67: getstatic     #112                // Field GameScreen/GameScreen.infoGame:LGameScreen/PaintInfoGameScreen;
+      70: invokevirtual #143                // Method GameScreen/PaintInfoGameScreen.updateInfoServer:()V
+      73: getstatic     #112                // Field GameScreen/GameScreen.infoGame:LGameScreen/PaintInfoGameScreen;
+      76: invokevirtual #144                // Method GameScreen/PaintInfoGameScreen.updateInfoChar:()V
+      79: getstatic     #112                // Field GameScreen/GameScreen.infoGame:LGameScreen/PaintInfoGameScreen;
+      82: invokevirtual #145                // Method GameScreen/PaintInfoGameScreen.updateInfoCharServer:()V
+      85: getstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      88: ifnull        100
+      91: getstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      94: invokevirtual #146                // Method Model/AvMain.update:()V
+      97: goto          172
+     100: getstatic     #118                // Field menu2:LModel/Menu2;
+     103: getfield      #119                // Field Model/Menu2.isShowMenu:Z
+     106: ifeq          124
+     109: getstatic     #118                // Field menu2:LModel/Menu2;
+     112: invokevirtual #147                // Method Model/Menu2.updateMenu:()V
+     115: getstatic     #118                // Field menu2:LModel/Menu2;
+     118: invokevirtual #148                // Method Model/Menu2.updateMenuKey:()V
+     121: goto          172
+     124: getstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+     127: ifnull        139
+     130: getstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+     133: invokevirtual #146                // Method Model/AvMain.update:()V
+     136: goto          172
+     139: getstatic     #121                // Field InterfaceComponents/ChatTextField.isShow:Z
+     142: ifeq          160
+     145: invokestatic  #122                // Method InterfaceComponents/ChatTextField.gI:()LInterfaceComponents/ChatTextField;
+     148: invokevirtual #149                // Method InterfaceComponents/ChatTextField.updatekey:()V
+     151: invokestatic  #122                // Method InterfaceComponents/ChatTextField.gI:()LInterfaceComponents/ChatTextField;
+     154: invokevirtual #150                // Method InterfaceComponents/ChatTextField.updatePointer:()V
+     157: goto          172
+     160: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+     163: invokevirtual #151                // Method Model/AvMain.updatekey:()V
+     166: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+     169: invokevirtual #152                // Method Model/AvMain.updatePointer:()V
+     172: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+     175: invokevirtual #153                // Method GameScreen/MainScreen.update:()V
+     178: iconst_0
+     179: putstatic     #154                // Field isPointerClick:Z
+     182: getstatic     #155                // Field GameScreen/GameScreen.timeResetCam:I
+     185: ifle          206
+     188: getstatic     #155                // Field GameScreen/GameScreen.timeResetCam:I
+     191: iconst_1
+     192: isub
+     193: putstatic     #155                // Field GameScreen/GameScreen.timeResetCam:I
+     196: getstatic     #155                // Field GameScreen/GameScreen.timeResetCam:I
+     199: ifne          206
+     202: iconst_0
+     203: putstatic     #156                // Field GameScreen/GameScreen.isMoveCamera:Z
+     206: aload_0
+     207: invokevirtual #157                // Method updateCountTick:()V
+     210: return
+
+  public static void resetTrans(CLib.mGraphics);
+    Code:
+       0: aload_0
+       1: aload_0
+       2: invokevirtual #158                // Method CLib/mGraphics.getTranslateX:()I
+       5: ineg
+       6: aload_0
+       7: invokevirtual #159                // Method CLib/mGraphics.getTranslateY:()I
+      10: ineg
+      11: invokevirtual #160                // Method CLib/mGraphics.translate:(II)V
+      14: aload_0
+      15: iconst_0
+      16: iconst_0
+      17: invokevirtual #160                // Method CLib/mGraphics.translate:(II)V
+      20: aload_0
+      21: iconst_0
+      22: iconst_0
+      23: getstatic     #17                 // Field w:I
+      26: getstatic     #18                 // Field h:I
+      29: invokevirtual #161                // Method CLib/mGraphics.setClip:(IIII)V
+      32: return
+
+  public static void start_Ok_Dialog(java.lang.String);
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_1
+       8: aload_1
+       9: aload_0
+      10: new           #164                // class InterfaceComponents/iCommand
+      13: dup
+      14: ldc           #165                // String Ok
+      16: iconst_m1
+      17: invokespecial #166                // Method InterfaceComponents/iCommand."<init>":(Ljava/lang/String;I)V
+      20: iconst_1
+      21: invokevirtual #167                // Method InterfaceComponents/MsgDialog.setinfo:(Ljava/lang/String;LInterfaceComponents/iCommand;Z)V
+      24: aload_1
+      25: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      28: return
+
+  public static void start_Info_Quayso_Dialog();
+    Code:
+       0: new           #168                // class InterfaceComponents/Info_Quayso
+       3: dup
+       4: invokespecial #169                // Method InterfaceComponents/Info_Quayso."<init>":()V
+       7: astore_0
+       8: aload_0
+       9: getstatic     #170                // Field Model/T.info_Quayso:[Ljava/lang/String;
+      12: bipush        60
+      14: iconst_1
+      15: ldc           #171                // String 1.01%
+      17: invokevirtual #172                // Method InterfaceComponents/Info_Quayso.setInfo:([Ljava/lang/String;IILjava/lang/String;)V
+      20: aload_0
+      21: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      24: return
+
+  public static void start_Ok_Dialog(java.lang.String, byte);
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_2
+       8: aload_2
+       9: aload_0
+      10: new           #164                // class InterfaceComponents/iCommand
+      13: dup
+      14: ldc           #165                // String Ok
+      16: iload_1
+      17: invokespecial #166                // Method InterfaceComponents/iCommand."<init>":(Ljava/lang/String;I)V
+      20: iconst_1
+      21: invokevirtual #167                // Method InterfaceComponents/MsgDialog.setinfo:(Ljava/lang/String;LInterfaceComponents/iCommand;Z)V
+      24: aload_2
+      25: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      28: return
+
+  public static void start_Download_Dialog(java.lang.String, java.lang.String);
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_2
+       8: aload_2
+       9: aload_0
+      10: aload_1
+      11: iconst_0
+      12: invokevirtual #173                // Method InterfaceComponents/MsgDialog.setinfoDownload:(Ljava/lang/String;Ljava/lang/String;Z)V
+      15: aload_2
+      16: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      19: return
+
+  public static void start_Show_Dialog(java.lang.String, java.lang.String);
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_2
+       8: aload_2
+       9: aload_0
+      10: new           #164                // class InterfaceComponents/iCommand
+      13: dup
+      14: getstatic     #174                // Field Model/T.close:Ljava/lang/String;
+      17: iconst_m1
+      18: invokespecial #166                // Method InterfaceComponents/iCommand."<init>":(Ljava/lang/String;I)V
+      21: iconst_1
+      22: aload_1
+      23: invokevirtual #175                // Method InterfaceComponents/MsgDialog.setinfoSHOW:(Ljava/lang/String;LInterfaceComponents/iCommand;ZLjava/lang/String;)V
+      26: aload_2
+      27: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      30: return
+
+  public static void start_Wait_Dialog(java.lang.String, InterfaceComponents.iCommand);
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_2
+       8: aload_2
+       9: aload_0
+      10: aload_1
+      11: invokevirtual #176                // Method InterfaceComponents/MsgDialog.setinfoWait:(Ljava/lang/String;LInterfaceComponents/iCommand;)V
+      14: aload_2
+      15: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      18: return
+
+  public static void start_Select_Dialog(java.lang.String, CLib.mVector);
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_2
+       8: aload_2
+       9: aload_0
+      10: aload_1
+      11: invokevirtual #177                // Method InterfaceComponents/MsgDialog.setinfo:(Ljava/lang/String;LCLib/mVector;)V
+      14: aload_2
+      15: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      18: return
+
+  public static void start_Center_Dialog_Only(java.lang.String, InterfaceComponents.iCommand);
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_2
+       8: aload_2
+       9: aload_0
+      10: aload_1
+      11: iconst_1
+      12: invokevirtual #167                // Method InterfaceComponents/MsgDialog.setinfo:(Ljava/lang/String;LInterfaceComponents/iCommand;Z)V
+      15: aload_2
+      16: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      19: return
+
+  public static void start_Left_Dialog(java.lang.String, InterfaceComponents.iCommand);
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_2
+       8: aload_2
+       9: aload_0
+      10: aload_1
+      11: iconst_0
+      12: invokevirtual #167                // Method InterfaceComponents/MsgDialog.setinfo:(Ljava/lang/String;LInterfaceComponents/iCommand;Z)V
+      15: aload_2
+      16: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      19: return
+
+  public static void start_Quest_Dialog(java.lang.String, java.lang.String, int, int, byte);
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore        5
+       9: aload         5
+      11: aload_0
+      12: aload_1
+      13: iload_2
+      14: iload_3
+      15: iload         4
+      17: invokevirtual #178                // Method InterfaceComponents/MsgDialog.setinfoQuest:(Ljava/lang/String;Ljava/lang/String;IIB)V
+      20: aload         5
+      22: putstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+      25: return
+
+  public static void start_Quest_DialogRead(GameObjects.MainQuest);
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_1
+       8: aload_1
+       9: aload_0
+      10: invokevirtual #179                // Method InterfaceComponents/MsgDialog.setinfoQuestRead:(LGameObjects/MainQuest;)V
+      13: aload_1
+      14: putstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+      17: return
+
+  public static void start_Party_Dialog();
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_0
+       8: aload_0
+       9: invokevirtual #180                // Method InterfaceComponents/MsgDialog.setinfoParty:()V
+      12: aload_0
+      13: putstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+      16: return
+
+  public static void start_Auto_HPMP_Dialog();
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_0
+       8: aload_0
+       9: invokevirtual #181                // Method InterfaceComponents/MsgDialog.setinfoAutoHP_MP:()V
+      12: aload_0
+      13: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      16: return
+
+  public static void start_Auto_Item_Dialog();
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_0
+       8: aload_0
+       9: invokevirtual #182                // Method InterfaceComponents/MsgDialog.setinfoAutoGetItem:()V
+      12: aload_0
+      13: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      16: return
+
+  public static void start_Volume_Dialog();
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_0
+       8: aload_0
+       9: invokevirtual #183                // Method InterfaceComponents/MsgDialog.setinfoVolume:()V
+      12: aload_0
+      13: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      16: return
+
+  public static void start_Auto_Buff();
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_0
+       8: aload_0
+       9: invokevirtual #184                // Method InterfaceComponents/MsgDialog.setInfoAutoBuff:()V
+      12: aload_0
+      13: putstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+      16: return
+
+  public static void start_Chat_Dialog();
+    Code:
+       0: getstatic     #86                 // Field msgchat:LInterfaceComponents/MsgChat;
+       3: invokevirtual #185                // Method InterfaceComponents/MsgChat.checkRemoveText:()V
+       6: getstatic     #86                 // Field msgchat:LInterfaceComponents/MsgChat;
+       9: invokevirtual #186                // Method InterfaceComponents/MsgChat.init:()V
+      12: getstatic     #86                 // Field msgchat:LInterfaceComponents/MsgChat;
+      15: putstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+      18: return
+
+  public static void start_More_Input_Dialog(java.lang.String[], InterfaceComponents.iCommand, short, short, java.lang.String);
+    Code:
+       0: new           #187                // class InterfaceComponents/InputDialog
+       3: dup
+       4: invokespecial #188                // Method InterfaceComponents/InputDialog."<init>":()V
+       7: astore        5
+       9: aload         5
+      11: aload_0
+      12: aload_1
+      13: iload_2
+      14: iload_3
+      15: aload         4
+      17: invokevirtual #189                // Method InterfaceComponents/InputDialog.setinfo:([Ljava/lang/String;LInterfaceComponents/iCommand;SSLjava/lang/String;)V
+      20: aload         5
+      22: putstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+      25: return
+
+  public static void start_More_Input_Dialog(java.lang.String[], InterfaceComponents.iCommand, short, short, java.lang.String, java.lang.String[], byte);
+    Code:
+       0: invokestatic  #190                // Method end_Dialog:()V
+       3: new           #187                // class InterfaceComponents/InputDialog
+       6: dup
+       7: invokespecial #188                // Method InterfaceComponents/InputDialog."<init>":()V
+      10: astore        7
+      12: aload         7
+      14: aload_0
+      15: aload_1
+      16: iload_2
+      17: iload_3
+      18: aload         4
+      20: aload         5
+      22: iload         6
+      24: invokevirtual #191                // Method InterfaceComponents/InputDialog.setinfo:([Ljava/lang/String;LInterfaceComponents/iCommand;SSLjava/lang/String;[Ljava/lang/String;B)V
+      27: aload         7
+      29: putstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+      32: return
+
+  public static void start_Time_Dialog(java.lang.String, short);
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_2
+       8: aload_2
+       9: aload_0
+      10: iload_1
+      11: invokevirtual #192                // Method InterfaceComponents/MsgDialog.setInfoTime:(Ljava/lang/String;S)V
+      14: aload_2
+      15: putstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+      18: return
+
+  public static void start_Change_Item(java.lang.String, java.lang.String, GameObjects.MainItem[], GameObjects.MainItem);
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore        4
+       9: aload         4
+      11: aload_0
+      12: aload_1
+      13: aload_2
+      14: aload_3
+      15: invokevirtual #193                // Method InterfaceComponents/MsgDialog.setShowChangeItem:(Ljava/lang/String;Ljava/lang/String;[LGameObjects/MainItem;LGameObjects/MainItem;)V
+      18: aload         4
+      20: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      23: return
+
+  public static void start_Open_Box(java.lang.String, java.lang.String, GameObjects.MainItem[], byte, byte);
+    Code:
+       0: aload_1
+       1: ifnull        16
+       4: aload_1
+       5: invokevirtual #194                // Method java/lang/String.trim:()Ljava/lang/String;
+       8: invokevirtual #195                // Method java/lang/String.length:()I
+      11: ifne          16
+      14: aconst_null
+      15: astore_1
+      16: new           #162                // class InterfaceComponents/MsgDialog
+      19: dup
+      20: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+      23: astore        5
+      25: aload         5
+      27: aload_0
+      28: aload_2
+      29: aload_1
+      30: iload_3
+      31: iload         4
+      33: invokevirtual #196                // Method InterfaceComponents/MsgDialog.setShowOpenBox:(Ljava/lang/String;[LGameObjects/MainItem;Ljava/lang/String;BB)V
+      36: aload         5
+      38: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      41: return
+
+  public static void start_Update_Data();
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_0
+       8: aload_0
+       9: invokevirtual #197                // Method InterfaceComponents/MsgDialog.setUpdateData:()V
+      12: aload_0
+      13: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      16: return
+
+  public static void start_Pet_Info(GameObjects.PetItem, byte);
+    Code:
+       0: new           #162                // class InterfaceComponents/MsgDialog
+       3: dup
+       4: invokespecial #163                // Method InterfaceComponents/MsgDialog."<init>":()V
+       7: astore_2
+       8: aload_2
+       9: aload_0
+      10: iload_1
+      11: invokevirtual #198                // Method InterfaceComponents/MsgDialog.setPetInfo:(LGameObjects/PetItem;B)V
+      14: aload_2
+      15: putstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+      18: aload_0
+      19: ifnull        36
+      22: invokestatic  #199                // Method netcommand/global/GlobalService.gI:()Lnetcommand/global/GlobalService;
+      25: getstatic     #200                // Field InterfaceComponents/TabShopNew.UPDATE_PET_EAT:B
+      28: aload_0
+      29: getfield      #201                // Field GameObjects/Item.Id:I
+      32: i2s
+      33: invokevirtual #202                // Method netcommand/global/GlobalService.Update_Pet_Eat:(BS)V
+      36: return
+
+  public static void end_Dialog();
+    Code:
+       0: aconst_null
+       1: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+       4: aconst_null
+       5: putstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+       8: invokestatic  #203                // Method clearKeyHold:()V
+      11: invokestatic  #204                // Method clearKeyPressed:()V
+      14: getstatic     #105                // Field GameScreen/GameScreen.help:LGameObjects/MainHelp;
+      17: getfield      #205                // Field GameObjects/MainHelp.Step:I
+      20: iflt          31
+      23: getstatic     #105                // Field GameScreen/GameScreen.help:LGameObjects/MainHelp;
+      26: bipush        20
+      28: putfield      #206                // Field GameObjects/MainHelp.timeReset:I
+      31: return
+
+  public static void end_Dialog_Help();
+    Code:
+       0: aconst_null
+       1: putstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+       4: return
+
+  public static void addInfoCharServer(java.lang.String);
+    Code:
+       0: invokestatic  #207                // Method resetTip:()V
+       3: aload_0
+       4: ifnull        21
+       7: aload_0
+       8: invokevirtual #195                // Method java/lang/String.length:()I
+      11: ifle          21
+      14: getstatic     #208                // Field GameScreen/GameScreen.VecInfoServer:LCLib/mVector;
+      17: aload_0
+      18: invokevirtual #209                // Method CLib/mVector.addElement:(Ljava/lang/Object;)V
+      21: return
+
+  public static void addInfoChar(java.lang.String);
+    Code:
+       0: aload_0
+       1: ifnull        53
+       4: aload_0
+       5: invokevirtual #195                // Method java/lang/String.length:()I
+       8: ifle          53
+      11: getstatic     #129                // Field CLib/mFont.tahoma_7_black:LCLib/mFont;
+      14: aload_0
+      15: invokevirtual #210                // Method CLib/mFont.getWidth:(Ljava/lang/String;)I
+      18: sipush        140
+      21: if_icmple     31
+      24: aload_0
+      25: invokestatic  #211                // Method addInfoCharCline:(Ljava/lang/String;)V
+      28: goto          53
+      31: getstatic     #112                // Field GameScreen/GameScreen.infoGame:LGameScreen/PaintInfoGameScreen;
+      34: aload_0
+      35: putfield      #212                // Field GameScreen/PaintInfoGameScreen.strInfoCharCline:Ljava/lang/String;
+      38: getstatic     #112                // Field GameScreen/GameScreen.infoGame:LGameScreen/PaintInfoGameScreen;
+      41: bipush        10
+      43: putfield      #213                // Field GameScreen/PaintInfoGameScreen.ydInfoChar:I
+      46: getstatic     #112                // Field GameScreen/GameScreen.infoGame:LGameScreen/PaintInfoGameScreen;
+      49: iconst_0
+      50: putfield      #214                // Field GameScreen/PaintInfoGameScreen.timeInfoCharCline:I
+      53: return
+
+  public static void addInfoCharCline(java.lang.String);
+    Code:
+       0: aload_0
+       1: ifnull        18
+       4: aload_0
+       5: invokevirtual #195                // Method java/lang/String.length:()I
+       8: ifle          18
+      11: getstatic     #215                // Field GameScreen/GameScreen.VecInfoChar:LCLib/mVector;
+      14: aload_0
+      15: invokevirtual #209                // Method CLib/mVector.addElement:(Ljava/lang/Object;)V
+      18: return
+
+  public void mapKeyPress(int);
+    Code:
+       0: getstatic     #141                // Field timeNow:J
+       3: putstatic     #216                // Field GameScreen/PaintInfoGameScreen.timeDoNotClick:J
+       6: iconst_1
+       7: putstatic     #217                // Field GameScreen/PaintInfoGameScreen.isShowInGame:Z
+      10: getstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      13: ifnull        26
+      16: getstatic     #117                // Field currentDialog:LInterfaceComponents/MainDialog;
+      19: iload_1
+      20: invokevirtual #218                // Method InterfaceComponents/MainDialog.keypress:(I)V
+      23: goto          65
+      26: getstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+      29: ifnull        42
+      32: getstatic     #115                // Field subDialog:LInterfaceComponents/MainDialog;
+      35: iload_1
+      36: invokevirtual #218                // Method InterfaceComponents/MainDialog.keypress:(I)V
+      39: goto          65
+      42: getstatic     #121                // Field InterfaceComponents/ChatTextField.isShow:Z
+      45: ifeq          58
+      48: invokestatic  #122                // Method InterfaceComponents/ChatTextField.gI:()LInterfaceComponents/ChatTextField;
+      51: iload_1
+      52: invokevirtual #219                // Method InterfaceComponents/ChatTextField.keyPressed:(I)V
+      55: goto          65
+      58: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+      61: iload_1
+      62: invokevirtual #220                // Method GameScreen/MainScreen.keyPress:(I)V
+      65: getstatic     #35                 // Field CLib/TField.isQwerty:Z
+      68: ifeq          233
+      71: getstatic     #221                // Field keyAsciiPress:I
+      74: bipush        114
+      76: if_icmpeq     87
+      79: getstatic     #221                // Field keyAsciiPress:I
+      82: bipush        82
+      84: if_icmpne     104
+      87: getstatic     #222                // Field keyMyHold:[Z
+      90: bipush        21
+      92: iconst_1
+      93: bastore
+      94: getstatic     #223                // Field keyMyPressed:[Z
+      97: bipush        21
+      99: iconst_1
+     100: bastore
+     101: goto          233
+     104: getstatic     #221                // Field keyAsciiPress:I
+     107: bipush        116
+     109: if_icmpeq     120
+     112: getstatic     #221                // Field keyAsciiPress:I
+     115: bipush        84
+     117: if_icmpne     137
+     120: getstatic     #222                // Field keyMyHold:[Z
+     123: bipush        23
+     125: iconst_1
+     126: bastore
+     127: getstatic     #223                // Field keyMyPressed:[Z
+     130: bipush        23
+     132: iconst_1
+     133: bastore
+     134: goto          233
+     137: getstatic     #221                // Field keyAsciiPress:I
+     140: bipush        121
+     142: if_icmpeq     153
+     145: getstatic     #221                // Field keyAsciiPress:I
+     148: bipush        89
+     150: if_icmpne     170
+     153: getstatic     #222                // Field keyMyHold:[Z
+     156: bipush        25
+     158: iconst_1
+     159: bastore
+     160: getstatic     #223                // Field keyMyPressed:[Z
+     163: bipush        25
+     165: iconst_1
+     166: bastore
+     167: goto          233
+     170: getstatic     #221                // Field keyAsciiPress:I
+     173: bipush        117
+     175: if_icmpeq     186
+     178: getstatic     #221                // Field keyAsciiPress:I
+     181: bipush        85
+     183: if_icmpne     203
+     186: getstatic     #222                // Field keyMyHold:[Z
+     189: bipush        27
+     191: iconst_1
+     192: bastore
+     193: getstatic     #223                // Field keyMyPressed:[Z
+     196: bipush        27
+     198: iconst_1
+     199: bastore
+     200: goto          233
+     203: getstatic     #221                // Field keyAsciiPress:I
+     206: bipush        105
+     208: if_icmpeq     219
+     211: getstatic     #221                // Field keyAsciiPress:I
+     214: bipush        73
+     216: if_icmpne     233
+     219: getstatic     #222                // Field keyMyHold:[Z
+     222: bipush        29
+     224: iconst_1
+     225: bastore
+     226: getstatic     #223                // Field keyMyPressed:[Z
+     229: bipush        29
+     231: iconst_1
+     232: bastore
+     233: iload_1
+     234: tableswitch   { // -7 to 57
+
+                    -7: 641
+
+                    -6: 626
+
+                    -5: 564
+
+                    -4: 549
+
+                    -3: 536
+
+                    -2: 521
+
+                    -1: 508
+
+                     0: 656
+
+                     1: 656
+
+                     2: 656
+
+                     3: 656
+
+                     4: 656
+
+                     5: 656
+
+                     6: 656
+
+                     7: 656
+
+                     8: 656
+
+                     9: 656
+
+                    10: 564
+
+                    11: 656
+
+                    12: 656
+
+                    13: 656
+
+                    14: 656
+
+                    15: 656
+
+                    16: 656
+
+                    17: 656
+
+                    18: 656
+
+                    19: 656
+
+                    20: 656
+
+                    21: 656
+
+                    22: 656
+
+                    23: 656
+
+                    24: 656
+
+                    25: 656
+
+                    26: 656
+
+                    27: 656
+
+                    28: 656
+
+                    29: 656
+
+                    30: 656
+
+                    31: 656
+
+                    32: 656
+
+                    33: 656
+
+                    34: 656
+
+                    35: 611
+
+                    36: 656
+
+                    37: 656
+
+                    38: 656
+
+                    39: 656
+
+                    40: 656
+
+                    41: 656
+
+                    42: 596
+
+                    43: 656
+
+                    44: 656
+
+                    45: 656
+
+                    46: 656
+
+                    47: 656
+
+                    48: 577
+
+                    49: 577
+
+                    50: 577
+
+                    51: 577
+
+                    52: 577
+
+                    53: 577
+
+                    54: 577
+
+                    55: 577
+
+                    56: 577
+
+                    57: 577
+               default: 656
+          }
+     508: getstatic     #222                // Field keyMyHold:[Z
+     511: iconst_2
+     512: iconst_1
+     513: bastore
+     514: getstatic     #223                // Field keyMyPressed:[Z
+     517: iconst_2
+     518: iconst_1
+     519: bastore
+     520: return
+     521: getstatic     #222                // Field keyMyHold:[Z
+     524: bipush        8
+     526: iconst_1
+     527: bastore
+     528: getstatic     #223                // Field keyMyPressed:[Z
+     531: bipush        8
+     533: iconst_1
+     534: bastore
+     535: return
+     536: getstatic     #222                // Field keyMyHold:[Z
+     539: iconst_4
+     540: iconst_1
+     541: bastore
+     542: getstatic     #223                // Field keyMyPressed:[Z
+     545: iconst_4
+     546: iconst_1
+     547: bastore
+     548: return
+     549: getstatic     #222                // Field keyMyHold:[Z
+     552: bipush        6
+     554: iconst_1
+     555: bastore
+     556: getstatic     #223                // Field keyMyPressed:[Z
+     559: bipush        6
+     561: iconst_1
+     562: bastore
+     563: return
+     564: getstatic     #222                // Field keyMyHold:[Z
+     567: iconst_5
+     568: iconst_1
+     569: bastore
+     570: getstatic     #223                // Field keyMyPressed:[Z
+     573: iconst_5
+     574: iconst_1
+     575: bastore
+     576: return
+     577: getstatic     #222                // Field keyMyHold:[Z
+     580: iload_1
+     581: bipush        28
+     583: isub
+     584: iconst_1
+     585: bastore
+     586: getstatic     #223                // Field keyMyPressed:[Z
+     589: iload_1
+     590: bipush        28
+     592: isub
+     593: iconst_1
+     594: bastore
+     595: return
+     596: getstatic     #222                // Field keyMyHold:[Z
+     599: bipush        10
+     601: iconst_1
+     602: bastore
+     603: getstatic     #223                // Field keyMyPressed:[Z
+     606: bipush        10
+     608: iconst_1
+     609: bastore
+     610: return
+     611: getstatic     #222                // Field keyMyHold:[Z
+     614: bipush        11
+     616: iconst_1
+     617: bastore
+     618: getstatic     #223                // Field keyMyPressed:[Z
+     621: bipush        11
+     623: iconst_1
+     624: bastore
+     625: return
+     626: getstatic     #222                // Field keyMyHold:[Z
+     629: bipush        12
+     631: iconst_1
+     632: bastore
+     633: getstatic     #223                // Field keyMyPressed:[Z
+     636: bipush        12
+     638: iconst_1
+     639: bastore
+     640: return
+     641: getstatic     #222                // Field keyMyHold:[Z
+     644: bipush        13
+     646: iconst_1
+     647: bastore
+     648: getstatic     #223                // Field keyMyPressed:[Z
+     651: bipush        13
+     653: iconst_1
+     654: bastore
+     655: return
+     656: return
+
+  public void mapKeyRelease(int);
+    Code:
+       0: iload_1
+       1: tableswitch   { // -7 to 57
+
+                    -7: 379
+
+                    -6: 371
+
+                    -5: 332
+
+                    -4: 317
+
+                    -3: 304
+
+                    -2: 289
+
+                    -1: 276
+
+                     0: 387
+
+                     1: 387
+
+                     2: 387
+
+                     3: 387
+
+                     4: 387
+
+                     5: 387
+
+                     6: 387
+
+                     7: 387
+
+                     8: 387
+
+                     9: 387
+
+                    10: 332
+
+                    11: 387
+
+                    12: 387
+
+                    13: 387
+
+                    14: 387
+
+                    15: 387
+
+                    16: 387
+
+                    17: 387
+
+                    18: 387
+
+                    19: 387
+
+                    20: 387
+
+                    21: 387
+
+                    22: 387
+
+                    23: 387
+
+                    24: 387
+
+                    25: 387
+
+                    26: 387
+
+                    27: 387
+
+                    28: 387
+
+                    29: 387
+
+                    30: 387
+
+                    31: 387
+
+                    32: 387
+
+                    33: 387
+
+                    34: 387
+
+                    35: 363
+
+                    36: 387
+
+                    37: 387
+
+                    38: 387
+
+                    39: 387
+
+                    40: 387
+
+                    41: 387
+
+                    42: 355
+
+                    43: 387
+
+                    44: 387
+
+                    45: 387
+
+                    46: 387
+
+                    47: 387
+
+                    48: 345
+
+                    49: 345
+
+                    50: 345
+
+                    51: 345
+
+                    52: 345
+
+                    53: 345
+
+                    54: 345
+
+                    55: 345
+
+                    56: 345
+
+                    57: 345
+               default: 387
+          }
+     276: getstatic     #222                // Field keyMyHold:[Z
+     279: iconst_2
+     280: iconst_0
+     281: bastore
+     282: getstatic     #223                // Field keyMyPressed:[Z
+     285: iconst_2
+     286: iconst_0
+     287: bastore
+     288: return
+     289: getstatic     #222                // Field keyMyHold:[Z
+     292: bipush        8
+     294: iconst_0
+     295: bastore
+     296: getstatic     #223                // Field keyMyPressed:[Z
+     299: bipush        8
+     301: iconst_0
+     302: bastore
+     303: return
+     304: getstatic     #222                // Field keyMyHold:[Z
+     307: iconst_4
+     308: iconst_0
+     309: bastore
+     310: getstatic     #223                // Field keyMyPressed:[Z
+     313: iconst_4
+     314: iconst_0
+     315: bastore
+     316: return
+     317: getstatic     #222                // Field keyMyHold:[Z
+     320: bipush        6
+     322: iconst_0
+     323: bastore
+     324: getstatic     #223                // Field keyMyPressed:[Z
+     327: bipush        6
+     329: iconst_0
+     330: bastore
+     331: return
+     332: getstatic     #222                // Field keyMyHold:[Z
+     335: iconst_5
+     336: iconst_0
+     337: bastore
+     338: getstatic     #223                // Field keyMyPressed:[Z
+     341: iconst_5
+     342: iconst_0
+     343: bastore
+     344: return
+     345: getstatic     #222                // Field keyMyHold:[Z
+     348: iload_1
+     349: bipush        28
+     351: isub
+     352: iconst_0
+     353: bastore
+     354: return
+     355: getstatic     #222                // Field keyMyHold:[Z
+     358: bipush        10
+     360: iconst_0
+     361: bastore
+     362: return
+     363: getstatic     #222                // Field keyMyHold:[Z
+     366: bipush        11
+     368: iconst_0
+     369: bastore
+     370: return
+     371: getstatic     #222                // Field keyMyHold:[Z
+     374: bipush        12
+     376: iconst_0
+     377: bastore
+     378: return
+     379: getstatic     #222                // Field keyMyHold:[Z
+     382: bipush        13
+     384: iconst_0
+     385: bastore
+     386: return
+     387: return
+
+  public void keyPressed(int);
+    Code:
+       0: getstatic     #35                 // Field CLib/TField.isQwerty:Z
+       3: ifeq          58
+       6: iload_1
+       7: bipush        48
+       9: if_icmplt     18
+      12: iload_1
+      13: bipush        57
+      15: if_icmple     54
+      18: iload_1
+      19: bipush        65
+      21: if_icmplt     30
+      24: iload_1
+      25: bipush        122
+      27: if_icmple     54
+      30: iload_1
+      31: bipush        10
+      33: if_icmpeq     54
+      36: iload_1
+      37: bipush        8
+      39: if_icmpeq     54
+      42: iload_1
+      43: bipush        13
+      45: if_icmpeq     54
+      48: iload_1
+      49: bipush        32
+      51: if_icmpne     58
+      54: iload_1
+      55: putstatic     #221                // Field keyAsciiPress:I
+      58: aload_0
+      59: iload_1
+      60: invokevirtual #224                // Method mapKeyPress:(I)V
+      63: return
+
+  public void keyReleased(int);
+    Code:
+       0: getstatic     #35                 // Field CLib/TField.isQwerty:Z
+       3: ifeq          10
+       6: iconst_0
+       7: putstatic     #221                // Field keyAsciiPress:I
+      10: aload_0
+      11: iload_1
+      12: invokevirtual #225                // Method mapKeyRelease:(I)V
+      15: return
+
+  public static boolean isKeyPressed(int);
+    Code:
+       0: getstatic     #223                // Field keyMyPressed:[Z
+       3: iload_0
+       4: baload
+       5: ifeq          10
+       8: iconst_1
+       9: ireturn
+      10: iconst_0
+      11: ireturn
+
+  public void pointerDragged(int, int);
+    Code:
+       0: iload_1
+       1: getstatic     #226                // Field CLib/mGraphics.zoomLevel:I
+       4: idiv
+       5: putstatic     #227                // Field px:I
+       8: iload_2
+       9: getstatic     #226                // Field CLib/mGraphics.zoomLevel:I
+      12: idiv
+      13: putstatic     #228                // Field py:I
+      16: getstatic     #229                // Field isPointerMove:Z
+      19: ifeq          40
+      22: getstatic     #27                 // Field listPoint:LCLib/mVector;
+      25: new           #230                // class Model/Position
+      28: dup
+      29: iload_1
+      30: iload_2
+      31: invokespecial #231                // Method Model/Position."<init>":(II)V
+      34: invokevirtual #209                // Method CLib/mVector.addElement:(Ljava/lang/Object;)V
+      37: goto          74
+      40: getstatic     #227                // Field px:I
+      43: getstatic     #232                // Field pxLast:I
+      46: isub
+      47: invokestatic  #233                // Method Model/CRes.abs:(I)I
+      50: bipush        15
+      52: if_icmpge     70
+      55: getstatic     #228                // Field py:I
+      58: getstatic     #234                // Field pyLast:I
+      61: isub
+      62: invokestatic  #233                // Method Model/CRes.abs:(I)I
+      65: bipush        15
+      67: if_icmplt     74
+      70: iconst_1
+      71: putstatic     #229                // Field isPointerMove:Z
+      74: return
+
+  public void pointerPressed(int, int);
+    Code:
+       0: getstatic     #141                // Field timeNow:J
+       3: putstatic     #216                // Field GameScreen/PaintInfoGameScreen.timeDoNotClick:J
+       6: iconst_1
+       7: putstatic     #217                // Field GameScreen/PaintInfoGameScreen.isShowInGame:Z
+      10: iconst_1
+      11: putstatic     #235                // Field isPointerDown:Z
+      14: iconst_0
+      15: putstatic     #229                // Field isPointerMove:Z
+      18: iconst_0
+      19: putstatic     #236                // Field isPointerSelect:Z
+      22: iconst_0
+      23: putstatic     #237                // Field isPointerRelease:Z
+      26: iconst_0
+      27: putstatic     #238                // Field isPointerEnd:Z
+      30: getstatic     #109                // Field currentScreen:LGameScreen/MainScreen;
+      33: invokestatic  #239                // Method GameScreen/MapScr.gI:()LGameScreen/MapScr;
+      36: if_acmpne     43
+      39: iconst_1
+      40: putstatic     #154                // Field isPointerClick:Z
+      43: iload_1
+      44: getstatic     #226                // Field CLib/mGraphics.zoomLevel:I
+      47: idiv
+      48: putstatic     #232                // Field pxLast:I
+      51: iload_2
+      52: getstatic     #226                // Field CLib/mGraphics.zoomLevel:I
+      55: idiv
+      56: putstatic     #234                // Field pyLast:I
+      59: iload_1
+      60: getstatic     #226                // Field CLib/mGraphics.zoomLevel:I
+      63: idiv
+      64: putstatic     #227                // Field px:I
+      67: iload_2
+      68: getstatic     #226                // Field CLib/mGraphics.zoomLevel:I
+      71: idiv
+      72: putstatic     #228                // Field py:I
+      75: return
+
+  public void pointerReleased(int, int);
+    Code:
+       0: getstatic     #229                // Field isPointerMove:Z
+       3: ifne          16
+       6: getstatic     #238                // Field isPointerEnd:Z
+       9: ifne          16
+      12: iconst_1
+      13: putstatic     #236                // Field isPointerSelect:Z
+      16: invokestatic  #203                // Method clearKeyHold:()V
+      19: invokestatic  #204                // Method clearKeyPressed:()V
+      22: iconst_0
+      23: putstatic     #235                // Field isPointerDown:Z
+      26: iconst_1
+      27: putstatic     #237                // Field isPointerRelease:Z
+      30: iconst_0
+      31: putstatic     #229                // Field isPointerMove:Z
+      34: iconst_1
+      35: putstatic     #154                // Field isPointerClick:Z
+      38: iconst_0
+      39: putstatic     #238                // Field isPointerEnd:Z
+      42: iload_1
+      43: getstatic     #226                // Field CLib/mGraphics.zoomLevel:I
+      46: idiv
+      47: putstatic     #227                // Field px:I
+      50: iload_2
+      51: getstatic     #226                // Field CLib/mGraphics.zoomLevel:I
+      54: idiv
+      55: putstatic     #228                // Field py:I
+      58: return
+
+  public static void clearKeyPressed();
+    Code:
+       0: iconst_0
+       1: putstatic     #237                // Field isPointerRelease:Z
+       4: iconst_0
+       5: putstatic     #235                // Field isPointerDown:Z
+       8: iconst_0
+       9: istore_0
+      10: iload_0
+      11: bipush        30
+      13: if_icmpge     28
+      16: getstatic     #223                // Field keyMyPressed:[Z
+      19: iload_0
+      20: iconst_0
+      21: bastore
+      22: iinc          0, 1
+      25: goto          10
+      28: return
+
+  public static void clearKeyPressed(int);
+    Code:
+       0: iconst_0
+       1: putstatic     #237                // Field isPointerRelease:Z
+       4: iconst_0
+       5: putstatic     #235                // Field isPointerDown:Z
+       8: getstatic     #223                // Field keyMyPressed:[Z
+      11: iload_0
+      12: iconst_0
+      13: bastore
+      14: return
+
+  public static void clearKeyHold();
+    Code:
+       0: iconst_0
+       1: putstatic     #237                // Field isPointerRelease:Z
+       4: iconst_0
+       5: putstatic     #235                // Field isPointerDown:Z
+       8: iconst_0
+       9: istore_0
+      10: iload_0
+      11: bipush        30
+      13: if_icmpge     28
+      16: getstatic     #222                // Field keyMyHold:[Z
+      19: iload_0
+      20: iconst_0
+      21: bastore
+      22: iinc          0, 1
+      25: goto          10
+      28: return
+
+  public static void clearKeyHold(int);
+    Code:
+       0: iconst_0
+       1: putstatic     #237                // Field isPointerRelease:Z
+       4: iconst_0
+       5: putstatic     #235                // Field isPointerDown:Z
+       8: getstatic     #222                // Field keyMyHold:[Z
+      11: iload_0
+      12: iconst_0
+      13: bastore
+      14: return
+
+  public static void clearKeyReleased();
+    Code:
+       0: iconst_0
+       1: putstatic     #235                // Field isPointerDown:Z
+       4: iconst_0
+       5: putstatic     #237                // Field isPointerRelease:Z
+       8: iconst_0
+       9: istore_0
+      10: iload_0
+      11: bipush        30
+      13: if_icmpge     28
+      16: getstatic     #240                // Field keyMyReleased:[Z
+      19: iload_0
+      20: iconst_0
+      21: bastore
+      22: iinc          0, 1
+      25: goto          10
+      28: return
+
+  public static void clearAll();
+    Code:
+       0: invokestatic  #203                // Method clearKeyHold:()V
+       3: invokestatic  #204                // Method clearKeyPressed:()V
+       6: invokestatic  #241                // Method clearKeyReleased:()V
+       9: iconst_0
+      10: putstatic     #236                // Field isPointerSelect:Z
+      13: iconst_0
+      14: putstatic     #229                // Field isPointerMove:Z
+      17: iconst_0
+      18: putstatic     #154                // Field isPointerClick:Z
+      21: iconst_0
+      22: putstatic     #235                // Field isPointerDown:Z
+      25: return
+
+  public static void connect();
+    Code:
+       0: invokestatic  #242                // Method CLib/Session_ME.gI:()LCLib/Session_ME;
+       3: invokevirtual #243                // Method CLib/Session_ME.isConnected:()Z
+       6: ifne          92
+       9: getstatic     #244                // Field GameScreen/LoginScreen.ip:Ljava/lang/String;
+      12: ifnull        30
+      15: invokestatic  #242                // Method CLib/Session_ME.gI:()LCLib/Session_ME;
+      18: getstatic     #244                // Field GameScreen/LoginScreen.ip:Ljava/lang/String;
+      21: sipush        19129
+      24: invokevirtual #245                // Method CLib/Session_ME.connect:(Ljava/lang/String;I)V
+      27: goto          92
+      30: getstatic     #47                 // Field IndexServer:B
+      33: iflt          56
+      36: getstatic     #47                 // Field IndexServer:B
+      39: getstatic     #246                // Field CLib/mSystem.listServer:[[Ljava/lang/String;
+      42: arraylength
+      43: if_icmpge     56
+      46: getstatic     #47                 // Field IndexServer:B
+      49: getstatic     #247                // Field portServer:[I
+      52: arraylength
+      53: if_icmplt     57
+      56: return
+      57: getstatic     #246                // Field CLib/mSystem.listServer:[[Ljava/lang/String;
+      60: getstatic     #47                 // Field IndexServer:B
+      63: aaload
+      64: iconst_1
+      65: aaload
+      66: astore_0
+      67: getstatic     #247                // Field portServer:[I
+      70: getstatic     #47                 // Field IndexServer:B
+      73: iaload
+      74: istore_1
+      75: getstatic     #128                // Field istest:Z
+      78: ifeq          84
+      81: ldc           #248                // String 192.168.1.188
+      83: astore_0
+      84: invokestatic  #242                // Method CLib/Session_ME.gI:()LCLib/Session_ME;
+      87: aload_0
+      88: iload_1
+      89: invokevirtual #245                // Method CLib/Session_ME.connect:(Ljava/lang/String;I)V
+      92: return
+
+  public void getSize();
+    Code:
+       0: getstatic     #249                // Field com/silverknight/TemCanvas.wMain:I
+       3: putstatic     #17                 // Field w:I
+       6: getstatic     #250                // Field com/silverknight/TemCanvas.hMain:I
+       9: putstatic     #18                 // Field h:I
+      12: getstatic     #17                 // Field w:I
+      15: iconst_2
+      16: idiv
+      17: putstatic     #251                // Field hw:I
+      20: getstatic     #18                 // Field h:I
+      23: iconst_2
+      24: idiv
+      25: putstatic     #252                // Field hh:I
+      28: return
+
+  public static int getSecond();
+    Code:
+       0: invokestatic  #140                // Method CLib/mSystem.currentTimeMillis:()J
+       3: ldc2_w        #253                // long 1000l
+       6: ldiv
+       7: l2i
+       8: ireturn
+
+  public static boolean isPointer(int, int, int, int);
+    Code:
+       0: getstatic     #235                // Field isPointerDown:Z
+       3: ifne          14
+       6: getstatic     #237                // Field isPointerRelease:Z
+       9: ifne          14
+      12: iconst_0
+      13: ireturn
+      14: iload_0
+      15: iload_1
+      16: iload_2
+      17: iload_3
+      18: invokestatic  #255                // Method isPoint:(IIII)Z
+      21: ireturn
+
+  public static boolean isPointSelect(int, int, int, int);
+    Code:
+       0: getstatic     #236                // Field isPointerSelect:Z
+       3: ifne          8
+       6: iconst_0
+       7: ireturn
+       8: iload_0
+       9: iload_1
+      10: iload_2
+      11: iload_3
+      12: invokestatic  #255                // Method isPoint:(IIII)Z
+      15: ireturn
+
+  public static boolean isPoint(int, int, int, int);
+    Code:
+       0: getstatic     #227                // Field px:I
+       3: iload_0
+       4: if_icmplt     34
+       7: getstatic     #227                // Field px:I
+      10: iload_0
+      11: iload_2
+      12: iadd
+      13: if_icmpgt     34
+      16: getstatic     #228                // Field py:I
+      19: iload_1
+      20: if_icmplt     34
+      23: getstatic     #228                // Field py:I
+      26: iload_1
+      27: iload_3
+      28: iadd
+      29: if_icmpgt     34
+      32: iconst_1
+      33: ireturn
+      34: iconst_0
+      35: ireturn
+
+  public static boolean isPointLast(int, int, int, int);
+    Code:
+       0: getstatic     #232                // Field pxLast:I
+       3: iload_0
+       4: if_icmplt     34
+       7: getstatic     #232                // Field pxLast:I
+      10: iload_0
+      11: iload_2
+      12: iadd
+      13: if_icmpgt     34
+      16: getstatic     #234                // Field pyLast:I
+      19: iload_1
+      20: if_icmplt     34
+      23: getstatic     #234                // Field pyLast:I
+      26: iload_1
+      27: iload_3
+      28: iadd
+      29: if_icmpgt     34
+      32: iconst_1
+      33: ireturn
+      34: iconst_0
+      35: ireturn
+
+  public static boolean keyMove(int);
+    Code:
+       0: iload_0
+       1: tableswitch   { // 0 to 3
+
+                     0: 51
+
+                     1: 32
+
+                     2: 71
+
+                     3: 90
+               default: 110
+          }
+      32: getstatic     #222                // Field keyMyHold:[Z
+      35: iconst_2
+      36: baload
+      37: ifne          49
+      40: getstatic     #222                // Field keyMyHold:[Z
+      43: bipush        22
+      45: baload
+      46: ifeq          110
+      49: iconst_1
+      50: ireturn
+      51: getstatic     #222                // Field keyMyHold:[Z
+      54: bipush        8
+      56: baload
+      57: ifne          69
+      60: getstatic     #222                // Field keyMyHold:[Z
+      63: bipush        28
+      65: baload
+      66: ifeq          110
+      69: iconst_1
+      70: ireturn
+      71: getstatic     #222                // Field keyMyHold:[Z
+      74: iconst_4
+      75: baload
+      76: ifne          88
+      79: getstatic     #222                // Field keyMyHold:[Z
+      82: bipush        24
+      84: baload
+      85: ifeq          110
+      88: iconst_1
+      89: ireturn
+      90: getstatic     #222                // Field keyMyHold:[Z
+      93: bipush        6
+      95: baload
+      96: ifne          108
+      99: getstatic     #222                // Field keyMyHold:[Z
+     102: bipush        26
+     104: baload
+     105: ifeq          110
+     108: iconst_1
+     109: ireturn
+     110: iconst_0
+     111: ireturn
+
+  public void clearKeyMove(int);
+    Code:
+       0: iload_1
+       1: tableswitch   { // 0 to 3
+
+                     0: 48
+
+                     1: 32
+
+                     2: 65
+
+                     3: 81
+               default: 95
+          }
+      32: getstatic     #222                // Field keyMyHold:[Z
+      35: iconst_2
+      36: iconst_0
+      37: bastore
+      38: getstatic     #222                // Field keyMyHold:[Z
+      41: bipush        22
+      43: iconst_0
+      44: bastore
+      45: goto          95
+      48: getstatic     #222                // Field keyMyHold:[Z
+      51: bipush        8
+      53: iconst_0
+      54: bastore
+      55: getstatic     #222                // Field keyMyHold:[Z
+      58: bipush        28
+      60: iconst_0
+      61: bastore
+      62: goto          95
+      65: getstatic     #222                // Field keyMyHold:[Z
+      68: iconst_4
+      69: iconst_0
+      70: bastore
+      71: getstatic     #222                // Field keyMyHold:[Z
+      74: bipush        24
+      76: iconst_0
+      77: bastore
+      78: goto          95
+      81: getstatic     #222                // Field keyMyHold:[Z
+      84: bipush        6
+      86: iconst_0
+      87: bastore
+      88: getstatic     #222                // Field keyMyHold:[Z
+      91: bipush        26
+      93: iconst_0
+      94: bastore
+      95: return
+
+  public void updateCountTick();
+    Code:
+       0: getstatic     #256                // Field countTips:J
+       3: lconst_0
+       4: lcmp
+       5: ifeq          61
+       8: invokestatic  #140                // Method CLib/mSystem.currentTimeMillis:()J
+      11: getstatic     #256                // Field countTips:J
+      14: lsub
+      15: ldc2_w        #257                // long 600000l
+      18: lcmp
+      19: iflt          61
+      22: getstatic     #259                // Field Model/T.mTips:[Ljava/lang/String;
+      25: arraylength
+      26: invokestatic  #260                // Method Model/CRes.random:(I)I
+      29: putstatic     #261                // Field iTips:I
+      32: new           #262                // class java/lang/StringBuffer
+      35: dup
+      36: invokespecial #263                // Method java/lang/StringBuffer."<init>":()V
+      39: getstatic     #264                // Field Model/T.Tips:Ljava/lang/String;
+      42: invokevirtual #265                // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      45: getstatic     #259                // Field Model/T.mTips:[Ljava/lang/String;
+      48: getstatic     #261                // Field iTips:I
+      51: aaload
+      52: invokevirtual #265                // Method java/lang/StringBuffer.append:(Ljava/lang/String;)Ljava/lang/StringBuffer;
+      55: invokevirtual #266                // Method java/lang/StringBuffer.toString:()Ljava/lang/String;
+      58: invokestatic  #267                // Method addInfoCharServer:(Ljava/lang/String;)V
+      61: return
+
+  public static void resetTip();
+    Code:
+       0: invokestatic  #140                // Method CLib/mSystem.currentTimeMillis:()J
+       3: putstatic     #256                // Field countTips:J
+       6: iconst_0
+       7: putstatic     #261                // Field iTips:I
+      10: return
+
+  static {};
+    Code:
+       0: new           #268                // class Model/T
+       3: dup
+       4: invokespecial #269                // Method Model/T."<init>":()V
+       7: putstatic     #270                // Field t:LModel/T;
+      10: new           #271                // class Model/Menu2
+      13: dup
+      14: invokespecial #272                // Method Model/Menu2."<init>":()V
+      17: putstatic     #118                // Field menu2:LModel/Menu2;
+      20: iconst_0
+      21: putstatic     #42                 // Field lowGraphic:Z
+      24: iconst_0
+      25: putstatic     #19                 // Field isSmallScreen:Z
+      28: iconst_1
+      29: putstatic     #273                // Field isVNLanguage:Z
+      32: iconst_0
+      33: putstatic     #8                  // Field device:B
+      36: ldc_w         #274                // String
+      39: putstatic     #10                 // Field stringPackageName:Ljava/lang/String;
+      42: iconst_m1
+      43: putstatic     #45                 // Field IndexRes:B
+      46: iconst_0
+      47: putstatic     #47                 // Field IndexServer:B
+      50: iconst_m1
+      51: putstatic     #46                 // Field IndexCharPar:S
+      54: bipush        8
+      56: newarray       int
+      58: dup
+      59: iconst_0
+      60: sipush        19129
+      63: iastore
+      64: dup
+      65: iconst_1
+      66: sipush        19129
+      69: iastore
+      70: dup
+      71: iconst_2
+      72: sipush        19129
+      75: iastore
+      76: dup
+      77: iconst_3
+      78: sipush        19129
+      81: iastore
+      82: dup
+      83: iconst_4
+      84: sipush        19129
+      87: iastore
+      88: dup
+      89: iconst_5
+      90: sipush        19129
+      93: iastore
+      94: dup
+      95: bipush        6
+      97: sipush        19129
+     100: iastore
+     101: dup
+     102: bipush        7
+     104: sipush        19129
+     107: iastore
+     108: putstatic     #247                // Field portServer:[I
+     111: bipush        8
+     113: newarray       int
+     115: dup
+     116: iconst_0
+     117: iconst_0
+     118: iastore
+     119: dup
+     120: iconst_1
+     121: iconst_0
+     122: iastore
+     123: dup
+     124: iconst_2
+     125: iconst_1
+     126: iastore
+     127: dup
+     128: iconst_3
+     129: iconst_0
+     130: iastore
+     131: dup
+     132: iconst_4
+     133: iconst_0
+     134: iastore
+     135: dup
+     136: iconst_5
+     137: iconst_0
+     138: iastore
+     139: dup
+     140: bipush        6
+     142: iconst_0
+     143: iastore
+     144: dup
+     145: bipush        7
+     147: iconst_0
+     148: iastore
+     149: putstatic     #275                // Field langServer:[I
+     152: lconst_0
+     153: putstatic     #276                // Field countLogin:J
+     156: ldc_w         #277                // String http://knightageonline.com/srvip/
+     159: putstatic     #278                // Field linkIP:Ljava/lang/String;
+     162: iconst_0
+     163: putstatic     #279                // Field isBB:Z
+     166: iconst_0
+     167: putstatic     #235                // Field isPointerDown:Z
+     170: iconst_0
+     171: putstatic     #237                // Field isPointerRelease:Z
+     174: iconst_0
+     175: putstatic     #236                // Field isPointerSelect:Z
+     178: iconst_0
+     179: putstatic     #229                // Field isPointerMove:Z
+     182: iconst_0
+     183: putstatic     #154                // Field isPointerClick:Z
+     186: iconst_0
+     187: putstatic     #238                // Field isPointerEnd:Z
+     190: bipush        25
+     192: putstatic     #280                // Field hCommand:I
+     195: bipush        14
+     197: putstatic     #281                // Field hText:I
+     200: iconst_0
+     201: putstatic     #125                // Field hLoad:I
+     204: lconst_0
+     205: putstatic     #141                // Field timeNow:J
+     208: bipush        30
+     210: newarray       boolean
+     212: putstatic     #223                // Field keyMyPressed:[Z
+     215: bipush        30
+     217: newarray       boolean
+     219: putstatic     #240                // Field keyMyReleased:[Z
+     222: bipush        30
+     224: newarray       boolean
+     226: putstatic     #222                // Field keyMyHold:[Z
+     229: iconst_0
+     230: putstatic     #128                // Field istest:Z
+     233: lconst_0
+     234: putstatic     #256                // Field countTips:J
+     237: iconst_0
+     238: putstatic     #261                // Field iTips:I
+     241: return
+}

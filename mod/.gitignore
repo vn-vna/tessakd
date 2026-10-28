@@ -1,0 +1,7 @@
+.cache/
+build/
+dist/*
+!dist/KnightOnline_v403-nav1.jar
+!dist/KnightOnline_v403-nav1.jad
+!dist/build-report.json
+__pycache__/

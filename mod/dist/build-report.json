@@ -1,0 +1,82 @@
+{
+  "input_sha256": "f023b34e0ba0a3dcf44249ed5f90b78f0427deee4668562b8e3a0e9e349b18c6",
+  "output_sha256": "908b8b7da2774a014b8b9b345289fecc1e07998639b6a9dc4a5947ffac92fd01",
+  "output": "E:\\Projects\\tessakd\\mod\\dist\\KnightOnline_v403-nav1.jar",
+  "work": "E:\\Projects\\tessakd\\mod\\build\\run-mw0_yzl2",
+  "dependencies": {
+    "ecj": {
+      "url": "https://repo.maven.apache.org/maven2/org/eclipse/jdt/core/compiler/ecj/4.6.1/ecj-4.6.1.jar",
+      "sha256": "9cddda75f4a1b4469e73f44e7b61a3e897d0f657df4797f9106ffe88c4eeade0"
+    },
+    "cldc": {
+      "url": "https://repo.maven.apache.org/maven2/org/microemu/cldcapi10/2.0.4/cldcapi10-2.0.4.jar",
+      "sha256": "6b5753c830a966d91cbfcd5cde223a6899c6c69f021a8e38a429cec967bc290d"
+    },
+    "midp": {
+      "url": "https://repo.maven.apache.org/maven2/org/microemu/midpapi20/2.0.4/midpapi20-2.0.4.jar",
+      "sha256": "b7f6ed5e0344c7000643ecc114e6edff3587e8e77face546af0e12ffd6dbe826"
+    },
+    "file": {
+      "url": "https://repo.maven.apache.org/maven2/org/microemu/microemu-jsr-75/2.0.4/microemu-jsr-75-2.0.4.jar",
+      "sha256": "d4372cf344ee03f0261ae58bd3d2becb4aed98272bca7c6bb98749efd11b4601"
+    },
+    "asm": {
+      "url": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm/9.7.1/asm-9.7.1.jar",
+      "sha256": "8cadd43ac5eb6d09de05faecca38b917a040bb9139c7edeb4cc81c740b713281"
+    },
+    "tree": {
+      "url": "https://repo.maven.apache.org/maven2/org/ow2/asm/asm-tree/9.7.1/asm-tree-9.7.1.jar",
+      "sha256": "9929881f59eb6b840e86d54570c77b59ce721d104e6dfd7a40978991c2d3b41f"
+    },
+    "proguard": {
+      "url": "https://repo.maven.apache.org/maven2/net/sf/proguard/proguard-base/6.2.2/proguard-base-6.2.2.jar",
+      "sha256": "7587a3a415d6aea1946f597f4babe710a245f085bac4dc5e7cda653acfc39b03"
+    }
+  },
+  "unchanged_original_members": 986,
+  "patch": {
+    "schema": 1,
+    "feature": "navigation-pass1-survey",
+    "mod_version": "1.1.1",
+    "original_sha256": "f023b34e0ba0a3dcf44249ed5f90b78f0427deee4668562b8e3a0e9e349b18c6",
+    "changed_classes": [
+      "CLib/Session_ME$MessageCollector.class",
+      "Main/GameCanvas.class",
+      "com/silverknight/TemCanvas.class",
+      "netcommand/global/GlobalMessageHandler.class"
+    ],
+    "helper_classes": [
+      "knav/CaptureFormat.class",
+      "knav/FolderPaths.class",
+      "knav/FolderPicker$1.class",
+      "knav/FolderPicker$Listener.class",
+      "knav/FolderPicker.class",
+      "knav/GateNotice.class",
+      "knav/MapPacket$Exit.class",
+      "knav/MapPacket.class",
+      "knav/NavExport$Counted.class",
+      "knav/NavExport.class",
+      "knav/NavGraph$Block.class",
+      "knav/NavGraph$Link.class",
+      "knav/NavGraph$Node.class",
+      "knav/NavGraph$Step.class",
+      "knav/NavGraph.class",
+      "knav/NavLogic.class",
+      "knav/NavMod.class",
+      "knav/NavPanel$1.class",
+      "knav/NavPanel.class",
+      "knav/NavStore.class"
+    ]
+  },
+  "preverification": "ProGuard 6.2.2 -microedition -target 1.1",
+  "core_tests": "passed",
+  "java_python_export_roundtrip": "passed",
+  "rms_storage_tests": "passed (in-memory test double, not phone RMS)",
+  "frontier_and_gate_tests": "passed",
+  "folder_path_tests": "passed (Asha drive and KEmulator virtual/raw URLs)",
+  "file_export_tests": "passed (file API test doubles, including silent KEmulator-style rename failure)",
+  "capture_schema": 2,
+  "kemulator_execution": "not tested",
+  "jvm_metadata_verification": "passed (no initialization)",
+  "phone_execution": "not tested"
+}

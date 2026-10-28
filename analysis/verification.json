@@ -1,0 +1,41 @@
+{
+  "original_sha256_matches": true,
+  "extracted_files_verified": 930,
+  "class_major_versions": {
+    "45": 202
+  },
+  "java_source_files": 195,
+  "decompiler_warnings": [
+    {
+      "path": "decompiled/GameObjects/DataEffect.java",
+      "line": 94,
+      "text": "* WARNING - Removed try catching itself - possible behaviour change."
+    },
+    {
+      "path": "decompiled/com/silverknight/TemMidlet.java",
+      "line": 142,
+      "text": "* WARNING - Removed try catching itself - possible behaviour change."
+    }
+  ],
+  "bytecode_classes_exported": [
+    "com.silverknight.TemMidlet",
+    "com.silverknight.TemCanvas",
+    "GameScreen.LogoScreen",
+    "CLib.Session_ME",
+    "CLib.Session_ME$MessageCollector",
+    "Main.GameCanvas",
+    "GameScreen.GameScreen",
+    "GameScreen.LoadMapScreen",
+    "GameObjects.Player",
+    "GameObjects.MainObject",
+    "Thread_More.LoadMap",
+    "Skill.ListSkill",
+    "netcommand.global.GlobalService",
+    "netcommand.global.ReadMessenge",
+    "GameObjects.Item",
+    "GameObjects.MainItem",
+    "InterfaceComponents.TabShopNew",
+    "GameObjects.MainMonster",
+    "GameObjects.Monstervantieu"
+  ]
+}

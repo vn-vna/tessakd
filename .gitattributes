@@ -1,0 +1,13 @@
+* text=auto
+.gitattributes text eol=lf
+.gitignore text eol=lf
+*.py text eol=lf
+*.java text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+*.txt text eol=lf
+*.jar -text
+*.jad -text
+analysis/decompiled/** linguist-generated=true
+analysis/bytecode/** linguist-generated=true

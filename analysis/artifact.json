@@ -1,0 +1,27 @@
+{
+  "file": "KnightOnline_v403.jar",
+  "bytes": 1469112,
+  "sha256": "f023b34e0ba0a3dcf44249ed5f90b78f0427deee4668562b8e3a0e9e349b18c6",
+  "files": 930,
+  "directories": 61,
+  "classes": 202,
+  "other_files": 728,
+  "manifest": "Manifest-Version: 1.0\r\nMIDlet-Vendor: Midlet Suite Vendor\r\nMIDlet-Version: 4.0.3\r\nMIDlet-1: KnightOnline,/icon.png,com.silverknight.TemMidlet\r\nMicroEdition-Configuration: CLDC-1.0\r\nCreated-By: 1.6.0_45 (Sun Microsystems Inc.)\r\nMIDlet-Jar-URL: KnightOnline.jar\r\nMIDlet-Name: KnightOnline Midlet Suite\r\nMicroEdition-Profile: MIDP-2.0\r\n\r\n",
+  "decompiler": {
+    "name": "CFR",
+    "version": "0.152",
+    "sha256": "f686e8f3ded377d7bc87d216a90e9e9512df4156e75b06c655a16648ae8765b2",
+    "command": [
+      "java",
+      "-Xmx2g",
+      "-jar",
+      "C:\\Users\\PC2\\AppData\\Local\\Temp\\opencode\\cfr-0.152.jar",
+      "E:\\Projects\\tessakd\\KnightOnline_v403.jar",
+      "--outputdir",
+      "E:\\Projects\\tessakd\\analysis\\decompiled",
+      "--silent",
+      "true"
+    ],
+    "exit_code": 0
+  }
+}
